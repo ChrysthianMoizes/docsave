@@ -8,22 +8,31 @@ public class Compartimento {
     private String nome;
     private int    capacidade;
     private Collection<Compartimento> compartimentos;
+    private Mobilia mobilia;
+    private TipoDocumento tipoDocumento;
+    private Collection<Documento> documentos;
 
     public Compartimento() {}
-    
-    public Compartimento(int id, String codigo, String nome, int capacidade, Collection<Compartimento> compartimentos) {
+
+    public Compartimento(int id, String codigo, String nome, int capacidade, Collection<Compartimento> compartimentos, Mobilia mobilia, TipoDocumento tipoDocumento, Collection<Documento> documentos) {
         this.id = id;
         this.codigo = codigo;
         this.nome = nome;
         this.capacidade = capacidade;
         this.compartimentos = compartimentos;
+        this.mobilia = mobilia;
+        this.tipoDocumento = tipoDocumento;
+        this.documentos = documentos;
     }
-    
-    public Compartimento(String codigo, String nome, int capacidade, Collection<Compartimento> compartimentos) {
+
+    public Compartimento(String codigo, String nome, int capacidade, Collection<Compartimento> compartimentos, Mobilia mobilia, TipoDocumento tipoDocumento, Collection<Documento> documentos) {
         this.codigo = codigo;
         this.nome = nome;
         this.capacidade = capacidade;
         this.compartimentos = compartimentos;
+        this.mobilia = mobilia;
+        this.tipoDocumento = tipoDocumento;
+        this.documentos = documentos;
     }
 
     public int getId() {
@@ -65,4 +74,30 @@ public class Compartimento {
     public void setCompartimentos(Collection<Compartimento> compartimentos) {
         this.compartimentos = compartimentos;
     }
+
+    public Mobilia getMobilia() {
+        return mobilia;
+    }
+
+    public void setMobilia(Mobilia mobilia) {
+        this.mobilia = mobilia;
+    }
+
+    public TipoDocumento getTipoDocumento() {
+        return tipoDocumento;
+    }
+
+    public void setTipoDocumento(TipoDocumento tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
+    }
+
+    public Collection<Documento> getDocumentos() {
+        return documentos;
+    }
+
+    public void setDocumentos(Collection<Documento> documentos) {
+        this.documentos = documentos;
+    }
+    
+    
 }

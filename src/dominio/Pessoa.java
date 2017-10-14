@@ -10,6 +10,10 @@ public abstract class Pessoa {
         this.id = id;
         this.nome = nome;
     }
+    
+    public Pessoa(String nome) {
+        this.nome = nome;
+    }
 
     public int getId() {
         return id;

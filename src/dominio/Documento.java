@@ -5,20 +5,29 @@ public class Documento {
     private String nome;
     private String codigo;
     private byte[] scan;
+    private TipoDocumento tipoDocumento;
+    private Compartimento compartimento;
+    private Referenciado  referenciado;
 
     public Documento() {}
 
-    public Documento(int id, String nome, String codigo, byte[] scan) {
+    public Documento(int id, String nome, String codigo, byte[] scan, TipoDocumento tipoDocumento, Compartimento compartimento, Referenciado referenciado) {
         this.id = id;
         this.nome = nome;
         this.codigo = codigo;
         this.scan = scan;
+        this.tipoDocumento = tipoDocumento;
+        this.compartimento = compartimento;
+        this.referenciado = referenciado;
     }
-    
-    public Documento(String nome, String codigo, byte[] scan) {
+
+    public Documento(String nome, String codigo, byte[] scan, TipoDocumento tipoDocumento, Compartimento compartimento, Referenciado referenciado) {
         this.nome = nome;
         this.codigo = codigo;
         this.scan = scan;
+        this.tipoDocumento = tipoDocumento;
+        this.compartimento = compartimento;
+        this.referenciado = referenciado;
     }
 
     public int getId() {
@@ -52,5 +61,29 @@ public class Documento {
     public void setScan(byte[] scan) {
         this.scan = scan;
     }
-    
+
+    public TipoDocumento getTipoDocumento() {
+        return tipoDocumento;
+    }
+
+    public void setTipoDocumento(TipoDocumento tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
+    }
+
+    public Compartimento getCompartimento() {
+        return compartimento;
+    }
+
+    public void setCompartimento(Compartimento compartimento) {
+        this.compartimento = compartimento;
+    }
+
+    public Referenciado getReferenciado() {
+        return referenciado;
+    }
+
+    public void setReferenciado(Referenciado referenciado) {
+        this.referenciado = referenciado;
+    }
+
 }
