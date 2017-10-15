@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">dao.hibernate.CustomMySqlInnoDBDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/docsave?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.hbm2ddl.auto">create</property>
+    <property name="hibernate.connection.password">root</property>
+    <mapping class="dominio.Compartimento"/>
+    <mapping class="dominio.Documento"/>
+    <mapping class="dominio.Local"/>
+    <mapping class="dominio.Pessoa"/>
+    <mapping class="dominio.Usuario"/>
+    <mapping class="dominio.Referenciado"/>
+    <mapping class="dominio.Mobilia"/>
+    <mapping class="dominio.TipoDocumento"/>
+  </session-factory>
+</hibernate-configuration>
