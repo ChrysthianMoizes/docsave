@@ -1,13 +1,42 @@
 package dominio;
 
-public class Documento {
-    private int    id;
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.*;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
+@Entity
+@Table(name = "documento")
+public class Documento implements Serializable {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    
+    @Column(nullable = false)
     private String nome;
+    
+    @Column(nullable = false, unique = true)
     private String codigo;
+    
+    @Column(nullable = true)
     private byte[] scan;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "tipo_documento_id", nullable = false)
+    @Cascade(CascadeType.SAVE_UPDATE)
     private TipoDocumento tipoDocumento;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "compartimento_id", nullable = false)
+    @Cascade(CascadeType.SAVE_UPDATE)
     private Compartimento compartimento;
-    private Referenciado  referenciado;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "referenciado_id", nullable = false)
+    @Cascade(CascadeType.SAVE_UPDATE)
+    private Referenciado referenciado;
 
     public Documento() {}
 

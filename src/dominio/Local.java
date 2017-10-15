@@ -1,12 +1,33 @@
 package dominio;
 
+import java.io.Serializable;
 import java.util.Collection;
+import javax.persistence.*;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
-public class Local {
-    private int    id;
+@Entity
+@Table(name = "local")
+public class Local implements Serializable {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    
+    @Column(nullable = false)
     private String nome;
-    private int    capacidade;
+    
+    @Column(nullable = false)
+    private int capacidade;
+    
+    @Column(nullable = false)
     private String descricao;
+    
+    @OneToMany(mappedBy = "local", fetch = FetchType.EAGER)
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
+    @Cascade(CascadeType.SAVE_UPDATE)
     private Collection<Mobilia> mobilias;
 
     public Local() {}

@@ -1,7 +1,17 @@
 package dominio;
 
-public abstract class Pessoa {
-    private int    id;
+import java.io.Serializable;
+import javax.persistence.GeneratedValue;
+import javax.persistence.*;
+
+@MappedSuperclass
+public abstract class Pessoa implements Serializable {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    
+    @Column(nullable = false)
     private String nome;
 
     public Pessoa() {}

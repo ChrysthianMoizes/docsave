@@ -1,10 +1,31 @@
 package dominio;
 
+import java.io.Serializable;
 import java.util.Collection;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
-public class Referenciado extends Pessoa {
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public class Referenciado extends Pessoa implements Serializable {
+    
+    @Column(nullable = false, unique = true)
     private String cpf;
+    
+    @Column(nullable = true)
     private int    referente;
+    
+    @OneToMany(mappedBy = "referenciado", fetch = FetchType.EAGER)
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
+    @Cascade(CascadeType.SAVE_UPDATE)
     private Collection<Documento> documentos;
 
     public Referenciado() {}

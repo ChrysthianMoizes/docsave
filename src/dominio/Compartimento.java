@@ -1,15 +1,42 @@
 package dominio;
 
+import java.io.Serializable;
 import java.util.Collection;
+import javax.persistence.*;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
-public class Compartimento {
-    private int    id;
+@Entity
+@Table(name = "compartimento")
+public class Compartimento implements Serializable {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    
+    @Column(nullable = false)
     private String codigo;
+    
+    @Column(nullable = false)
     private String nome;
-    private int    capacidade;
-    private Collection<Compartimento> compartimentos;
+    
+    @Column(nullable = false)
+    private int capacidade;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "mobilia_id")
     private Mobilia mobilia;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "tipo_documento_id", nullable = false)
+    @Cascade(CascadeType.SAVE_UPDATE)
     private TipoDocumento tipoDocumento;
+    
+    @OneToMany(mappedBy = "compartimento", fetch = FetchType.EAGER)
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
+    @Cascade(CascadeType.SAVE_UPDATE)
     private Collection<Documento> documentos;
 
     public Compartimento() {}
@@ -19,7 +46,7 @@ public class Compartimento {
         this.codigo = codigo;
         this.nome = nome;
         this.capacidade = capacidade;
-        this.compartimentos = compartimentos;
+        //this.compartimentos = compartimentos;
         this.mobilia = mobilia;
         this.tipoDocumento = tipoDocumento;
         this.documentos = documentos;
@@ -29,7 +56,7 @@ public class Compartimento {
         this.codigo = codigo;
         this.nome = nome;
         this.capacidade = capacidade;
-        this.compartimentos = compartimentos;
+        //this.compartimentos = compartimentos;
         this.mobilia = mobilia;
         this.tipoDocumento = tipoDocumento;
         this.documentos = documentos;
@@ -67,13 +94,13 @@ public class Compartimento {
         this.capacidade = capacidade;
     }
 
-    public Collection<Compartimento> getCompartimentos() {
-        return compartimentos;
-    }
+//    public Collection<Compartimento> getCompartimentos() {
+//        return compartimentos;
+//    }
 
-    public void setCompartimentos(Collection<Compartimento> compartimentos) {
-        this.compartimentos = compartimentos;
-    }
+//    public void setCompartimentos(Collection<Compartimento> compartimentos) {
+//        this.compartimentos = compartimentos;
+//    }
 
     public Mobilia getMobilia() {
         return mobilia;
