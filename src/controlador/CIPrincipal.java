@@ -4,6 +4,7 @@ import GerenciaDeTarefas.GTPrincipal;
 import Visao.framePrincipal;
 import dao.ConfigDAO;
 import javax.swing.JOptionPane;
+import Visao.Util.Erro;
         
 public class CIPrincipal {
 
@@ -19,10 +20,11 @@ public class CIPrincipal {
     private CIReferenciado ciReferenciado;
     private CITipoDocumento ciTipoDocumento;
     private CIUsuario ciUsuario;
+    private Erro erro;
     
  
     public CIPrincipal() {
-        //new ConfigDAO();
+        new ConfigDAO();
         iniciarJanelaPrincipal();
         gtPrincipal = new GTPrincipal();
         ciCompartimento = new CICompartimento(this);
@@ -32,6 +34,7 @@ public class CIPrincipal {
         ciReferenciado = new CIReferenciado(this);
         ciTipoDocumento = new CITipoDocumento(this);
         ciUsuario = new CIUsuario(this);
+        erro = new Erro(this);
     }
     
     public void iniciarJanelaPrincipal(){
@@ -60,6 +63,53 @@ public class CIPrincipal {
         janelaPrincipal.revalidate();
         janelaPrincipal.repaint();
     }
+
+    public int getMENUPRINCIPAL() {
+        return MENUPRINCIPAL;
+    }
+
+    public int getMENUTIPODOCUMENTO() {
+        return MENUTIPODOCUMENTO;
+    }
+
+    public GTPrincipal getGtPrincipal() {
+        return gtPrincipal;
+    }
+
+    public CICompartimento getCiCompartimento() {
+        return ciCompartimento;
+    }
+
+    public CIDocumento getCiDocumento() {
+        return ciDocumento;
+    }
+
+    public CILocal getCiLocal() {
+        return ciLocal;
+    }
+
+    public CIMobilia getCiMobilia() {
+        return ciMobilia;
+    }
+
+    public CIReferenciado getCiReferenciado() {
+        return ciReferenciado;
+    }
+
+    public CITipoDocumento getCiTipoDocumento() {
+        return ciTipoDocumento;
+    }
+
+    public CIUsuario getCiUsuario() {
+        return ciUsuario;
+    }
+
+    public Erro getErro() {
+        return erro;
+    }
+    
+    
+    
     
      public static void main(String args[]){
         try {
