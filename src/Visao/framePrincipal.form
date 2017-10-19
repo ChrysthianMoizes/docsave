@@ -54,8 +54,8 @@
               </Group>
               <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="panelMenu" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="1433" max="32767" attributes="0"/>
+                      <Component id="panelMenu" min="-2" pref="126" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="1432" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -68,7 +68,7 @@
               </Group>
               <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="panelMenu" max="32767" attributes="0"/>
+                      <Component id="panelMenu" pref="675" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -108,68 +108,7 @@
         </Container>
         <Container class="javax.swing.JPanel" name="panelMenu">
 
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnDocumento" alignment="1" max="32767" attributes="0"/>
-                  <Component id="btnTipoDocumento" alignment="1" max="32767" attributes="0"/>
-                  <Component id="btnCompartimento" alignment="1" max="32767" attributes="0"/>
-                  <Component id="btnLocal" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btnReferenciado" alignment="1" max="32767" attributes="0"/>
-                  <Component id="btnMobilia" alignment="0" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="btnDocumento" min="-2" pref="84" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnTipoDocumento" min="-2" pref="84" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnCompartimento" min="-2" pref="84" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnLocal" min="-2" pref="84" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnMobilia" min="-2" pref="84" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnReferenciado" min="-2" pref="84" max="-2" attributes="0"/>
-                      <EmptySpace pref="141" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JButton" name="btnTipoDocumento">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Tipo de Documento"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnCompartimento">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Compartimento"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnDocumento">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Documento"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnLocal">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Local"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnMobilia">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Mobilia"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnReferenciado">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Referentes"/>
-              </Properties>
-            </Component>
-          </SubComponents>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
         </Container>
       </SubComponents>
     </Container>

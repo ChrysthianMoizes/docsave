@@ -5,11 +5,14 @@
  */
 package Visao;
 
+import Visao.menu.MenuPadrao;
+import Visao.menu.MenuTipoDocumento;
 import controlador.CIPrincipal;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
@@ -17,14 +20,19 @@ import javax.swing.JFrame;
  */
 public class framePrincipal extends javax.swing.JFrame {
 
-    private CIPrincipal ctrlPrincipal;
+    private CIPrincipal ctrlP;
+    MenuPadrao menuPadrao;
+    //Visao.menu.MenuTipoDocumento menuTipoDocumento;
+    MenuTipoDocumento menuTipoDocumento;
     /**
      * Metodo construttor framePrincipal
      * @param ctrlP
      */
     public framePrincipal(CIPrincipal ctrlP) {
-        ctrlPrincipal = ctrlP;
+        this.ctrlP = ctrlP;
         initComponents();
+        menuPadrao = new MenuPadrao(ctrlP); 
+        menuTipoDocumento = new MenuTipoDocumento(ctrlP);
     }
 
     /**
@@ -40,12 +48,6 @@ public class framePrincipal extends javax.swing.JFrame {
         desktopPane = new javax.swing.JDesktopPane();
         lblFundo = new javax.swing.JLabel();
         panelMenu = new javax.swing.JPanel();
-        btnTipoDocumento = new javax.swing.JButton();
-        btnCompartimento = new javax.swing.JButton();
-        btnDocumento = new javax.swing.JButton();
-        btnLocal = new javax.swing.JButton();
-        btnMobilia = new javax.swing.JButton();
-        btnReferenciado = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,45 +70,7 @@ public class framePrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        btnTipoDocumento.setText("Tipo de Documento");
-
-        btnCompartimento.setText("Compartimento");
-
-        btnDocumento.setText("Documento");
-
-        btnLocal.setText("Local");
-
-        btnMobilia.setText("Mobilia");
-
-        btnReferenciado.setText("Referentes");
-
-        javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
-        panelMenu.setLayout(panelMenuLayout);
-        panelMenuLayout.setHorizontalGroup(
-            panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnDocumento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnTipoDocumento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnCompartimento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnLocal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnReferenciado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnMobilia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        panelMenuLayout.setVerticalGroup(
-            panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelMenuLayout.createSequentialGroup()
-                .addComponent(btnDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCompartimento, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnLocal, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnMobilia, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnReferenciado, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(141, Short.MAX_VALUE))
-        );
+        panelMenu.setLayout(new javax.swing.BoxLayout(panelMenu, javax.swing.BoxLayout.LINE_AXIS));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -120,8 +84,8 @@ public class framePrincipal extends javax.swing.JFrame {
                     .addGap(19, 19, 19)))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 1433, Short.MAX_VALUE)))
+                    .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 1432, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,7 +94,7 @@ public class framePrincipal extends javax.swing.JFrame {
                 .addComponent(desktopPane))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addComponent(panelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 675, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -156,19 +120,32 @@ public class framePrincipal extends javax.swing.JFrame {
         return desktopPane;
     }
 
+    public JPanel getPanelMenu() {
+        return panelMenu;
+    }
+
+    public MenuPadrao getMenuPadrao() {
+        return menuPadrao;
+    }
+
+    public MenuTipoDocumento getMenuTipoDocumento() {
+        return menuTipoDocumento;
+    }
+    
+    
+
     public void configurarDesktopPane(){
         Icon img = new ImageIcon("src//Visao/imagens/planoDeFundo/fundo.jpg");
         lblFundo.setIcon(img);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        ctrlP.alterarMenu(ctrlP.MENUPRINCIPAL);
+//        menuPadrao.setVisible(true);
+//        panelMenu.add(menuPadrao);
+//        this.revalidate();
+//        this.repaint();
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCompartimento;
-    private javax.swing.JButton btnDocumento;
-    private javax.swing.JButton btnLocal;
-    private javax.swing.JButton btnMobilia;
-    private javax.swing.JButton btnReferenciado;
-    private javax.swing.JButton btnTipoDocumento;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblFundo;
