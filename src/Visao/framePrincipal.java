@@ -6,7 +6,6 @@
 package Visao;
 
 import Visao.menu.MenuPadrao;
-import Visao.menu.MenuTipoDocumento;
 import controlador.CIPrincipal;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -22,8 +21,6 @@ public class framePrincipal extends javax.swing.JFrame {
 
     private CIPrincipal ctrlP;
     MenuPadrao menuPadrao;
-    //Visao.menu.MenuTipoDocumento menuTipoDocumento;
-    MenuTipoDocumento menuTipoDocumento;
     /**
      * Metodo construttor framePrincipal
      * @param ctrlP
@@ -32,7 +29,6 @@ public class framePrincipal extends javax.swing.JFrame {
         this.ctrlP = ctrlP;
         initComponents();
         menuPadrao = new MenuPadrao(ctrlP); 
-        menuTipoDocumento = new MenuTipoDocumento(ctrlP);
     }
 
     /**
@@ -51,7 +47,11 @@ public class framePrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         desktopPane.setBackground(new java.awt.Color(0, 204, 255));
+        desktopPane.setAutoscrolls(true);
+        desktopPane.setMaximumSize(new java.awt.Dimension(2147, 2147));
 
         lblFundo.setText("jLabel1");
 
@@ -61,42 +61,17 @@ public class framePrincipal extends javax.swing.JFrame {
         desktopPane.setLayout(desktopPaneLayout);
         desktopPaneLayout.setHorizontalGroup(
             desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblFundo, javax.swing.GroupLayout.DEFAULT_SIZE, 1407, Short.MAX_VALUE)
+            .addComponent(lblFundo, javax.swing.GroupLayout.DEFAULT_SIZE, 1370, Short.MAX_VALUE)
         );
         desktopPaneLayout.setVerticalGroup(
             desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(desktopPaneLayout.createSequentialGroup()
-                .addComponent(lblFundo, javax.swing.GroupLayout.DEFAULT_SIZE, 675, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(lblFundo, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
         );
+
+        jPanel1.add(desktopPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 0, 1370, 680));
 
         panelMenu.setLayout(new javax.swing.BoxLayout(panelMenu, javax.swing.BoxLayout.LINE_AXIS));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1558, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(132, Short.MAX_VALUE)
-                    .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(19, 19, 19)))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 1432, Short.MAX_VALUE)))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 686, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(desktopPane))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addComponent(panelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 675, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
+        jPanel1.add(panelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 126, 675));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -128,21 +103,14 @@ public class framePrincipal extends javax.swing.JFrame {
         return menuPadrao;
     }
 
-    public MenuTipoDocumento getMenuTipoDocumento() {
-        return menuTipoDocumento;
-    }
-    
     
 
     public void configurarDesktopPane(){
         Icon img = new ImageIcon("src//Visao/imagens/planoDeFundo/fundo.jpg");
         lblFundo.setIcon(img);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        desktopPane.setMaximumSize(jPanel1.getMaximumSize());
         ctrlP.alterarMenu(ctrlP.MENUPRINCIPAL);
-//        menuPadrao.setVisible(true);
-//        panelMenu.add(menuPadrao);
-//        this.revalidate();
-//        this.repaint();
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

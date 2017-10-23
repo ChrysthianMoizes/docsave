@@ -6,7 +6,9 @@
 package controlador;
 
 import GerenciaDeTarefas.*;
-import Visao.InterfaceTipoDocumento.CadastroTipoDocumento;
+import Visao.InterfaceTipoDocumento.InterfaceTipoDocumento;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -14,16 +16,41 @@ import Visao.InterfaceTipoDocumento.CadastroTipoDocumento;
  */
 public class CITipoDocumento {
     private CIPrincipal ctrlP;
-    private CadastroTipoDocumento cadastroTipoDocumento;
+    private InterfaceTipoDocumento cadastroTipoDocumento;
 
     public CITipoDocumento(CIPrincipal ctrlP) {
         this.ctrlP = ctrlP;
     }
     
+    private void validaCampos(String nome, String descricao){
+        ArrayList<String> listaErro = new ArrayList<>();
+        if(nome.equals("")){
+            listaErro.add("Nome");
+        }
+        if(descricao.equals("")){
+            listaErro.add("Descrição");
+        }
+        ctrlP.getErro().validaCampos(cadastroTipoDocumento, listaErro);
+    }
+    
+    public void cadastrarTipoDocumento(String nome, String descricao){
+        validaCampos(nome, descricao);
+        ctrlP.getGtPrincipal().getGtTipoDocumento().cadastrarTipoDocumento(nome, descricao);
+    }
+    
+    public List carregarCmbBoxTipoDocumento(){
+       return ctrlP.getGtPrincipal().getGtTipoDocumento().carregarTipoDocumento();
+    }
+    
     public void AbrirInterfaceCadastroTipoDocumento(){
-        cadastroTipoDocumento = new CadastroTipoDocumento(this);
-        ctrlP.getJanelaPrincipal().add(cadastroTipoDocumento);
+        cadastroTipoDocumento = new InterfaceTipoDocumento(this);
+        ctrlP.getJanelaPrincipal().getDesktopPane().add(cadastroTipoDocumento);
         cadastroTipoDocumento.setVisible(true);
+    }
+    
+    public void consultarTipoDocumento(String nome){
+        List lista = ctrlP.getGtPrincipal().getGtTipoDocumento().consultarTipoDocumento(nome);
+        cadastroTipoDocumento.preencherCamposConsulta((String)lista.get(1), (String)lista.get(2));
     }
     
 }

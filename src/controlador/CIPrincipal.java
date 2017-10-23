@@ -4,7 +4,7 @@ import GerenciaDeTarefas.GTPrincipal;
 import Visao.framePrincipal;
 import dao.ConfigDAO;
 import javax.swing.JOptionPane;
-import Visao.Util.Erro;
+import Visao.Util.Menssagens;
         
 public class CIPrincipal {
 
@@ -20,7 +20,7 @@ public class CIPrincipal {
     private CIReferenciado ciReferenciado;
     private CITipoDocumento ciTipoDocumento;
     private CIUsuario ciUsuario;
-    private Erro erro;
+    private Menssagens erro;
     
  
     public CIPrincipal() {
@@ -34,7 +34,7 @@ public class CIPrincipal {
         ciReferenciado = new CIReferenciado(this);
         ciTipoDocumento = new CITipoDocumento(this);
         ciUsuario = new CIUsuario(this);
-        erro = new Erro(this);
+        erro = new Menssagens(this);
     }
     
     public void iniciarJanelaPrincipal(){
@@ -52,9 +52,6 @@ public class CIPrincipal {
         switch(flag){
             case MENUPRINCIPAL: janelaPrincipal.getMenuPadrao().setVisible(true);
                 janelaPrincipal.getPanelMenu().add(janelaPrincipal.getMenuPadrao());
-                break;
-            case MENUTIPODOCUMENTO: janelaPrincipal.getMenuTipoDocumento().setVisible(true);
-                janelaPrincipal.getPanelMenu().add(janelaPrincipal.getMenuTipoDocumento());
                 break;
             default:janelaPrincipal.getMenuPadrao().setVisible(true);
                 janelaPrincipal.getPanelMenu().add(janelaPrincipal.getMenuPadrao());
@@ -104,7 +101,7 @@ public class CIPrincipal {
         return ciUsuario;
     }
 
-    public Erro getErro() {
+    public Menssagens getErro() {
         return erro;
     }
     

@@ -94,7 +94,7 @@ public class MenuPadrao extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTipoDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTipoDocumentoActionPerformed
-        ctrlP.alterarMenu(ctrlP.MENUTIPODOCUMENTO);
+        ctrlP.getCiTipoDocumento().AbrirInterfaceCadastroTipoDocumento();
     }//GEN-LAST:event_btnTipoDocumentoActionPerformed
 
 
