@@ -52,12 +52,31 @@ public class CITipoDocumento {
         interfaceTipoDocumento.preencherCamposConsulta((String)lista.get(1), (String)lista.get(2));
     }
     
-    public void alterarTipoDocumento(int id, String nome, String desc){
+    public void alterarTipoDocumento(Object objId, String nome, String desc){
         validaCampos(nome, desc);
-        ctrlP.getGtPrincipal().getGtTipoDocumento().alterarTipoDocumento(id, nome, desc);
+        ctrlP.getGtPrincipal().getGtTipoDocumento().alterarTipoDocumento(objId, nome, desc);
     }
     
     public void exibirMenssagemInformativa(String texto){
         ctrlP.getMenssagens().exibirMenssagem(interfaceTipoDocumento, texto);
     }
+    
+    public void excluirTipoDocumento(Object tDocumento){
+        ctrlP.getGtPrincipal().getGtTipoDocumento().excluirTipoDocumento(tDocumento);
+    }
+    
+    public String getDescricao(Object item){
+        return ctrlP.getGtPrincipal().getGtTipoDocumento().getDescricao(item);
+    }
+    
+    public List listarTipoDocumento(){
+        List lista = ctrlP.getGtPrincipal().getGtTipoDocumento().listarTipoDocumento();
+        if(lista != null)
+            return lista;
+        else{
+            ctrlP.getMenssagens().exibirMenssagem(interfaceTipoDocumento, "Nenhum tipo de documento cadastrado");
+            return null;
+        }
+    }
+    
 }
