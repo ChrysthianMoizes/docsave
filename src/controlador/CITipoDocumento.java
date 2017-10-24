@@ -5,8 +5,7 @@
  */
 package controlador;
 
-import GerenciaDeTarefas.*;
-import Visao.InterfaceTipoDocumento.InterfaceTipoDocumento;
+import visao.tipoDocumento.InterfaceTipoDocumento;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +15,7 @@ import java.util.List;
  */
 public class CITipoDocumento {
     private CIPrincipal ctrlP;
-    private InterfaceTipoDocumento cadastroTipoDocumento;
+    private InterfaceTipoDocumento interfaceTipoDocumento;
 
     public CITipoDocumento(CIPrincipal ctrlP) {
         this.ctrlP = ctrlP;
@@ -30,7 +29,7 @@ public class CITipoDocumento {
         if(descricao.equals("")){
             listaErro.add("Descrição");
         }
-        ctrlP.getErro().validaCampos(cadastroTipoDocumento, listaErro);
+        ctrlP.getMenssagens().validaCampos(interfaceTipoDocumento, listaErro);
     }
     
     public void cadastrarTipoDocumento(String nome, String descricao){
@@ -43,14 +42,22 @@ public class CITipoDocumento {
     }
     
     public void AbrirInterfaceCadastroTipoDocumento(){
-        cadastroTipoDocumento = new InterfaceTipoDocumento(this);
-        ctrlP.getJanelaPrincipal().getDesktopPane().add(cadastroTipoDocumento);
-        cadastroTipoDocumento.setVisible(true);
+        interfaceTipoDocumento = new InterfaceTipoDocumento(this);
+        ctrlP.getJanelaPrincipal().getDesktopPane().add(interfaceTipoDocumento);
+        interfaceTipoDocumento.setVisible(true);
     }
     
     public void consultarTipoDocumento(String nome){
         List lista = ctrlP.getGtPrincipal().getGtTipoDocumento().consultarTipoDocumento(nome);
-        cadastroTipoDocumento.preencherCamposConsulta((String)lista.get(1), (String)lista.get(2));
+        interfaceTipoDocumento.preencherCamposConsulta((String)lista.get(1), (String)lista.get(2));
     }
     
+    public void alterarTipoDocumento(int id, String nome, String desc){
+        validaCampos(nome, desc);
+        ctrlP.getGtPrincipal().getGtTipoDocumento().alterarTipoDocumento(id, nome, desc);
+    }
+    
+    public void exibirMenssagemInformativa(String texto){
+        ctrlP.getMenssagens().exibirMenssagem(interfaceTipoDocumento, texto);
+    }
 }

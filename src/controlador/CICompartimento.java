@@ -5,8 +5,6 @@
  */
 package controlador;
 
-import GerenciaDeTarefas.*;
-
 /**
  *
  * @author reida

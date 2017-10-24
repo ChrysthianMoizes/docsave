@@ -1,10 +1,10 @@
 package controlador;
 
-import GerenciaDeTarefas.GTPrincipal;
-import Visao.framePrincipal;
+import gerenciaDeTarefas.GTPrincipal;
+import visao.framePrincipal;
 import dao.ConfigDAO;
 import javax.swing.JOptionPane;
-import Visao.Util.Menssagens;
+import visao.util.Menssagens;
         
 public class CIPrincipal {
 
@@ -20,7 +20,7 @@ public class CIPrincipal {
     private CIReferenciado ciReferenciado;
     private CITipoDocumento ciTipoDocumento;
     private CIUsuario ciUsuario;
-    private Menssagens erro;
+    private Menssagens menssagens;
     
  
     public CIPrincipal() {
@@ -34,7 +34,7 @@ public class CIPrincipal {
         ciReferenciado = new CIReferenciado(this);
         ciTipoDocumento = new CITipoDocumento(this);
         ciUsuario = new CIUsuario(this);
-        erro = new Menssagens(this);
+        menssagens = new Menssagens(this);
     }
     
     public void iniciarJanelaPrincipal(){
@@ -101,8 +101,8 @@ public class CIPrincipal {
         return ciUsuario;
     }
 
-    public Menssagens getErro() {
-        return erro;
+    public Menssagens getMenssagens() {
+        return menssagens;
     }
     
     

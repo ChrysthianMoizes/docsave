@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Visao.InterfaceTipoDocumento;
+package visao.tipoDocumento;
 
 import controlador.CITipoDocumento;
 import java.awt.event.ActionEvent;
@@ -321,6 +321,7 @@ public class InterfaceTipoDocumento extends javax.swing.JInternalFrame {
         String desc = txtAreaDescricaoTipoDocumentoAlteracao.getText();
         int id = cmbTipoDocumentoAlteracao.getSelectedIndex();
         ctrl.alterarTipoDocumento(id, nome, desc);
+        ctrl.exibirMenssagemInformativa("Alteração de dado concluida");
     }//GEN-LAST:event_btnSalvarActionPerformed
 
 
