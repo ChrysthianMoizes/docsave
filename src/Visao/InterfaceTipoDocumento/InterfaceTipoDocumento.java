@@ -6,6 +6,9 @@
 package Visao.InterfaceTipoDocumento;
 
 import controlador.CITipoDocumento;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.event.ChangeEvent;
 
@@ -16,17 +19,26 @@ import javax.swing.event.ChangeEvent;
 public class InterfaceTipoDocumento extends javax.swing.JInternalFrame {
 
     CITipoDocumento ctrl;
+    List listaCmbBox;
     /**
      * Creates new form cadastroTipoDocumento
      */
     public InterfaceTipoDocumento(CITipoDocumento ctrl) {
         this.ctrl = ctrl;
+        listaCmbBox = new ArrayList();
         initComponents();
         panelTab.addChangeListener(new javax.swing.event.ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
                 limparInterfaceConsulta();
                 preencherCmbBoxTipoDocumento(ctrl.carregarCmbBoxTipoDocumento());
+            }
+        });
+        cmbTipoDocumentoAlteracao.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                limparInterfaceAlteracao();
+                preencherCamposAlteracao(title, title);
             }
         });
     }
@@ -53,13 +65,22 @@ public class InterfaceTipoDocumento extends javax.swing.JInternalFrame {
         btnCancelarTipoDocumento = new javax.swing.JButton();
         paneConsulta = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        cmbTipoDocumento = new javax.swing.JComboBox<>();
+        cmbTipoDocumentoConsulta = new javax.swing.JComboBox<>();
         txtNomeTipoDocumentoConsulta = new javax.swing.JTextField();
         lblNomeTipoDocumentoConsulta = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtAreaDescricaoTipoDocumentoConsulta = new javax.swing.JTextArea();
         lblDescricaoTipoDocumentoConsulta = new javax.swing.JLabel();
         btnOK = new javax.swing.JButton();
+        panelAlterar = new javax.swing.JPanel();
+        txtNomeTipoDocumentoAlteracao = new javax.swing.JTextField();
+        lblNomeTipoDocumentoAlteracao = new javax.swing.JLabel();
+        lblDescricaoTipoDocumentoAlteracao = new javax.swing.JLabel();
+        sctrollPaneAlteracao = new javax.swing.JScrollPane();
+        txtAreaDescricaoTipoDocumentoAlteracao = new javax.swing.JTextArea();
+        btnSalvar = new javax.swing.JButton();
+        lblTipoDocumentoAlteracao = new javax.swing.JLabel();
+        cmbTipoDocumentoAlteracao = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setIconifiable(true);
@@ -170,7 +191,7 @@ public class InterfaceTipoDocumento extends javax.swing.JInternalFrame {
                                     .addGroup(paneConsultaLayout.createSequentialGroup()
                                         .addComponent(jLabel1)
                                         .addGap(26, 26, 26)
-                                        .addComponent(cmbTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(cmbTipoDocumentoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 129, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneConsultaLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -183,7 +204,7 @@ public class InterfaceTipoDocumento extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(paneConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(cmbTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbTipoDocumentoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(paneConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNomeTipoDocumentoConsulta)
@@ -198,6 +219,72 @@ public class InterfaceTipoDocumento extends javax.swing.JInternalFrame {
         );
 
         panelTab.addTab("Consulta", paneConsulta);
+
+        lblNomeTipoDocumentoAlteracao.setText("Nome");
+
+        lblDescricaoTipoDocumentoAlteracao.setText("Descrição");
+
+        txtAreaDescricaoTipoDocumentoAlteracao.setColumns(20);
+        txtAreaDescricaoTipoDocumentoAlteracao.setRows(5);
+        sctrollPaneAlteracao.setViewportView(txtAreaDescricaoTipoDocumentoAlteracao);
+
+        btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
+
+        lblTipoDocumentoAlteracao.setText("Tipo de Documento");
+
+        javax.swing.GroupLayout panelAlterarLayout = new javax.swing.GroupLayout(panelAlterar);
+        panelAlterar.setLayout(panelAlterarLayout);
+        panelAlterarLayout.setHorizontalGroup(
+            panelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAlterarLayout.createSequentialGroup()
+                .addGroup(panelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAlterarLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(panelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sctrollPaneAlteracao)
+                            .addGroup(panelAlterarLayout.createSequentialGroup()
+                                .addGroup(panelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblDescricaoTipoDocumentoAlteracao)
+                                    .addGroup(panelAlterarLayout.createSequentialGroup()
+                                        .addComponent(lblNomeTipoDocumentoAlteracao)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtNomeTipoDocumentoAlteracao, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panelAlterarLayout.createSequentialGroup()
+                                        .addComponent(lblTipoDocumentoAlteracao)
+                                        .addGap(26, 26, 26)
+                                        .addComponent(cmbTipoDocumentoAlteracao, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 129, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAlterarLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSalvar)))
+                .addContainerGap())
+        );
+        panelAlterarLayout.setVerticalGroup(
+            panelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAlterarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTipoDocumentoAlteracao)
+                    .addComponent(cmbTipoDocumentoAlteracao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNomeTipoDocumentoAlteracao)
+                    .addComponent(txtNomeTipoDocumentoAlteracao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblDescricaoTipoDocumentoAlteracao)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sctrollPaneAlteracao, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSalvar)
+                .addContainerGap(90, Short.MAX_VALUE))
+        );
+
+        panelTab.addTab("Alteração", panelAlterar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -226,8 +313,15 @@ public class InterfaceTipoDocumento extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSalvarTipoDocumentoActionPerformed
 
     private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
-        ctrl.consultarTipoDocumento(cmbTipoDocumento.getSelectedItem().toString());
+        ctrl.consultarTipoDocumento(cmbTipoDocumentoConsulta.getSelectedItem().toString());
     }//GEN-LAST:event_btnOKActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        String nome = txtNomeTipoDocumentoAlteracao.getText();
+        String desc = txtAreaDescricaoTipoDocumentoAlteracao.getText();
+        int id = cmbTipoDocumentoAlteracao.getSelectedIndex();
+        ctrl.alterarTipoDocumento(id, nome, desc);
+    }//GEN-LAST:event_btnSalvarActionPerformed
 
 
     public void iniciarInterfaceConsulta(){
@@ -241,15 +335,30 @@ public class InterfaceTipoDocumento extends javax.swing.JInternalFrame {
         txtAreaDescricaoTipoDocumentoConsulta.setText("");
     }
     
+    public void limparInterfaceAlteracao(){
+        lblNomeTipoDocumentoAlteracao.setText("");
+        txtAreaDescricaoTipoDocumentoAlteracao.setText("");
+    }
+    
     public void preencherCamposConsulta(String nome, String desc){
         txtNomeTipoDocumentoConsulta.setText(nome);
         txtAreaDescricaoTipoDocumentoConsulta.setText(desc);
     }
     
+     public void preencherCamposAlteracao(String nome, String desc){
+        txtNomeTipoDocumentoAlteracao.setText(nome);
+        txtAreaDescricaoTipoDocumentoAlteracao.setText(desc);
+    }
+    
     public void preencherCmbBoxTipoDocumento(List lista){
-        if(lista != null){
-            for(Object item : lista){
-                cmbTipoDocumento.addItem(item.toString());
+        if(cmbTipoDocumentoConsulta.getItemCount() == 0 
+                && cmbTipoDocumentoAlteracao.getItemCount() == 0){
+            if(lista != null){
+                for(Object item : lista){
+                    listaCmbBox.add(item);
+                    cmbTipoDocumentoConsulta.addItem(item.toString());
+                    cmbTipoDocumentoAlteracao.addItem(item.toString());
+                }
             }
         }
     }
@@ -259,23 +368,32 @@ public class InterfaceTipoDocumento extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelarTipoDocumento;
     private javax.swing.JButton btnOK;
+    private javax.swing.JButton btnSalvar;
     private javax.swing.JButton btnSalvarTipoDocumento;
-    private javax.swing.JComboBox<String> cmbTipoDocumento;
+    private javax.swing.JComboBox<String> cmbTipoDocumentoAlteracao;
+    private javax.swing.JComboBox<String> cmbTipoDocumentoConsulta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblDescricaoTipoDocumento;
+    private javax.swing.JLabel lblDescricaoTipoDocumentoAlteracao;
     private javax.swing.JLabel lblDescricaoTipoDocumentoConsulta;
     private javax.swing.JLabel lblNomeTipoDocumento;
+    private javax.swing.JLabel lblNomeTipoDocumentoAlteracao;
     private javax.swing.JLabel lblNomeTipoDocumentoConsulta;
+    private javax.swing.JLabel lblTipoDocumentoAlteracao;
     private javax.swing.JList<String> listTipoDocumento;
     private javax.swing.JPanel paneCadastro;
     private javax.swing.JPanel paneConsulta;
+    private javax.swing.JPanel panelAlterar;
     private javax.swing.JTabbedPane panelTab;
+    private javax.swing.JScrollPane sctrollPaneAlteracao;
+    private javax.swing.JTextArea txtAreaDescricaoTipoDocumentoAlteracao;
     private javax.swing.JTextArea txtAreaDescricaoTipoDocumentoConsulta;
     private javax.swing.JTextArea txtAreaDescricaoTipoDocumentp;
     private javax.swing.JTextField txtNomeTipoDocumento;
+    private javax.swing.JTextField txtNomeTipoDocumentoAlteracao;
     private javax.swing.JTextField txtNomeTipoDocumentoConsulta;
     // End of variables declaration//GEN-END:variables
 }
