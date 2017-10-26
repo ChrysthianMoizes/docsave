@@ -29,6 +29,7 @@ public class framePrincipal extends javax.swing.JFrame {
         this.ctrlP = ctrlP;
         initComponents();
         menuPadrao = new MenuPadrao(ctrlP); 
+        //desktopPane.setMaximumSize();
     }
 
     /**
@@ -41,17 +42,21 @@ public class framePrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         panelPrincipal = new javax.swing.JPanel();
+        panelMenu = new javax.swing.JPanel();
         desktopPane = new javax.swing.JDesktopPane();
         lblFundo = new javax.swing.JLabel();
-        panelMenu = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelPrincipal.setLayout(new javax.swing.BoxLayout(panelPrincipal, javax.swing.BoxLayout.LINE_AXIS));
+
+        panelMenu.setPreferredSize(new java.awt.Dimension(126, 675));
+        panelMenu.setLayout(new javax.swing.BoxLayout(panelMenu, javax.swing.BoxLayout.LINE_AXIS));
+        panelPrincipal.add(panelMenu);
 
         desktopPane.setBackground(new java.awt.Color(0, 204, 255));
         desktopPane.setAutoscrolls(true);
-        desktopPane.setMaximumSize(new java.awt.Dimension(2147, 2147));
+        desktopPane.setMaximumSize(getMaximumSize());
 
         lblFundo.setText("jLabel1");
 
@@ -72,16 +77,13 @@ public class framePrincipal extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        panelPrincipal.add(desktopPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 0, 1320, 680));
-
-        panelMenu.setLayout(new javax.swing.BoxLayout(panelMenu, javax.swing.BoxLayout.LINE_AXIS));
-        panelPrincipal.add(panelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 126, 675));
+        panelPrincipal.add(desktopPane);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 1268, Short.MAX_VALUE)
+            .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 1268, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
