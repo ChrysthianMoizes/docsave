@@ -1,43 +1,40 @@
 package cci;
 
-import cgt.GTPrincipal;
-import cih.FramePrincipal;
+import cci.util.Modulo;
 import cgd.Config;
-import javax.swing.JOptionPane;
+import cgt.GTPrincipal;
 import cih.util.Mensagem;
+import cih.base.FramePrincipal;
         
 public class CIPrincipal {
 
-    final public int MENUPRINCIPAL = 0;
-    final public int MENUTIPODOCUMENTO = 1;
-    
     private FramePrincipal janelaPrincipal;
-    private GTPrincipal gtPrincipal;
+    private GTPrincipal     gtPrincipal;
+    private CILocal         ciLocal;
+    private CIUsuario       ciUsuario;
+    private CIMobilia       ciMobilia;
+    private CIDocumento     ciDocumento;
     private CICompartimento ciCompartimento;
-    private CIDocumento ciDocumento;
-    private CILocal ciLocal;
-    private CIMobilia ciMobilia;
-    private CIReferenciado ciReferenciado;
+    private CIReferenciado  ciReferenciado;
     private CITipoDocumento ciTipoDocumento;
-    private CIUsuario ciUsuario;
-    private Mensagem menssagens;
+    private Mensagem        mensagens;
     
  
     public CIPrincipal() {
         new Config();
-        iniciarJanelaPrincipal();
-        gtPrincipal = new GTPrincipal();
+        iniciarFramePrincipal();
+        gtPrincipal     = new GTPrincipal();
         ciCompartimento = new CICompartimento(this);
-        ciDocumento = new CIDocumento(this);
-        ciLocal = new CILocal(this);
-        ciMobilia = new CIMobilia(this);
-        ciReferenciado = new CIReferenciado(this);
+        ciDocumento     = new CIDocumento(this);
+        ciLocal         = new CILocal(this);
+        ciMobilia       = new CIMobilia(this);
+        ciReferenciado  = new CIReferenciado(this);
         ciTipoDocumento = new CITipoDocumento(this);
-        ciUsuario = new CIUsuario(this);
-        menssagens = new Mensagem(this);
+        ciUsuario       = new CIUsuario(this);
+        mensagens      = new Mensagem(this);
     }
     
-    public void iniciarJanelaPrincipal(){
+    public void iniciarFramePrincipal() {
         janelaPrincipal = new FramePrincipal(this);  
         janelaPrincipal.configurarDesktopPane();
         janelaPrincipal.setVisible(true);
@@ -47,28 +44,22 @@ public class CIPrincipal {
         return janelaPrincipal;
     }
 
-    public void alterarMenu(int flag){
+    public void alterarMenu(int MODULO){
         janelaPrincipal.getPanelMenu().removeAll();
-        switch(flag){
-            case MENUPRINCIPAL: janelaPrincipal.getMenuPadrao().setVisible(true);
+        switch (MODULO) {
+            case Modulo.MENU_PRINCIPAL: 
+                janelaPrincipal.getMenuPadrao().setVisible(true);
                 janelaPrincipal.getPanelMenu().add(janelaPrincipal.getMenuPadrao());
                 break;
-            default:janelaPrincipal.getMenuPadrao().setVisible(true);
+            default:
+                janelaPrincipal.getMenuPadrao().setVisible(true);
                 janelaPrincipal.getPanelMenu().add(janelaPrincipal.getMenuPadrao());
                 break;
          }
         janelaPrincipal.revalidate();
         janelaPrincipal.repaint();
     }
-
-    public int getMENUPRINCIPAL() {
-        return MENUPRINCIPAL;
-    }
-
-    public int getMENUTIPODOCUMENTO() {
-        return MENUTIPODOCUMENTO;
-    }
-
+    
     public GTPrincipal getGtPrincipal() {
         return gtPrincipal;
     }
@@ -101,14 +92,11 @@ public class CIPrincipal {
         return ciUsuario;
     }
 
-    public Mensagem getMenssagens() {
-        return menssagens;
+    public Mensagem getMensagens() {
+        return mensagens;
     }
     
-    
-    
-    
-     public static void main(String args[]){
+    public static void main(String args[]){
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {
@@ -116,8 +104,7 @@ public class CIPrincipal {
                     break;
                 }
             }   
-        }catch(Exception e){
-        }
+        } catch(Exception e){}
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -125,5 +112,4 @@ public class CIPrincipal {
             }   
         });
     }
-    
 }

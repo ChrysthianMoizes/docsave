@@ -1,4 +1,4 @@
-package cih.menu;
+package cih.base;
 
 import cci.CIPrincipal;
 

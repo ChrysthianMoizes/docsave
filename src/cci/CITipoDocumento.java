@@ -1,27 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cci;
 
 import cih.tipoDocumento.IFrameTipoDocumento;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author reida
- */
 public class CITipoDocumento {
     private CIPrincipal ctrlP;
-    private IFrameTipoDocumento interfaceTipoDocumento;
+    private IFrameTipoDocumento iFrameTipoDocumento;
 
     public CITipoDocumento(CIPrincipal ctrlP) {
         this.ctrlP = ctrlP;
     }
     
-    private void validaCampos(String nome, String descricao){
+    private void validarCampos(String nome, String descricao) {
         ArrayList<String> listaErro = new ArrayList<>();
         if(nome.equals("")){
             listaErro.add("Nome");
@@ -29,52 +20,52 @@ public class CITipoDocumento {
         if(descricao.equals("")){
             listaErro.add("Descrição");
         }
-        ctrlP.getMenssagens().validaCampos(interfaceTipoDocumento, listaErro);
+        ctrlP.getMensagens().validaCampos(iFrameTipoDocumento, listaErro);
     }
     
-    public void cadastrarTipoDocumento(String nome, String descricao){
-        validaCampos(nome, descricao);
+    public void cadastrarTipoDocumento(String nome, String descricao) {
+        validarCampos(nome, descricao);
         ctrlP.getGtPrincipal().getGtTipoDocumento().cadastrarTipoDocumento(nome, descricao);
     }
     
-    public List carregarCmbBoxTipoDocumento(){
+    public List carregarCmbBoxTipoDocumento() {
        return ctrlP.getGtPrincipal().getGtTipoDocumento().carregarTipoDocumento();
     }
     
-    public void AbrirInterfaceCadastroTipoDocumento(){
-        interfaceTipoDocumento = new IFrameTipoDocumento(this);
-        ctrlP.getJanelaPrincipal().getDesktopPane().add(interfaceTipoDocumento);
-        interfaceTipoDocumento.setVisible(true);
+    public void AbrirInterfaceCadastroTipoDocumento() {
+        iFrameTipoDocumento = new IFrameTipoDocumento(this);
+        ctrlP.getJanelaPrincipal().getDesktopPane().add(iFrameTipoDocumento);
+        iFrameTipoDocumento.setVisible(true);
     }
     
-    public void consultarTipoDocumento(String nome){
+    public void consultarTipoDocumento(String nome) {
         List lista = ctrlP.getGtPrincipal().getGtTipoDocumento().consultarTipoDocumento(nome);
-        interfaceTipoDocumento.preencherCamposConsulta((String)lista.get(1), (String)lista.get(2));
+        iFrameTipoDocumento.preencherCamposConsulta((String)lista.get(1), (String)lista.get(2));
     }
     
-    public void alterarTipoDocumento(Object objId, String nome, String desc){
-        validaCampos(nome, desc);
+    public void alterarTipoDocumento(Object objId, String nome, String desc) {
+        validarCampos(nome, desc);
         ctrlP.getGtPrincipal().getGtTipoDocumento().alterarTipoDocumento(objId, nome, desc);
     }
     
-    public void exibirMenssagemInformativa(String texto){
-        ctrlP.getMenssagens().exibirMenssagem(interfaceTipoDocumento, texto);
+    public void exibirMenssagemInformativa(String texto) {
+        ctrlP.getMensagens().exibirMenssagem(iFrameTipoDocumento, texto);
     }
     
-    public void excluirTipoDocumento(Object tDocumento){
+    public void excluirTipoDocumento(Object tDocumento) {
         ctrlP.getGtPrincipal().getGtTipoDocumento().excluirTipoDocumento(tDocumento);
     }
     
-    public String getDescricao(Object item){
+    public String getDescricao(Object item) {
         return ctrlP.getGtPrincipal().getGtTipoDocumento().getDescricao(item);
     }
     
-    public List listarTipoDocumento(){
+    public List listarTipoDocumento() {
         List lista = ctrlP.getGtPrincipal().getGtTipoDocumento().listarTipoDocumento();
         if(lista != null)
             return lista;
         else{
-            ctrlP.getMenssagens().exibirMenssagem(interfaceTipoDocumento, "Nenhum tipo de documento cadastrado");
+            ctrlP.getMensagens().exibirMenssagem(iFrameTipoDocumento, "Nenhum tipo de documento cadastrado");
             return null;
         }
     }

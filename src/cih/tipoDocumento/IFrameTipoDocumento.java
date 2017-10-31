@@ -20,8 +20,8 @@ public class IFrameTipoDocumento extends javax.swing.JInternalFrame {
             @Override
             public void stateChanged(ChangeEvent e) {
                limpartTodasInterfaces();
-                preencherCmbBoxTipoDocumento(ctrl.carregarCmbBoxTipoDocumento());
-                atualizarListCadastro();
+               preencherCmbBoxTipoDocumento(ctrl.carregarCmbBoxTipoDocumento());
+               atualizarListCadastro();
             }
         });    
     }
@@ -748,7 +748,6 @@ public class IFrameTipoDocumento extends javax.swing.JInternalFrame {
     private void btnSalvarExclusao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarExclusao1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalvarExclusao1ActionPerformed
-
 
     private Object encontrarElmento(String nome){
         for(Object item : listaCmbBox){

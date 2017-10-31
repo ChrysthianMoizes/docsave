@@ -1,4 +1,4 @@
-package cih;
+package cih.base;
 
 import javax.swing.Icon;
 import javax.swing.JPanel;
@@ -6,7 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
 import cci.CIPrincipal;
-import cih.menu.PanelMenu;
+import cci.util.Modulo;
+import cih.base.PanelMenu;
 
 public class FramePrincipal extends javax.swing.JFrame {
 
@@ -90,12 +91,12 @@ public class FramePrincipal extends javax.swing.JFrame {
         return menuPadrao;
     }
 
-    public void configurarDesktopPane(){
+    public void configurarDesktopPane() {
         Icon img = new ImageIcon("src//cih/imagens/fundo.jpg");
         lblFundo.setIcon(img);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         desktopPane.setMaximumSize(panelPrincipal.getMaximumSize());
-        ctrlP.alterarMenu(ctrlP.MENUPRINCIPAL);
+        ctrlP.alterarMenu(Modulo.MENU_PRINCIPAL);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
