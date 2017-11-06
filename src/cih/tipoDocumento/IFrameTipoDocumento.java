@@ -542,6 +542,12 @@ public class IFrameTipoDocumento extends javax.swing.JInternalFrame {
 
         lblTipoDocumentoAlteracao1.setText("Tipo de Documento");
 
+        cmbTipoDocumentoAlteracao1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbTipoDocumentoAlteracao1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelAlterar1Layout = new javax.swing.GroupLayout(panelAlterar1);
         panelAlterar1.setLayout(panelAlterar1Layout);
         panelAlterar1Layout.setHorizontalGroup(
@@ -748,6 +754,10 @@ public class IFrameTipoDocumento extends javax.swing.JInternalFrame {
     private void btnSalvarExclusao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarExclusao1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalvarExclusao1ActionPerformed
+
+    private void cmbTipoDocumentoAlteracao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoDocumentoAlteracao1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbTipoDocumentoAlteracao1ActionPerformed
 
     private Object encontrarElmento(String nome){
         for(Object item : listaCmbBox){
