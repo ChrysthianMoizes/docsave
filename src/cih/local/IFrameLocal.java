@@ -30,25 +30,43 @@ public class IFrameLocal extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
+        jPanelCadastro = new javax.swing.JPanel();
+        jLabelNomeCadastro = new javax.swing.JLabel();
+        jTextFieldNomeCadastro = new javax.swing.JTextField();
+        jLabelCapacidadeCadastro = new javax.swing.JLabel();
+        jTextFieldCapacidadeCadastro = new javax.swing.JTextField();
+        jLabelQtdMobiliaCadastro = new javax.swing.JLabel();
+        jSpinnerQtdMobiliaCadastro = new javax.swing.JSpinner();
+        jScrollPaneDescricaoCadastro = new javax.swing.JScrollPane();
+        jTextFieldDescricaoCadastro = new javax.swing.JTextField();
+        jLabelDescricaoCadastro = new javax.swing.JLabel();
+        jLabelMobiliaCadastro = new javax.swing.JLabel();
+        jComboBoxMobiliaCadastro = new javax.swing.JComboBox<>();
+        jScrollPaneMobiliaCadastro = new javax.swing.JScrollPane();
+        jTableMobiliaCadastro = new javax.swing.JTable();
+        jButtonSalvarCadastro = new javax.swing.JButton();
+        jButtonCancelarCadastro = new javax.swing.JButton();
+        jPanelConsulta = new javax.swing.JPanel();
+        jLabelNomeConsulta = new javax.swing.JLabel();
+        jTextFieldNomeConsulta = new javax.swing.JTextField();
+        jScrollPaneLocalConsulta = new javax.swing.JScrollPane();
+        jTableLocalConsulta = new javax.swing.JTable();
+        jButtonPesquisarConsulta = new javax.swing.JButton();
+        jButtonCancelarConsulta = new javax.swing.JButton();
+        jPanelAlterar = new javax.swing.JPanel();
+        jLabelNomeAlteracao = new javax.swing.JLabel();
+        jTextFieldNomeAlteracao = new javax.swing.JTextField();
+        jScrollPaneLocalAlteracao = new javax.swing.JScrollPane();
+        jTableLocalAlteracao = new javax.swing.JTable();
+        jButtonPesquisarAlteracao = new javax.swing.JButton();
+        jButtonCancelarAlteracao = new javax.swing.JButton();
+        jPanelExclusao = new javax.swing.JPanel();
+        jLabelNomeExclusao = new javax.swing.JLabel();
+        jTextFieldNomeExclusao = new javax.swing.JTextField();
+        jScrollPaneLocalExclusao = new javax.swing.JScrollPane();
+        jTableLocalExclusao = new javax.swing.JTable();
+        jButtonPesquisarExclusao = new javax.swing.JButton();
+        jButtonCancelarExclusao = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -63,140 +81,255 @@ public class IFrameLocal extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(jTable1);
 
-        jLabel1.setText("Nome");
+        jLabelNomeCadastro.setText("Nome");
 
-        jLabel2.setText("Capacidade");
+        jLabelCapacidadeCadastro.setText("Capacidade");
 
-        jLabel3.setText("Quantidade de Mobília");
+        jLabelQtdMobiliaCadastro.setText("Quantidade de Mobília");
 
-        jScrollPane1.setViewportView(jTextField3);
+        jScrollPaneDescricaoCadastro.setViewportView(jTextFieldDescricaoCadastro);
 
-        jLabel4.setText("Descrição");
+        jLabelDescricaoCadastro.setText("Descrição");
 
-        jLabel5.setText("Mobília");
+        jLabelMobiliaCadastro.setText("Mobília");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxMobiliaCadastro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTableMobiliaCadastro.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null}
+
             },
             new String [] {
                 "Nome", "Capacidade", "Compartimento", "Quant. Compart."
             }
         ));
-        jScrollPane3.setViewportView(jTable2);
+        jScrollPaneMobiliaCadastro.setViewportView(jTableMobiliaCadastro);
 
-        jButton1.setText("Salvar");
+        jButtonSalvarCadastro.setText("Salvar");
 
-        jButton2.setText("Cancelar");
+        jButtonCancelarCadastro.setText("Cancelar");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelCadastroLayout = new javax.swing.GroupLayout(jPanelCadastro);
+        jPanelCadastro.setLayout(jPanelCadastroLayout);
+        jPanelCadastroLayout.setHorizontalGroup(
+            jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCadastroLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPaneMobiliaCadastro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneDescricaoCadastro)
+                    .addGroup(jPanelCadastroLayout.createSequentialGroup()
+                        .addComponent(jLabelNomeCadastro)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(jTextFieldNomeCadastro))
+                    .addGroup(jPanelCadastroLayout.createSequentialGroup()
+                        .addComponent(jLabelCapacidadeCadastro)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldCapacidadeCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel3)
+                        .addComponent(jLabelQtdMobiliaCadastro)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSpinner1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(jSpinnerQtdMobiliaCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                    .addGroup(jPanelCadastroLayout.createSequentialGroup()
+                        .addComponent(jButtonSalvarCadastro)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)))
+                        .addComponent(jButtonCancelarCadastro))
+                    .addGroup(jPanelCadastroLayout.createSequentialGroup()
+                        .addComponent(jLabelDescricaoCadastro)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanelCadastroLayout.createSequentialGroup()
+                        .addComponent(jLabelMobiliaCadastro)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jComboBoxMobiliaCadastro, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanelCadastroLayout.setVerticalGroup(
+            jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCadastroLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1))
+                .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelNomeCadastro)
+                    .addComponent(jTextFieldNomeCadastro))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelCapacidadeCadastro)
+                    .addComponent(jTextFieldCapacidadeCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelQtdMobiliaCadastro)
+                    .addComponent(jSpinnerQtdMobiliaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
+                .addComponent(jLabelDescricaoCadastro)
                 .addGap(10, 10, 10)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPaneDescricaoCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                .addGap(3, 3, 3)
+                .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabelMobiliaCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBoxMobiliaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPaneMobiliaCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jComboBox1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonSalvarCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonCancelarCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(12, 12, 12))
         );
 
-        jTabbedPane1.addTab("Cadastro", jPanel1);
+        jTabbedPane1.addTab("Cadastro", jPanelCadastro);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
+        jLabelNomeConsulta.setText("Nome");
+
+        jTableLocalConsulta.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nome", "Capacidade", "Quant. Mob."
+            }
+        ));
+        jScrollPaneLocalConsulta.setViewportView(jTableLocalConsulta);
+
+        jButtonPesquisarConsulta.setText("Pesquisar");
+
+        jButtonCancelarConsulta.setText("Cancelar");
+
+        javax.swing.GroupLayout jPanelConsultaLayout = new javax.swing.GroupLayout(jPanelConsulta);
+        jPanelConsulta.setLayout(jPanelConsultaLayout);
+        jPanelConsultaLayout.setHorizontalGroup(
+            jPanelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelConsultaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPaneLocalConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                    .addGroup(jPanelConsultaLayout.createSequentialGroup()
+                        .addComponent(jLabelNomeConsulta)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextFieldNomeConsulta))
+                    .addGroup(jPanelConsultaLayout.createSequentialGroup()
+                        .addComponent(jButtonPesquisarConsulta)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonCancelarConsulta)))
+                .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 351, Short.MAX_VALUE)
+        jPanelConsultaLayout.setVerticalGroup(
+            jPanelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelConsultaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelNomeConsulta)
+                    .addComponent(jTextFieldNomeConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPaneLocalConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
+                .addGroup(jPanelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonPesquisarConsulta)
+                    .addComponent(jButtonCancelarConsulta))
+                .addGap(19, 19, 19))
         );
 
-        jTabbedPane1.addTab("Consulta", jPanel2);
+        jTabbedPane1.addTab("Consulta", jPanelConsulta);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
+        jLabelNomeAlteracao.setText("Nome");
+
+        jTableLocalAlteracao.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nome", "Capacidade", "Quant. Mob."
+            }
+        ));
+        jScrollPaneLocalAlteracao.setViewportView(jTableLocalAlteracao);
+
+        jButtonPesquisarAlteracao.setText("Pesquisar");
+
+        jButtonCancelarAlteracao.setText("Cancelar");
+
+        javax.swing.GroupLayout jPanelAlterarLayout = new javax.swing.GroupLayout(jPanelAlterar);
+        jPanelAlterar.setLayout(jPanelAlterarLayout);
+        jPanelAlterarLayout.setHorizontalGroup(
+            jPanelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelAlterarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPaneLocalAlteracao, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                    .addGroup(jPanelAlterarLayout.createSequentialGroup()
+                        .addComponent(jLabelNomeAlteracao)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextFieldNomeAlteracao))
+                    .addGroup(jPanelAlterarLayout.createSequentialGroup()
+                        .addComponent(jButtonPesquisarAlteracao)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonCancelarAlteracao)))
+                .addContainerGap())
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 351, Short.MAX_VALUE)
+        jPanelAlterarLayout.setVerticalGroup(
+            jPanelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelAlterarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelNomeAlteracao)
+                    .addComponent(jTextFieldNomeAlteracao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPaneLocalAlteracao, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
+                .addGroup(jPanelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonPesquisarAlteracao)
+                    .addComponent(jButtonCancelarAlteracao))
+                .addGap(19, 19, 19))
         );
 
-        jTabbedPane1.addTab("Alteração", jPanel3);
+        jTabbedPane1.addTab("Alteração", jPanelAlterar);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
+        jLabelNomeExclusao.setText("Nome");
+
+        jTableLocalExclusao.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nome", "Capacidade", "Quant. Mob."
+            }
+        ));
+        jScrollPaneLocalExclusao.setViewportView(jTableLocalExclusao);
+
+        jButtonPesquisarExclusao.setText("Pesquisar");
+
+        jButtonCancelarExclusao.setText("Cancelar");
+
+        javax.swing.GroupLayout jPanelExclusaoLayout = new javax.swing.GroupLayout(jPanelExclusao);
+        jPanelExclusao.setLayout(jPanelExclusaoLayout);
+        jPanelExclusaoLayout.setHorizontalGroup(
+            jPanelExclusaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelExclusaoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelExclusaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPaneLocalExclusao, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                    .addGroup(jPanelExclusaoLayout.createSequentialGroup()
+                        .addComponent(jLabelNomeExclusao)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextFieldNomeExclusao))
+                    .addGroup(jPanelExclusaoLayout.createSequentialGroup()
+                        .addComponent(jButtonPesquisarExclusao)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonCancelarExclusao)))
+                .addContainerGap())
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 351, Short.MAX_VALUE)
+        jPanelExclusaoLayout.setVerticalGroup(
+            jPanelExclusaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelExclusaoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelExclusaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelNomeExclusao)
+                    .addComponent(jTextFieldNomeExclusao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPaneLocalExclusao, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
+                .addGroup(jPanelExclusaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonPesquisarExclusao)
+                    .addComponent(jButtonCancelarExclusao))
+                .addGap(19, 19, 19))
         );
 
-        jTabbedPane1.addTab("Exclusão", jPanel4);
+        jTabbedPane1.addTab("Exclusão", jPanelExclusao);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -206,7 +339,7 @@ public class IFrameLocal extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
         );
 
         pack();
@@ -214,27 +347,45 @@ public class IFrameLocal extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton jButtonCancelarAlteracao;
+    private javax.swing.JButton jButtonCancelarCadastro;
+    private javax.swing.JButton jButtonCancelarConsulta;
+    private javax.swing.JButton jButtonCancelarExclusao;
+    private javax.swing.JButton jButtonPesquisarAlteracao;
+    private javax.swing.JButton jButtonPesquisarConsulta;
+    private javax.swing.JButton jButtonPesquisarExclusao;
+    private javax.swing.JButton jButtonSalvarCadastro;
+    private javax.swing.JComboBox<String> jComboBoxMobiliaCadastro;
+    private javax.swing.JLabel jLabelCapacidadeCadastro;
+    private javax.swing.JLabel jLabelDescricaoCadastro;
+    private javax.swing.JLabel jLabelMobiliaCadastro;
+    private javax.swing.JLabel jLabelNomeAlteracao;
+    private javax.swing.JLabel jLabelNomeCadastro;
+    private javax.swing.JLabel jLabelNomeConsulta;
+    private javax.swing.JLabel jLabelNomeExclusao;
+    private javax.swing.JLabel jLabelQtdMobiliaCadastro;
+    private javax.swing.JPanel jPanelAlterar;
+    private javax.swing.JPanel jPanelCadastro;
+    private javax.swing.JPanel jPanelConsulta;
+    private javax.swing.JPanel jPanelExclusao;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JScrollPane jScrollPaneDescricaoCadastro;
+    private javax.swing.JScrollPane jScrollPaneLocalAlteracao;
+    private javax.swing.JScrollPane jScrollPaneLocalConsulta;
+    private javax.swing.JScrollPane jScrollPaneLocalExclusao;
+    private javax.swing.JScrollPane jScrollPaneMobiliaCadastro;
+    private javax.swing.JSpinner jSpinnerQtdMobiliaCadastro;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTable jTableLocalAlteracao;
+    private javax.swing.JTable jTableLocalConsulta;
+    private javax.swing.JTable jTableLocalExclusao;
+    private javax.swing.JTable jTableMobiliaCadastro;
+    private javax.swing.JTextField jTextFieldCapacidadeCadastro;
+    private javax.swing.JTextField jTextFieldDescricaoCadastro;
+    private javax.swing.JTextField jTextFieldNomeAlteracao;
+    private javax.swing.JTextField jTextFieldNomeCadastro;
+    private javax.swing.JTextField jTextFieldNomeConsulta;
+    private javax.swing.JTextField jTextFieldNomeExclusao;
     // End of variables declaration//GEN-END:variables
 }
