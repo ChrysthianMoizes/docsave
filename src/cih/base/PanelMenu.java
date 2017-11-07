@@ -37,6 +37,11 @@ public class PanelMenu extends javax.swing.JPanel {
         btnDocumento.setText("Documento");
 
         btnLocal.setText("Local");
+        btnLocal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLocalActionPerformed(evt);
+            }
+        });
 
         btnMobilia.setText("Mobilia");
 
@@ -80,6 +85,10 @@ public class PanelMenu extends javax.swing.JPanel {
     private void btnTipoDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTipoDocumentoActionPerformed
         ctrlP.getCiTipoDocumento().AbrirInterfaceCadastroTipoDocumento();
     }//GEN-LAST:event_btnTipoDocumentoActionPerformed
+
+    private void btnLocalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLocalActionPerformed
+        ctrlP.getCiLocal().AbrirInterfaceCadastroLocal();
+    }//GEN-LAST:event_btnLocalActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
