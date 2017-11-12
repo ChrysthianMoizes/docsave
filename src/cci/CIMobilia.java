@@ -1,6 +1,7 @@
 package cci;
 
 import cdp.Local;
+import cdp.Mobilia;
 import cgt.GTMobilia;
 import java.util.List;
 import java.util.ArrayList;
@@ -39,17 +40,6 @@ public class CIMobilia {
         }
     }
     
-    public boolean cadastrar(String nome, String identificador, int capacidade, Local local, Collection compartimentos) {
-        boolean validou = validarCampos(nome, identificador, capacidade, compartimentos);
-        if (validou) {
-            gtMobilia.cadastrar(nome, identificador, capacidade, local, compartimentos);
-            exibirMenssagemInformativa("Cadastro concluído com sucesso!");
-            return true;
-        }
-        else 
-            return validou;
-    }
-    
     public List carregarCmbBoxMobilias() {
        return gtMobilia.carregar();
     }
@@ -68,22 +58,37 @@ public class CIMobilia {
         iFrameMobilia.setVisible(true);
     }
     
-    public void consultar(String nome) {
-        List lista = gtMobilia.consultar(nome);
-        iFrameMobilia.preencherCamposConsulta((String)lista.get(1), (String)lista.get(2));
+    public void consultar(Mobilia mobilia) {
+        iFrameMobilia.preencherCamposConsulta(mobilia);
     }
     
-    public void alterar(Object objId, String nome, String desc) {
-        //validarCampos(nome, desc);
-        gtMobilia.alterar(objId, nome, desc);
+    public boolean cadastrar(String nome, String identificador, int capacidade, Local local, Collection compartimentos) {
+        boolean validou = validarCampos(nome, identificador, capacidade, compartimentos);
+        if (validou) {
+            gtMobilia.cadastrar(nome, identificador, capacidade, local, compartimentos);
+            exibirMenssagemInformativa("Cadastro concluído com sucesso!");
+            return true;
+        }
+        else 
+            return validou;
+    }
+    
+    public boolean alterar(Mobilia mobilia, String nome, String identificador, int capacidade, Local local, Collection compartimentos) {
+        boolean validou = validarCampos(nome, identificador, capacidade, compartimentos);
+        if (validou) {
+            gtMobilia.alterar(mobilia, nome, identificador, capacidade, local, compartimentos);
+            return true;
+        }
+        else 
+            return validou;
     }
     
     public void exibirMenssagemInformativa(String texto) {
         ctrlP.getMensagens().exibirMenssagem(iFrameMobilia, texto);
     }
     
-    public void excluir(Object tDocumento) {
-        gtMobilia.excluir(tDocumento);
+    public void excluir(Mobilia mobilia) {
+        gtMobilia.excluir(mobilia);
     }
     
     public List listar() {

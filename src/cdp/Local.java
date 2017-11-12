@@ -91,4 +91,23 @@ public class Local implements Serializable {
     public String toString() {
         return nome;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Local other = (Local) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        return true;
+    }
+    
 }

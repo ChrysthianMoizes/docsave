@@ -5,6 +5,7 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
 public class GDMobilia extends GDGenerico {
+    
     public Mobilia consultar(String nome){
         Criteria crit = criarSessao().createCriteria(Mobilia.class);
         nome = nome.toLowerCase();

@@ -67,7 +67,7 @@ public abstract class GDGenerico {
         lista = cons.list();
         
         sessao.getTransaction().commit();
-        sessao.close();
+        //sessao.close();
         
         return lista;
     }

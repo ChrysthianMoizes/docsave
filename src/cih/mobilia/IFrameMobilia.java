@@ -3,6 +3,7 @@ package cih.mobilia;
 import cdp.Local;
 import cci.CIMobilia;
 import cdp.Compartimento;
+import cdp.Mobilia;
 import cih.util.JTableUtil;
 import java.util.List;
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import java.util.logging.Logger;
 import javax.swing.event.ChangeEvent;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 
 public class IFrameMobilia extends javax.swing.JInternalFrame {
 
@@ -56,30 +58,54 @@ public class IFrameMobilia extends javax.swing.JInternalFrame {
         panelConsulta = new javax.swing.JPanel();
         lblCmbConsulta = new javax.swing.JLabel();
         cmbConsulta = new javax.swing.JComboBox<>();
-        txtNomeConsulta = new javax.swing.JTextField();
-        lblNomeConsulta = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        txtAreaDescricaoConsulta = new javax.swing.JTextArea();
-        lblDescricaoConsulta = new javax.swing.JLabel();
         btnOkConsulta = new javax.swing.JButton();
+        txtNomeConsulta = new javax.swing.JTextField();
+        lblNome1 = new javax.swing.JLabel();
+        lblIdentificador1 = new javax.swing.JLabel();
+        txtIdConsulta = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        spnCapacidadeConsulta = new javax.swing.JSpinner();
+        jLabel5 = new javax.swing.JLabel();
+        cmbLocaisConsulta = new javax.swing.JComboBox<>();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblCompartimentosConsulta = new javax.swing.JTable();
+        btnCancelarConsulta = new javax.swing.JButton();
         panelAlterar = new javax.swing.JPanel();
-        txtNomeAlteracao = new javax.swing.JTextField();
-        lblNomeAlteracao = new javax.swing.JLabel();
-        lblDescricaoAlteracao = new javax.swing.JLabel();
-        sctrollPaneAlteracao = new javax.swing.JScrollPane();
-        txtAreaDescricaoAlteracao = new javax.swing.JTextArea();
-        btnSalvarAlteracao = new javax.swing.JButton();
-        lblCmbAlteracao = new javax.swing.JLabel();
-        cmbAlteracao = new javax.swing.JComboBox<>();
+        btnSalvarAlterar = new javax.swing.JButton();
+        btnOkAlterar = new javax.swing.JButton();
+        cmbLocaisAlterar = new javax.swing.JComboBox<>();
+        btnCancelarAlterar = new javax.swing.JButton();
+        txtNomeAlterar = new javax.swing.JTextField();
+        lblNome3 = new javax.swing.JLabel();
+        lblIdentificador3 = new javax.swing.JLabel();
+        txtIdAlterar = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        spnCapacidadeAlterar = new javax.swing.JSpinner();
+        jLabel9 = new javax.swing.JLabel();
+        lblCmbConsulta1 = new javax.swing.JLabel();
+        cmbAlterar = new javax.swing.JComboBox<>();
+        jPanel8 = new javax.swing.JPanel();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        tblCompartimentosAlterar = new javax.swing.JTable();
+        btnAddCompartimentoAlterar = new javax.swing.JButton();
+        btnRemoverCompartimentoAlterar = new javax.swing.JButton();
         panelExclusao = new javax.swing.JPanel();
-        sctrollPaneAlteracao1 = new javax.swing.JScrollPane();
-        txtAreaDescricaoExclusao = new javax.swing.JTextArea();
-        lblDescricaoExclusao = new javax.swing.JLabel();
-        lblNomeExclusao = new javax.swing.JLabel();
-        txtNomeExclusao = new javax.swing.JTextField();
         lblExclusao = new javax.swing.JLabel();
         cmbExclusao = new javax.swing.JComboBox<>();
         btnSalvarExclusao = new javax.swing.JButton();
+        btnAbrirExcluir = new javax.swing.JButton();
+        cmbLocaisExcluir = new javax.swing.JComboBox<>();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tblCompartimentosExcluir = new javax.swing.JTable();
+        txtNomeExcluir = new javax.swing.JTextField();
+        lblNome2 = new javax.swing.JLabel();
+        lblIdentificador2 = new javax.swing.JLabel();
+        txtIdExcluir = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        spnCapacidadeExcluir = new javax.swing.JSpinner();
+        jLabel7 = new javax.swing.JLabel();
         jInternalFrame1 = new javax.swing.JInternalFrame();
         panelTab1 = new javax.swing.JTabbedPane();
         paneCadastro1 = new javax.swing.JPanel();
@@ -218,7 +244,7 @@ public class IFrameMobilia extends javax.swing.JInternalFrame {
             panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCadastroLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelCadastroLayout.createSequentialGroup()
                         .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelCadastroLayout.createSequentialGroup()
@@ -238,14 +264,12 @@ public class IFrameMobilia extends javax.swing.JInternalFrame {
                                 .addGap(54, 54, 54)
                                 .addComponent(cmbLocaisCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 5, Short.MAX_VALUE))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelCadastroLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnSalvarCadastro)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnCancelarCadastro)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(328, 328, 328)
+                        .addComponent(btnCancelarCadastro)))
+                .addGap(0, 8, Short.MAX_VALUE))
         );
         panelCadastroLayout.setVerticalGroup(
             panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,7 +296,7 @@ public class IFrameMobilia extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSalvarCadastro)
                     .addComponent(btnCancelarCadastro))
                 .addContainerGap(158, Short.MAX_VALUE))
@@ -282,21 +306,65 @@ public class IFrameMobilia extends javax.swing.JInternalFrame {
 
         lblCmbConsulta.setText("Mobília");
 
-        txtNomeConsulta.setEditable(false);
-
-        lblNomeConsulta.setText("Nome");
-
-        txtAreaDescricaoConsulta.setEditable(false);
-        txtAreaDescricaoConsulta.setColumns(20);
-        txtAreaDescricaoConsulta.setRows(5);
-        jScrollPane3.setViewportView(txtAreaDescricaoConsulta);
-
-        lblDescricaoConsulta.setText("Descrição");
-
-        btnOkConsulta.setText("OK");
+        btnOkConsulta.setText("Abrir");
         btnOkConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOkConsultaActionPerformed(evt);
+            }
+        });
+
+        lblNome1.setText("Nome");
+
+        lblIdentificador1.setText("Identificador");
+
+        jLabel4.setText("Capacidade");
+
+        jLabel5.setText("Local");
+
+        cmbLocaisConsulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Compartimentos"));
+
+        tblCompartimentosConsulta.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nome", "Código"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblCompartimentosConsulta.setToolTipText("");
+        jScrollPane2.setViewportView(tblCompartimentosConsulta);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        btnCancelarConsulta.setText("Fechar");
+        btnCancelarConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarConsultaActionPerformed(evt);
             }
         });
 
@@ -305,27 +373,37 @@ public class IFrameMobilia extends javax.swing.JInternalFrame {
         panelConsultaLayout.setHorizontalGroup(
             panelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelConsultaLayout.createSequentialGroup()
-                .addGroup(panelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelConsultaLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(panelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3)
-                            .addGroup(panelConsultaLayout.createSequentialGroup()
-                                .addGroup(panelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblDescricaoConsulta)
-                                    .addGroup(panelConsultaLayout.createSequentialGroup()
-                                        .addComponent(lblNomeConsulta)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtNomeConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(panelConsultaLayout.createSequentialGroup()
-                                        .addComponent(lblCmbConsulta)
-                                        .addGap(26, 26, 26)
-                                        .addComponent(cmbConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 143, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelConsultaLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnOkConsulta)))
-                .addContainerGap())
+                .addGap(23, 23, 23)
+                .addGroup(panelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnCancelarConsulta)
+                    .addGroup(panelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(panelConsultaLayout.createSequentialGroup()
+                            .addComponent(lblCmbConsulta)
+                            .addGap(43, 43, 43)
+                            .addComponent(cmbConsulta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnOkConsulta))
+                        .addGroup(panelConsultaLayout.createSequentialGroup()
+                            .addGroup(panelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(panelConsultaLayout.createSequentialGroup()
+                                    .addGroup(panelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblIdentificador1)
+                                        .addComponent(lblNome1))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(panelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtNomeConsulta)
+                                        .addComponent(txtIdConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(panelConsultaLayout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(spnCapacidadeConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(panelConsultaLayout.createSequentialGroup()
+                                    .addComponent(jLabel5)
+                                    .addGap(54, 54, 54)
+                                    .addComponent(cmbLocaisConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelConsultaLayout.setVerticalGroup(
             panelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -333,64 +411,167 @@ public class IFrameMobilia extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(panelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCmbConsulta)
-                    .addComponent(cmbConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNomeConsulta)
-                    .addComponent(txtNomeConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnOkConsulta))
+                .addGap(3, 3, 3)
+                .addGroup(panelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelConsultaLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelConsultaLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(panelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNome1)
+                            .addComponent(txtNomeConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblIdentificador1)
+                            .addComponent(txtIdConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(spnCapacidadeConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(cmbLocaisConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblDescricaoConsulta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnOkConsulta)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btnCancelarConsulta)
+                .addContainerGap(151, Short.MAX_VALUE))
         );
 
         panelTab.addTab("Consulta", panelConsulta);
 
-        lblNomeAlteracao.setText("Nome");
-
-        lblDescricaoAlteracao.setText("Descrição");
-
-        txtAreaDescricaoAlteracao.setColumns(20);
-        txtAreaDescricaoAlteracao.setRows(5);
-        sctrollPaneAlteracao.setViewportView(txtAreaDescricaoAlteracao);
-
-        btnSalvarAlteracao.setText("Salvar");
-        btnSalvarAlteracao.addActionListener(new java.awt.event.ActionListener() {
+        btnSalvarAlterar.setText("Salvar");
+        btnSalvarAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarAlteracaoActionPerformed(evt);
+                btnSalvarAlterarActionPerformed(evt);
             }
         });
 
-        lblCmbAlteracao.setText("Mobília");
+        btnOkAlterar.setText("Abrir");
+        btnOkAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOkAlterarActionPerformed(evt);
+            }
+        });
+
+        cmbLocaisAlterar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
+
+        btnCancelarAlterar.setText("Fechar");
+        btnCancelarAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarAlterarActionPerformed(evt);
+            }
+        });
+
+        lblNome3.setText("Nome");
+
+        lblIdentificador3.setText("Identificador");
+
+        jLabel8.setText("Capacidade");
+
+        jLabel9.setText("Local");
+
+        lblCmbConsulta1.setText("Mobília");
+
+        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("Compartimentos"));
+
+        tblCompartimentosAlterar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nome", "Código"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblCompartimentosAlterar.setToolTipText("");
+        jScrollPane11.setViewportView(tblCompartimentosAlterar);
+
+        btnAddCompartimentoAlterar.setText("Adicionar");
+        btnAddCompartimentoAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddCompartimentoAlterarActionPerformed(evt);
+            }
+        });
+
+        btnRemoverCompartimentoAlterar.setText("Remover");
+        btnRemoverCompartimentoAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoverCompartimentoAlterarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(btnAddCompartimentoAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnRemoverCompartimentoAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAddCompartimentoAlterar)
+                    .addComponent(btnRemoverCompartimentoAlterar))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout panelAlterarLayout = new javax.swing.GroupLayout(panelAlterar);
         panelAlterar.setLayout(panelAlterarLayout);
         panelAlterarLayout.setHorizontalGroup(
             panelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelAlterarLayout.createSequentialGroup()
-                .addGroup(panelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAlterarLayout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addGroup(panelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panelAlterarLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
+                        .addComponent(lblCmbConsulta1)
+                        .addGap(43, 43, 43)
+                        .addComponent(cmbAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnOkAlterar))
+                    .addGroup(panelAlterarLayout.createSequentialGroup()
                         .addGroup(panelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(sctrollPaneAlteracao)
+                            .addComponent(btnSalvarAlterar)
                             .addGroup(panelAlterarLayout.createSequentialGroup()
                                 .addGroup(panelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblDescricaoAlteracao)
-                                    .addGroup(panelAlterarLayout.createSequentialGroup()
-                                        .addComponent(lblNomeAlteracao)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtNomeAlteracao, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(panelAlterarLayout.createSequentialGroup()
-                                        .addComponent(lblCmbAlteracao)
-                                        .addGap(26, 26, 26)
-                                        .addComponent(cmbAlteracao, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 143, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAlterarLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSalvarAlteracao)))
+                                    .addComponent(lblIdentificador3)
+                                    .addComponent(lblNome3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(panelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtNomeAlterar)
+                                    .addComponent(txtIdAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(panelAlterarLayout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(18, 18, 18)
+                                .addComponent(spnCapacidadeAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelAlterarLayout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(54, 54, 54)
+                                .addComponent(cmbLocaisAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCancelarAlterar))))
                 .addContainerGap())
         );
         panelAlterarLayout.setVerticalGroup(
@@ -398,69 +579,141 @@ public class IFrameMobilia extends javax.swing.JInternalFrame {
             .addGroup(panelAlterarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCmbAlteracao)
-                    .addComponent(cmbAlteracao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNomeAlteracao)
-                    .addComponent(txtNomeAlteracao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblDescricaoAlteracao)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sctrollPaneAlteracao, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnSalvarAlteracao)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblCmbConsulta1)
+                    .addComponent(cmbAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnOkAlterar))
+                .addGroup(panelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAlterarLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(panelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNome3)
+                            .addComponent(txtNomeAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblIdentificador3)
+                            .addComponent(txtIdAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(spnCapacidadeAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(cmbLocaisAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelAlterarLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnCancelarAlterar)
+                            .addComponent(btnSalvarAlterar))))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
 
         panelTab.addTab("Alteração", panelAlterar);
 
-        txtAreaDescricaoExclusao.setEditable(false);
-        txtAreaDescricaoExclusao.setColumns(20);
-        txtAreaDescricaoExclusao.setRows(5);
-        sctrollPaneAlteracao1.setViewportView(txtAreaDescricaoExclusao);
-
-        lblDescricaoExclusao.setText("Descrição");
-
-        lblNomeExclusao.setText("Nome");
-
-        txtNomeExclusao.setEditable(false);
-
         lblExclusao.setText("Mobília");
 
-        btnSalvarExclusao.setText("Salvar");
+        btnSalvarExclusao.setText("Excluir");
         btnSalvarExclusao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarExclusaoActionPerformed(evt);
             }
         });
 
+        btnAbrirExcluir.setText("Abrir");
+        btnAbrirExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAbrirExcluirActionPerformed(evt);
+            }
+        });
+
+        cmbLocaisExcluir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Compartimentos"));
+
+        tblCompartimentosExcluir.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nome", "Código"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblCompartimentosExcluir.setToolTipText("");
+        jScrollPane7.setViewportView(tblCompartimentosExcluir);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        lblNome2.setText("Nome");
+
+        lblIdentificador2.setText("Identificador");
+
+        jLabel6.setText("Capacidade");
+
+        jLabel7.setText("Local");
+
         javax.swing.GroupLayout panelExclusaoLayout = new javax.swing.GroupLayout(panelExclusao);
         panelExclusao.setLayout(panelExclusaoLayout);
         panelExclusaoLayout.setHorizontalGroup(
             panelExclusaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelExclusaoLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
                 .addGroup(panelExclusaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelExclusaoLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(panelExclusaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(sctrollPaneAlteracao1)
+                        .addComponent(lblExclusao)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cmbExclusao, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnAbrirExcluir)
+                        .addGap(16, 16, 16))
+                    .addGroup(panelExclusaoLayout.createSequentialGroup()
+                        .addGroup(panelExclusaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnSalvarExclusao)
                             .addGroup(panelExclusaoLayout.createSequentialGroup()
                                 .addGroup(panelExclusaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblDescricaoExclusao)
                                     .addGroup(panelExclusaoLayout.createSequentialGroup()
-                                        .addComponent(lblNomeExclusao)
+                                        .addGroup(panelExclusaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblIdentificador2)
+                                            .addComponent(lblNome2))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtNomeExclusao, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(panelExclusaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtNomeExcluir)
+                                            .addComponent(txtIdExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(panelExclusaoLayout.createSequentialGroup()
-                                        .addComponent(lblExclusao)
-                                        .addGap(26, 26, 26)
-                                        .addComponent(cmbExclusao, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 143, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelExclusaoLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSalvarExclusao)))
-                .addContainerGap())
+                                        .addComponent(jLabel6)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(spnCapacidadeExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panelExclusaoLayout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addGap(54, 54, 54)
+                                        .addComponent(cmbLocaisExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         panelExclusaoLayout.setVerticalGroup(
             panelExclusaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -468,18 +721,31 @@ public class IFrameMobilia extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(panelExclusaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblExclusao)
-                    .addComponent(cmbExclusao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelExclusaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNomeExclusao)
-                    .addComponent(txtNomeExclusao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbExclusao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAbrirExcluir))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblDescricaoExclusao)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sctrollPaneAlteracao1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGroup(panelExclusaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelExclusaoLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(panelExclusaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNome2)
+                            .addComponent(txtNomeExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelExclusaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblIdentificador2)
+                            .addComponent(txtIdExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelExclusaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(spnCapacidadeExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelExclusaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(cmbLocaisExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(13, 13, 13)
                 .addComponent(btnSalvarExclusao)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(150, Short.MAX_VALUE))
         );
 
         panelTab.addTab("Exclusão", panelExclusao);
@@ -780,9 +1046,9 @@ public class IFrameMobilia extends javax.swing.JInternalFrame {
             .addComponent(panelTab)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 252, Short.MAX_VALUE)
+                    .addGap(0, 253, Short.MAX_VALUE)
                     .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 251, Short.MAX_VALUE)))
+                    .addGap(0, 253, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -800,23 +1066,21 @@ public class IFrameMobilia extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOkConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkConsultaActionPerformed
-        ctrl.consultar(cmbConsulta.getSelectedItem().toString());
+        Mobilia mobilia = (Mobilia)cmbConsulta.getSelectedItem();
+        preencherCamposConsulta(mobilia);
     }//GEN-LAST:event_btnOkConsultaActionPerformed
 
-    private void btnSalvarAlteracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarAlteracaoActionPerformed
-        String nome = txtNomeAlteracao.getText();
-        String desc = txtAreaDescricaoAlteracao.getText();
-        Object objId = encontrarElmento(cmbAlteracao.getSelectedItem().toString());
-        ctrl.alterar(objId, nome, desc);
-        ctrl.exibirMenssagemInformativa("Alteração de dado concluáda");
-    }//GEN-LAST:event_btnSalvarAlteracaoActionPerformed
-
-    private void btnSalvarExclusaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarExclusaoActionPerformed
-        ctrl.excluir(encontrarElmento(
-                cmbExclusao.getSelectedItem().toString())
-        );
-        ctrl.exibirMenssagemInformativa("Mobília excluido com sucesso");
-    }//GEN-LAST:event_btnSalvarExclusaoActionPerformed
+    private void btnSalvarAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarAlterarActionPerformed
+        String nome = txtNomeAlterar.getText();
+        String identificador = txtIdAlterar.getText();
+        int capacidade = (int)spnCapacidadeAlterar.getValue();
+        Local local = (Local) cmbLocaisAlterar.getSelectedItem();
+        Collection<Compartimento> comparts = JTableUtil.toList(tblCompartimentosAlterar);
+        Mobilia mobilia = (Mobilia)cmbAlterar.getSelectedItem();
+        
+        if (ctrl.alterar(mobilia, nome, identificador, capacidade, local, comparts))
+            ctrl.exibirMenssagemInformativa("Alteração concluída com sucesso!");
+    }//GEN-LAST:event_btnSalvarAlterarActionPerformed
 
     private void btnSalvarCadastro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarCadastro1ActionPerformed
         // TODO add your handling code here:
@@ -867,6 +1131,41 @@ public class IFrameMobilia extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnRemoverCompartimentoActionPerformed
 
+    private void btnCancelarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarConsultaActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarConsultaActionPerformed
+
+    private void btnSalvarExclusaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarExclusaoActionPerformed
+        ctrl.excluir((Mobilia)cmbExclusao.getSelectedItem());
+        ctrl.exibirMenssagemInformativa("Mobília excluida com sucesso!");
+    }//GEN-LAST:event_btnSalvarExclusaoActionPerformed
+
+    private void btnAbrirExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirExcluirActionPerformed
+        Mobilia mobilia = (Mobilia)cmbExclusao.getSelectedItem();
+        preencherCamposExclusao(mobilia);
+    }//GEN-LAST:event_btnAbrirExcluirActionPerformed
+
+    private void btnOkAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkAlterarActionPerformed
+        Mobilia mobilia = (Mobilia)cmbAlterar.getSelectedItem();
+        preencherCamposAlteracao(mobilia);
+    }//GEN-LAST:event_btnOkAlterarActionPerformed
+
+    private void btnCancelarAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarAlterarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarAlterarActionPerformed
+
+    private void btnAddCompartimentoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCompartimentoAlterarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddCompartimentoAlterarActionPerformed
+
+    private void btnRemoverCompartimentoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverCompartimentoAlterarActionPerformed
+        try {
+            JTableUtil.removeLinhaSelecionada(tblCompartimentosAlterar);
+        } catch (Exception ex) {
+            Logger.getLogger(IFrameMobilia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnRemoverCompartimentoAlterarActionPerformed
+
     private Object encontrarElmento(String nome) {
         for(Object item : listaCmbBox){
             if(item.toString().equals(nome))
@@ -878,22 +1177,31 @@ public class IFrameMobilia extends javax.swing.JInternalFrame {
     public void iniciarInterfaceConsulta(){
         limparInterfaceConsulta();
         txtNomeConsulta.setEnabled(false);
-        txtAreaDescricaoConsulta.setEnabled(false);
+        //txtAreaDescricaoConsulta.setEnabled(false);
     }
     
-    public void limparInterfaceConsulta(){
+    public void limparInterfaceConsulta() {
         txtNomeConsulta.setText("");
-        txtAreaDescricaoConsulta.setText("");
+        txtIdConsulta.setText("");
+        spnCapacidadeConsulta.setValue(0);
+        cmbLocaisConsulta.setSelectedIndex(0);
+        JTableUtil.limparTabela(tblCompartimentosConsulta);
     }
     
-    public void limparInterfaceAlteracao(){
-        txtNomeAlteracao.setText("");
-        txtAreaDescricaoAlteracao.setText("");
+    public void limparInterfaceAlteracao() {
+        txtNomeAlterar.setText("");
+        txtIdAlterar.setText("");
+        spnCapacidadeAlterar.setValue(0);
+        cmbLocaisAlterar.setSelectedIndex(0);
+        JTableUtil.limparTabela(tblCompartimentosAlterar);
     }
     
-    public void limparInterfaceExclusao(){
-        txtNomeExclusao.setText("");
-        txtAreaDescricaoExclusao.setText("");
+    public void limparInterfaceExclusao() {
+        txtNomeExcluir.setText("");
+        txtIdExcluir.setText("");
+        spnCapacidadeExcluir.setValue(0);
+        cmbLocaisExcluir.setSelectedIndex(0);
+        JTableUtil.limparTabela(tblCompartimentosExcluir);
     }
     
     public void limparInterfaceCadastro(){
@@ -908,59 +1216,95 @@ public class IFrameMobilia extends javax.swing.JInternalFrame {
         limparInterfaceExclusao();
     }
     
-    public void preencherCamposConsulta(String nome, String desc){
-        txtNomeConsulta.setText(nome);
-        txtAreaDescricaoConsulta.setText(desc);
+    public void preencherCamposConsulta(Mobilia mobilia) {
+        txtNomeConsulta.setText(mobilia.getNome());
+        txtNomeConsulta.setEnabled(false);
+        txtIdConsulta.setText(mobilia.getCodigo());
+        txtIdConsulta.setEnabled(false);
+        spnCapacidadeConsulta.setValue(mobilia.getCapacidade());
+        spnCapacidadeConsulta.setEnabled(false);
+        cmbLocaisConsulta.setSelectedItem(mobilia.getLocal());
+        cmbLocaisConsulta.setEnabled(false);
+        preencherTableCompartimentos(tblCompartimentosConsulta,
+                (List)mobilia.getCompartimentos());
     }
     
-     public void preencherCamposAlteracao(String nome, String desc) {
-        txtNomeAlteracao.setText(nome);
-        txtAreaDescricaoAlteracao.setText(desc);
+    public void preencherCamposExclusao(Mobilia mobilia) {
+        txtNomeExcluir.setText(mobilia.getNome());
+        txtNomeExcluir.setEnabled(false);
+        txtIdExcluir.setText(mobilia.getCodigo());
+        txtIdExcluir.setEnabled(false);
+        spnCapacidadeExcluir.setValue(mobilia.getCapacidade());
+        spnCapacidadeExcluir.setEnabled(false);
+        cmbLocaisExcluir.setSelectedItem(mobilia.getLocal());
+        cmbLocaisExcluir.setEnabled(false);
+        preencherTableCompartimentos(tblCompartimentosExcluir,
+                (List)mobilia.getCompartimentos());
+    }
+    
+    public void preencherCamposAlteracao(Mobilia mobilia) {
+        txtNomeAlterar.setText(mobilia.getNome());
+        txtIdAlterar.setText(mobilia.getCodigo());
+        spnCapacidadeAlterar.setValue(mobilia.getCapacidade());
+        cmbLocaisAlterar.setSelectedItem(mobilia.getLocal());
+        preencherTableCompartimentos(tblCompartimentosAlterar,
+                (List)mobilia.getCompartimentos());
     }
      
-    public void preencherCmbBoxMobilias(List lista) {
-        cmbAlteracao.removeAllItems();
+    public void preencherCmbBoxMobilias(List<Mobilia> lista) {
+        cmbAlterar.removeAllItems();
         cmbConsulta.removeAllItems();   
         cmbExclusao.removeAllItems();
         if (lista != null) {
-            for (Object item : lista) {
+            for (Mobilia item : lista) {
                 listaCmbBox.add(item);
-                cmbConsulta.addItem(item.toString());
-                cmbAlteracao.addItem(item.toString());
-                cmbExclusao.addItem(item.toString());
             }
+            cmbConsulta.setModel(new DefaultComboBoxModel(lista.toArray()));
+            cmbAlterar.setModel(new DefaultComboBoxModel(lista.toArray()));
+            cmbExclusao.setModel(new DefaultComboBoxModel(lista.toArray()));
         }
     }
     
     public void preencherCmbBoxLocais(List<Local> lista) {
+        cmbLocaisAlterar.setModel(new DefaultComboBoxModel(lista.toArray()));
         cmbLocaisCadastro.setModel(new DefaultComboBoxModel(lista.toArray()));
+        cmbLocaisConsulta.setModel(new DefaultComboBoxModel(lista.toArray()));
     }
     
-    /**
-     * TODO: NÃO ESTÁ EM USO!
-     */
-    public void preencherTableCompartimentos(List<Compartimento> lista) {
+    public void preencherTableCompartimentos(JTable table, List<Compartimento> lista) {
+        JTableUtil.limparTabela(table);
         for (Compartimento compartimento : lista)
-            JTableUtil.addLinha(tblCompartimentosCadastro, compartimento.toArray());
+            JTableUtil.addLinha(table, compartimento.toArray());
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAbrirExcluir;
     private javax.swing.JButton btnAddCompartimento;
+    private javax.swing.JButton btnAddCompartimento2;
+    private javax.swing.JButton btnAddCompartimentoAlterar;
+    private javax.swing.JButton btnCancelarAlterar;
     private javax.swing.JButton btnCancelarCadastro;
+    private javax.swing.JButton btnCancelarConsulta;
     private javax.swing.JButton btnCancelarTipoDocumento1;
     private javax.swing.JButton btnOK1;
+    private javax.swing.JButton btnOkAlterar;
     private javax.swing.JButton btnOkConsulta;
     private javax.swing.JButton btnRemoverCompartimento;
-    private javax.swing.JButton btnSalvarAlteracao;
+    private javax.swing.JButton btnRemoverCompartimento2;
+    private javax.swing.JButton btnRemoverCompartimentoAlterar;
     private javax.swing.JButton btnSalvarAlteracao1;
+    private javax.swing.JButton btnSalvarAlterar;
     private javax.swing.JButton btnSalvarCadastro;
     private javax.swing.JButton btnSalvarCadastro1;
     private javax.swing.JButton btnSalvarExclusao;
     private javax.swing.JButton btnSalvarExclusao1;
-    private javax.swing.JComboBox<String> cmbAlteracao;
+    private javax.swing.JComboBox<String> cmbAlterar;
     private javax.swing.JComboBox<String> cmbConsulta;
     private javax.swing.JComboBox<String> cmbExclusao;
+    private javax.swing.JComboBox<String> cmbLocaisAlterar;
     private javax.swing.JComboBox<String> cmbLocaisCadastro;
+    private javax.swing.JComboBox<String> cmbLocaisConsulta;
+    private javax.swing.JComboBox<String> cmbLocaisExcluir;
     private javax.swing.JComboBox<String> cmbTipoDocumentoAlteracao1;
     private javax.swing.JComboBox<String> cmbTipoDocumentoConsulta1;
     private javax.swing.JComboBox<String> cmbTipoDocumentoExclusao1;
@@ -968,27 +1312,44 @@ public class IFrameMobilia extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JLabel lblCmbAlteracao;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JLabel lblCmbConsulta;
-    private javax.swing.JLabel lblDescricaoAlteracao;
-    private javax.swing.JLabel lblDescricaoConsulta;
-    private javax.swing.JLabel lblDescricaoExclusao;
+    private javax.swing.JLabel lblCmbConsulta1;
     private javax.swing.JLabel lblDescricaoTipoDocumento1;
     private javax.swing.JLabel lblDescricaoTipoDocumentoAlteracao1;
     private javax.swing.JLabel lblDescricaoTipoDocumentoConsulta1;
     private javax.swing.JLabel lblDescricaoTipoDocumentoExclusao1;
     private javax.swing.JLabel lblExclusao;
     private javax.swing.JLabel lblIdentificador;
+    private javax.swing.JLabel lblIdentificador1;
+    private javax.swing.JLabel lblIdentificador2;
+    private javax.swing.JLabel lblIdentificador3;
     private javax.swing.JLabel lblNome;
-    private javax.swing.JLabel lblNomeAlteracao;
-    private javax.swing.JLabel lblNomeConsulta;
-    private javax.swing.JLabel lblNomeExclusao;
+    private javax.swing.JLabel lblNome1;
+    private javax.swing.JLabel lblNome2;
+    private javax.swing.JLabel lblNome3;
     private javax.swing.JLabel lblNomeTipoDocumento1;
     private javax.swing.JLabel lblNomeTipoDocumentoAlteracao1;
     private javax.swing.JLabel lblNomeTipoDocumentoConsulta1;
@@ -1006,24 +1367,31 @@ public class IFrameMobilia extends javax.swing.JInternalFrame {
     private javax.swing.JPanel panelExclusao1;
     private javax.swing.JTabbedPane panelTab;
     private javax.swing.JTabbedPane panelTab1;
-    private javax.swing.JScrollPane sctrollPaneAlteracao;
-    private javax.swing.JScrollPane sctrollPaneAlteracao1;
     private javax.swing.JScrollPane sctrollPaneAlteracao2;
     private javax.swing.JScrollPane sctrollPaneAlteracao3;
+    private javax.swing.JSpinner spnCapacidadeAlterar;
     private javax.swing.JSpinner spnCapacidadeCadastro;
+    private javax.swing.JSpinner spnCapacidadeConsulta;
+    private javax.swing.JSpinner spnCapacidadeExcluir;
+    private javax.swing.JTable tblCompartimentosAlterar;
     private javax.swing.JTable tblCompartimentosCadastro;
-    private javax.swing.JTextArea txtAreaDescricaoAlteracao;
-    private javax.swing.JTextArea txtAreaDescricaoConsulta;
-    private javax.swing.JTextArea txtAreaDescricaoExclusao;
+    private javax.swing.JTable tblCompartimentosConsulta;
+    private javax.swing.JTable tblCompartimentosConsulta1;
+    private javax.swing.JTable tblCompartimentosConsulta2;
+    private javax.swing.JTable tblCompartimentosConsulta3;
+    private javax.swing.JTable tblCompartimentosExcluir;
     private javax.swing.JTextArea txtAreaDescricaoTipoDocumentoAlteracao1;
     private javax.swing.JTextArea txtAreaDescricaoTipoDocumentoCadastro1;
     private javax.swing.JTextArea txtAreaDescricaoTipoDocumentoConsulta1;
     private javax.swing.JTextArea txtAreaDescricaoTipoDocumentoExclusao1;
+    private javax.swing.JTextField txtIdAlterar;
     private javax.swing.JTextField txtIdCadastro;
-    private javax.swing.JTextField txtNomeAlteracao;
+    private javax.swing.JTextField txtIdConsulta;
+    private javax.swing.JTextField txtIdExcluir;
+    private javax.swing.JTextField txtNomeAlterar;
     private javax.swing.JTextField txtNomeCadastro;
     private javax.swing.JTextField txtNomeConsulta;
-    private javax.swing.JTextField txtNomeExclusao;
+    private javax.swing.JTextField txtNomeExcluir;
     private javax.swing.JTextField txtNomeTipoDocumentoAlteracao1;
     private javax.swing.JTextField txtNomeTipoDocumentoCadastro1;
     private javax.swing.JTextField txtNomeTipoDocumentoConsulta1;

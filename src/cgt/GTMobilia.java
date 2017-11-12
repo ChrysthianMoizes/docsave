@@ -4,7 +4,6 @@ import cdp.Local;
 import cdp.Mobilia;
 import cgd.GDMobilia;
 import java.util.List;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.SQLException;
@@ -35,24 +34,18 @@ public class GTMobilia {
         return retorno;
     }
     
-    public List consultar(String nome) {
-        List lista = new ArrayList();
-        Mobilia tMobilia = gdMobilia.consultar(nome);
-        if (tMobilia != null) {
-            lista.add(tMobilia.getId());
-            lista.add(tMobilia.getNome());
-            //lista.add(tMobilia.getDescricao());
-        }
-        return lista;
+    public Mobilia consultar(String nome) {
+        return gdMobilia.consultar(nome);
     }
     
-    public void alterar(Object objId, String nome, String desc) {
-        Mobilia obj = (Mobilia)objId;
-        int id = obj.getId();
-        //TODO: ADICIONAR CAMPOS QUE FALTAM...
-        Mobilia tMobilia = new Mobilia("01", nome, 0, null, null);
+    public void alterar(Mobilia mobilia, String nome, String identificador, int capacidade, Local local, Collection compartimentos) {
+        mobilia.setNome(nome);
+        mobilia.setCodigo(identificador);
+        mobilia.setCapacidade(capacidade);
+        mobilia.setLocal(local);
+        mobilia.setCompartimentos(compartimentos);
         try {
-            gdMobilia.alterar(tMobilia);
+            gdMobilia.alterar(mobilia);
         } catch (SQLException ex) {
             Logger.getLogger(GTMobilia.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -60,9 +53,9 @@ public class GTMobilia {
         }
     }
     
-    public void excluir(Object tMobilia) {
+    public void excluir(Mobilia tMobilia) {
         try {
-            gdMobilia.excluir((Mobilia)tMobilia);
+            gdMobilia.excluir(tMobilia);
         } catch (SQLException ex) {
             Logger.getLogger(GTMobilia.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
