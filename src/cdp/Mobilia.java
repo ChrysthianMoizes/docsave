@@ -29,7 +29,7 @@ public class Mobilia implements Serializable {
     @JoinColumn(name = "local_id", nullable = false)
     private Local local;
     
-    @OneToMany(mappedBy = "mobilia", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "mobilia", fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.NO_ACTION)
     @Cascade(CascadeType.SAVE_UPDATE)
     private Collection<Compartimento> compartimentos;
@@ -100,5 +100,9 @@ public class Mobilia implements Serializable {
     public void setCompartimentos(Collection<Compartimento> compartimentos) {
         this.compartimentos = compartimentos;
     }
-    
+
+    @Override
+    public String toString() {
+        return nome;
+    }
 }

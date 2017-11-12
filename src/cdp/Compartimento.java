@@ -126,5 +126,11 @@ public class Compartimento implements Serializable {
         this.documentos = documentos;
     }
     
+    public String toString() {
+        return nome;
+    }
     
+    public Object[] toArray() {
+        return new Object[] {this, nome, codigo};
+    }
 }

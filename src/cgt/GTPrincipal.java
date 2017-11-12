@@ -1,16 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cgt;
 
-/**
- *
- * @author reida
- */
+//TODO: DELETAR ESSA CLASSE. AS GT's DEVEM FICAR DENTRO DE CADA CI,
+//      USE O EXEMPLO DA CIMobilia
 public class GTPrincipal {
-
     private GTCompartimento gtCompartimento;
     private GTDocumento gtDocumento;
     private GTLocal gtLocal;
@@ -62,7 +54,4 @@ public class GTPrincipal {
     public GTUsuario getGtUsuario() {
         return gtUsuario;
     }
-    
-    
-    
 }
