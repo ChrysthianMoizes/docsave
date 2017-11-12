@@ -1,18 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cgd;
 
 import cdp.TipoDocumento;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
-/**
- *
- * @author reida
- */
 public class GDTipoDocumento extends GDGenerico {
     public TipoDocumento consultarTipoDocumento(String nome){
         Criteria crit = criarSessao().createCriteria(TipoDocumento.class);

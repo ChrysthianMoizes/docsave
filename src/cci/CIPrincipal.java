@@ -1,7 +1,7 @@
 package cci;
 
 import cci.util.Modulo;
-import cgd.Config;
+import cgd.ConfigBancoDados;
 import cgt.GTPrincipal;
 import cih.util.Mensagem;
 import cih.base.FramePrincipal;
@@ -19,10 +19,8 @@ public class CIPrincipal {
     private CITipoDocumento ciTipoDocumento;
     private Mensagem        mensagens;
     
- 
     public CIPrincipal() {
-        new Config();
-        iniciarFramePrincipal();
+        new ConfigBancoDados();
         gtPrincipal     = new GTPrincipal();
         ciCompartimento = new CICompartimento(this);
         ciDocumento     = new CIDocumento(this);
@@ -31,7 +29,8 @@ public class CIPrincipal {
         ciReferenciado  = new CIReferenciado(this);
         ciTipoDocumento = new CITipoDocumento(this);
         ciUsuario       = new CIUsuario(this);
-        mensagens      = new Mensagem(this);
+        mensagens       = new Mensagem(this);
+        iniciarFramePrincipal();
     }
     
     public void iniciarFramePrincipal() {

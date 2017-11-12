@@ -44,6 +44,11 @@ public class PanelMenu extends javax.swing.JPanel {
         });
 
         btnMobilia.setText("Mobilia");
+        btnMobilia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMobiliaActionPerformed(evt);
+            }
+        });
 
         btnReferenciado.setText("Referentes");
 
@@ -83,13 +88,16 @@ public class PanelMenu extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTipoDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTipoDocumentoActionPerformed
-        ctrlP.getCiTipoDocumento().AbrirInterfaceCadastroTipoDocumento();
+        ctrlP.getCiTipoDocumento().abrirCadastroTipoDocumento();
     }//GEN-LAST:event_btnTipoDocumentoActionPerformed
 
     private void btnLocalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLocalActionPerformed
-        ctrlP.getCiLocal().AbrirInterfaceCadastroLocal();
+        ctrlP.getCiLocal().abrirCadastro();
     }//GEN-LAST:event_btnLocalActionPerformed
 
+    private void btnMobiliaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMobiliaActionPerformed
+        ctrlP.getCiMobilia().abrirCadastro();
+    }//GEN-LAST:event_btnMobiliaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCompartimento;

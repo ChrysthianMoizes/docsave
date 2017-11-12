@@ -1,14 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cgt;
 
-/**
- *
- * @author reida
- */
+import cdp.Compartimento;
+import cgd.GDCompartimento;
+import java.util.List;
+
 public class GTCompartimento {
+    GDCompartimento gdCompartimento;
+
+    public GTCompartimento() {
+        gdCompartimento = new GDCompartimento();
+    }
     
+    public List listar() {
+        return gdCompartimento.consultar(Compartimento.class);
+    }
 }

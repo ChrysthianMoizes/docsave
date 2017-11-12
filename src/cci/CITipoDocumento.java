@@ -1,8 +1,8 @@
 package cci;
 
-import cih.tipoDocumento.IFrameTipoDocumento;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
+import cih.tipoDocumento.IFrameTipoDocumento;
 
 public class CITipoDocumento {
     private CIPrincipal ctrlP;
@@ -32,7 +32,7 @@ public class CITipoDocumento {
        return ctrlP.getGtPrincipal().getGtTipoDocumento().carregarTipoDocumento();
     }
     
-    public void AbrirInterfaceCadastroTipoDocumento() {
+    public void abrirCadastroTipoDocumento() {
         iFrameTipoDocumento = new IFrameTipoDocumento(this);
         ctrlP.getJanelaPrincipal().getDesktopPane().add(iFrameTipoDocumento);
         iFrameTipoDocumento.setVisible(true);

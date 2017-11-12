@@ -86,5 +86,9 @@ public class Local implements Serializable {
     public void setMobilias(Collection<Mobilia> mobilias) {
         this.mobilias = mobilias;
     }
-    
+
+    @Override
+    public String toString() {
+        return nome;
+    }
 }
