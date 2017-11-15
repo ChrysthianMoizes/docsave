@@ -33,6 +33,11 @@ public class PanelMenu extends javax.swing.JPanel {
         });
 
         btnCompartimento.setText("Compartimento");
+        btnCompartimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCompartimentoActionPerformed(evt);
+            }
+        });
 
         btnDocumento.setText("Documento");
 
@@ -89,6 +94,10 @@ public class PanelMenu extends javax.swing.JPanel {
     private void btnLocalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLocalActionPerformed
         ctrlP.getCiLocal().AbrirInterfaceCadastroLocal();
     }//GEN-LAST:event_btnLocalActionPerformed
+
+    private void btnCompartimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompartimentoActionPerformed
+        ctrlP.getCiCompartimento().abrirIFrameCompartimento();
+    }//GEN-LAST:event_btnCompartimentoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

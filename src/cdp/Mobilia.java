@@ -2,6 +2,7 @@ package cdp;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Objects;
 import javax.persistence.*;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -25,11 +26,11 @@ public class Mobilia implements Serializable {
     @Column(nullable = false)
     private int capacidade;
     
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "local_id", nullable = false)
     private Local local;
     
-    @OneToMany(mappedBy = "mobilia", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "mobilia", fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.NO_ACTION)
     @Cascade(CascadeType.SAVE_UPDATE)
     private Collection<Compartimento> compartimentos;
@@ -100,5 +101,41 @@ public class Mobilia implements Serializable {
     public void setCompartimentos(Collection<Compartimento> compartimentos) {
         this.compartimentos = compartimentos;
     }
+
+    @Override
+    public String toString() {
+        return nome;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Mobilia other = (Mobilia) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        if (this.capacidade != other.capacidade) {
+            return false;
+        }
+        if (!Objects.equals(this.codigo, other.codigo)) {
+            return false;
+        }
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
+    
+    
     
 }

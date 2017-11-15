@@ -28,7 +28,7 @@ public class GTTipoDocumento {
         }
     }
     
-    public List carregarTipoDocumento(){
+    public List obterTipoDocumento(){
         List retorno = null;
         retorno = gdTipoDocumento.consultar(TipoDocumento.class);
         return retorno;

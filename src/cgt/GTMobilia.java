@@ -5,10 +5,23 @@
  */
 package cgt;
 
+import cdp.Mobilia;
+import cgd.GDMobilia;
+import java.util.List;
+
 /**
  *
  * @author reida
  */
 public class GTMobilia {
+    GDMobilia gdMobilia;
+
+    public GTMobilia() {
+        gdMobilia = new GDMobilia();
+    }
+    
+    public List obterMobilias(){
+        return gdMobilia.consultar(Mobilia.class);
+    }
     
 }

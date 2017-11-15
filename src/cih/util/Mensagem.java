@@ -13,7 +13,7 @@ public class Mensagem {
         this.ctrlP = ctrlP;
     }
 
-    public void validaCampos(Component componentePai, ArrayList<String> listaErro) {
+    public boolean validaCampos(Component componentePai, ArrayList<String> listaErro) {
         if (!listaErro.isEmpty()) {
             String itens = "";
             for (String item : listaErro) {
@@ -23,7 +23,9 @@ public class Mensagem {
             itens = itens.substring(0, (itens.length() - 2));
             JOptionPane.showMessageDialog(componentePai, "Os seguintes campos estão branco: " + itens,
                     "Alerta! Campos em branco", JOptionPane.WARNING_MESSAGE);
-        }
+            return false;
+        }else 
+            return true;
     }
 
     public void exibirMenssagem(Component componentePai, String texto) {
