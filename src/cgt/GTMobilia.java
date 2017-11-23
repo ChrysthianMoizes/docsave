@@ -10,11 +10,14 @@ import java.sql.SQLException;
 import java.util.Collection;
 
 public class GTMobilia {
-    
     GDMobilia gdMobilia;
 
     public GTMobilia() {
         gdMobilia = new GDMobilia();
+    }
+    
+    public List obterMobilias(){
+        return gdMobilia.consultar(Mobilia.class);
     }
     
     public void cadastrar(String nome, String identificador, int capacidade, Local local, Collection compartimentos) {

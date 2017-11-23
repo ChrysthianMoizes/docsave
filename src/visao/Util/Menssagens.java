@@ -5,7 +5,7 @@
  */
 package Visao.Util;
 
-import controlador.CIPrincipal;
+import cci.CIPrincipal;
 import java.awt.Component;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;

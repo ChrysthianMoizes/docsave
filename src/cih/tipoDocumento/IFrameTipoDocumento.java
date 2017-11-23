@@ -735,22 +735,6 @@ public class IFrameTipoDocumento extends javax.swing.JInternalFrame {
         ctrl.exibirMenssagemInformativa("Tipo de Documento excluido com sucesso");
     }//GEN-LAST:event_btnSalvarExclusaoActionPerformed
 
-    private void btnSalvarCadastro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarCadastro1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalvarCadastro1ActionPerformed
-
-    private void btnCancelarTipoDocumento1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarTipoDocumento1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCancelarTipoDocumento1ActionPerformed
-
-    private void btnOK1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOK1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnOK1ActionPerformed
-
-    private void btnSalvarAlteracao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarAlteracao1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalvarAlteracao1ActionPerformed
-
     private void btnSalvarExclusao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarExclusao1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalvarExclusao1ActionPerformed
@@ -758,6 +742,22 @@ public class IFrameTipoDocumento extends javax.swing.JInternalFrame {
     private void cmbTipoDocumentoAlteracao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoDocumentoAlteracao1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbTipoDocumentoAlteracao1ActionPerformed
+
+    private void btnSalvarAlteracao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarAlteracao1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSalvarAlteracao1ActionPerformed
+
+    private void btnOK1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOK1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnOK1ActionPerformed
+
+    private void btnCancelarTipoDocumento1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarTipoDocumento1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelarTipoDocumento1ActionPerformed
+
+    private void btnSalvarCadastro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarCadastro1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSalvarCadastro1ActionPerformed
 
     private Object encontrarElmento(String nome){
         for(Object item : listaCmbBox){

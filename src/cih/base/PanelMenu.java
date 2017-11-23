@@ -33,6 +33,11 @@ public class PanelMenu extends javax.swing.JPanel {
         });
 
         btnCompartimento.setText("Compartimento");
+        btnCompartimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCompartimentoActionPerformed(evt);
+            }
+        });
 
         btnDocumento.setText("Documento");
 
@@ -51,6 +56,11 @@ public class PanelMenu extends javax.swing.JPanel {
         });
 
         btnReferenciado.setText("Referentes");
+        btnReferenciado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReferenciadoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -98,6 +108,14 @@ public class PanelMenu extends javax.swing.JPanel {
     private void btnMobiliaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMobiliaActionPerformed
         ctrlP.getCiMobilia().abrirCadastro();
     }//GEN-LAST:event_btnMobiliaActionPerformed
+    private void btnCompartimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompartimentoActionPerformed
+        ctrlP.getCiCompartimento().abrirIFrameCompartimento();
+    }//GEN-LAST:event_btnCompartimentoActionPerformed
+
+    private void btnReferenciadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReferenciadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnReferenciadoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCompartimento;

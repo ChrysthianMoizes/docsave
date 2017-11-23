@@ -2,6 +2,7 @@ package cdp;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Objects;
 import javax.persistence.*;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -62,6 +63,16 @@ public class Compartimento implements Serializable {
         this.documentos = documentos;
     }
 
+    public Compartimento(String codigo, String nome, int capacidade, Mobilia mobilia, TipoDocumento tipoDocumento) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.capacidade = capacidade;
+        this.mobilia = mobilia;
+        this.tipoDocumento = tipoDocumento;
+    }
+    
+    
+
     public int getId() {
         return id;
     }
@@ -94,14 +105,6 @@ public class Compartimento implements Serializable {
         this.capacidade = capacidade;
     }
 
-//    public Collection<Compartimento> getCompartimentos() {
-//        return compartimentos;
-//    }
-
-//    public void setCompartimentos(Collection<Compartimento> compartimentos) {
-//        this.compartimentos = compartimentos;
-//    }
-
     public Mobilia getMobilia() {
         return mobilia;
     }
@@ -125,9 +128,42 @@ public class Compartimento implements Serializable {
     public void setDocumentos(Collection<Documento> documentos) {
         this.documentos = documentos;
     }
-    
+
+    @Override
     public String toString() {
         return nome;
+    }
+    
+    public static Object[] toArray(Compartimento cmp){
+        return new Object[]{cmp.getNome(), cmp.getCodigo(), cmp.getCapacidade(), cmp.getTipoDocumento()
+            , cmp.getMobilia()};
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Compartimento other = (Compartimento) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        if (this.capacidade != other.capacidade) {
+            return false;
+        }
+        if (!Objects.equals(this.codigo, other.codigo)) {
+            return false;
+        }
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
+        return true;
     }
     
     public Object[] toArray() {

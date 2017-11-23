@@ -12,7 +12,7 @@ public class CITipoDocumento {
         this.ctrlP = ctrlP;
     }
     
-    private void validarCampos(String nome, String descricao) {
+    private boolean validarCampos(String nome, String descricao) {
         ArrayList<String> listaErro = new ArrayList<>();
         if(nome.equals("")){
             listaErro.add("Nome");
@@ -20,16 +20,16 @@ public class CITipoDocumento {
         if(descricao.equals("")){
             listaErro.add("Descrição");
         }
-        ctrlP.getMensagens().validaCampos(iFrameTipoDocumento, listaErro);
+        return ctrlP.getMensagens().validaCampos(iFrameTipoDocumento, listaErro);
     }
     
     public void cadastrarTipoDocumento(String nome, String descricao) {
-        validarCampos(nome, descricao);
-        ctrlP.getGtPrincipal().getGtTipoDocumento().cadastrarTipoDocumento(nome, descricao);
+        if(validarCampos(nome, descricao))
+            ctrlP.getGtPrincipal().getGtTipoDocumento().cadastrarTipoDocumento(nome, descricao);
     }
     
     public List carregarCmbBoxTipoDocumento() {
-       return ctrlP.getGtPrincipal().getGtTipoDocumento().carregarTipoDocumento();
+       return ctrlP.getGtPrincipal().getGtTipoDocumento().obterTipoDocumento();
     }
     
     public void abrirCadastroTipoDocumento() {

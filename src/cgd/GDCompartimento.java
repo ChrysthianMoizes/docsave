@@ -12,6 +12,6 @@ public class GDCompartimento extends GDGenerico {
         crit.setMaxResults(1);
         Compartimento compartimento = (Compartimento) crit.uniqueResult();
         sessao.close();
-        return compartimento;        
+        return compartimento;
     }
 }
