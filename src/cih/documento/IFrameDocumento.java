@@ -45,8 +45,8 @@ public class IFrameDocumento extends javax.swing.JInternalFrame {
         jLabelDocumentoDoc = new javax.swing.JLabel();
         jTextFieldDocumentoDoc = new javax.swing.JTextField();
         jButtonPesquisarDoc = new javax.swing.JButton();
-        jPanelAlteracao = new javax.swing.JPanel();
         jPanelConsulta = new javax.swing.JPanel();
+        jPanelAlteracao = new javax.swing.JPanel();
         jPanelExclusao = new javax.swing.JPanel();
 
         setClosable(true);
@@ -171,19 +171,6 @@ public class IFrameDocumento extends javax.swing.JInternalFrame {
 
         jTabbedPane.addTab("Cadastro", jPanelCadastro);
 
-        javax.swing.GroupLayout jPanelAlteracaoLayout = new javax.swing.GroupLayout(jPanelAlteracao);
-        jPanelAlteracao.setLayout(jPanelAlteracaoLayout);
-        jPanelAlteracaoLayout.setHorizontalGroup(
-            jPanelAlteracaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 537, Short.MAX_VALUE)
-        );
-        jPanelAlteracaoLayout.setVerticalGroup(
-            jPanelAlteracaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 386, Short.MAX_VALUE)
-        );
-
-        jTabbedPane.addTab("Alteração", jPanelAlteracao);
-
         javax.swing.GroupLayout jPanelConsultaLayout = new javax.swing.GroupLayout(jPanelConsulta);
         jPanelConsulta.setLayout(jPanelConsultaLayout);
         jPanelConsultaLayout.setHorizontalGroup(
@@ -196,6 +183,19 @@ public class IFrameDocumento extends javax.swing.JInternalFrame {
         );
 
         jTabbedPane.addTab("Consulta", jPanelConsulta);
+
+        javax.swing.GroupLayout jPanelAlteracaoLayout = new javax.swing.GroupLayout(jPanelAlteracao);
+        jPanelAlteracao.setLayout(jPanelAlteracaoLayout);
+        jPanelAlteracaoLayout.setHorizontalGroup(
+            jPanelAlteracaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 537, Short.MAX_VALUE)
+        );
+        jPanelAlteracaoLayout.setVerticalGroup(
+            jPanelAlteracaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 386, Short.MAX_VALUE)
+        );
+
+        jTabbedPane.addTab("Alteração", jPanelAlteracao);
 
         javax.swing.GroupLayout jPanelExclusaoLayout = new javax.swing.GroupLayout(jPanelExclusao);
         jPanelExclusao.setLayout(jPanelExclusaoLayout);
