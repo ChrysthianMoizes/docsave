@@ -14,59 +14,35 @@ public class JPConsultarDocumento extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelCodigoDoc = new javax.swing.JLabel();
-        jTextFieldCodigoDoc = new javax.swing.JTextField();
-        jLabelNomeDoc = new javax.swing.JLabel();
-        jTextFieldNomeDoc = new javax.swing.JTextField();
-        jButtonSalvarCadastroDoc = new javax.swing.JButton();
-        jButtonCancelarCadastroDoc = new javax.swing.JButton();
-        jLabelCompartimentoDoc = new javax.swing.JLabel();
-        jComboBoxCompartimentoDoc = new javax.swing.JComboBox<>();
-        jLabelTipoDeDocumentoDoc = new javax.swing.JLabel();
-        jComboBoxTipoDeDocumentoDoc = new javax.swing.JComboBox<>();
-        jLabelReferenciadoDoc = new javax.swing.JLabel();
-        jComboBoxReferenciadoDoc = new javax.swing.JComboBox<>();
-        jLabelDocumentoDoc = new javax.swing.JLabel();
-        jTextFieldDocumentoDoc = new javax.swing.JTextField();
-        jButtonPesquisarDoc = new javax.swing.JButton();
+        jTextFieldBuscaDoc = new javax.swing.JTextField();
+        jButtonCancelarConsultaDoc = new javax.swing.JButton();
+        jComboBoxOpcoesConsultaDoc = new javax.swing.JComboBox<>();
+        jButtonPesquisarConsultaDoc = new javax.swing.JButton();
+        jScrollPaneConsultaDoc = new javax.swing.JScrollPane();
+        jTableConsultaDoc = new javax.swing.JTable();
 
         setName("Consultar"); // NOI18N
 
-        jLabelCodigoDoc.setText("Codigo");
+        jButtonCancelarConsultaDoc.setText("Cancelar");
 
-        jLabelNomeDoc.setText("Nome");
+        jComboBoxOpcoesConsultaDoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Codigo", "Nome" }));
 
-        jButtonSalvarCadastroDoc.setText("Salvar");
-        jButtonSalvarCadastroDoc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSalvarCadastroDocActionPerformed(evt);
+        jButtonPesquisarConsultaDoc.setText("Pesquisar");
+
+        jTableConsultaDoc.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"RF123", "Prontuario", "Gaveta", ""}
+            },
+            new String [] {
+                "Codigo", "Nome", "Compartimento", "Documento"
+            }
+        ));
+        jTableConsultaDoc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableConsultaDocMouseClicked(evt);
             }
         });
-
-        jButtonCancelarCadastroDoc.setText("Cancelar");
-
-        jLabelCompartimentoDoc.setText("Compartimento");
-
-        jComboBoxCompartimentoDoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabelTipoDeDocumentoDoc.setText("Tipo De Documento");
-
-        jComboBoxTipoDeDocumentoDoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabelReferenciadoDoc.setText("Referenciado");
-
-        jComboBoxReferenciadoDoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabelDocumentoDoc.setText("Documento");
-
-        jTextFieldDocumentoDoc.setEnabled(false);
-
-        jButtonPesquisarDoc.setText("Selecionar");
-        jButtonPesquisarDoc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonPesquisarDocActionPerformed(evt);
-            }
-        });
+        jScrollPaneConsultaDoc.setViewportView(jTableConsultaDoc);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -75,102 +51,45 @@ public class JPConsultarDocumento extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButtonSalvarCadastroDoc)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonCancelarCadastroDoc))
+                    .addComponent(jScrollPaneConsultaDoc)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabelDocumentoDoc)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextFieldDocumentoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonPesquisarDoc))
+                        .addComponent(jButtonCancelarConsultaDoc))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelNomeDoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabelCodigoDoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldCodigoDoc, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
-                            .addComponent(jTextFieldNomeDoc)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelTipoDeDocumentoDoc)
-                            .addComponent(jLabelReferenciadoDoc)
-                            .addComponent(jLabelCompartimentoDoc))
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBoxCompartimentoDoc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBoxReferenciadoDoc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBoxTipoDeDocumentoDoc, 0, 396, Short.MAX_VALUE))))
+                        .addComponent(jComboBoxOpcoesConsultaDoc, 0, 125, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextFieldBuscaDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonPesquisarConsultaDoc)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabelCodigoDoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jTextFieldCodigoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabelNomeDoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jTextFieldNomeDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCompartimentoDoc)
-                    .addComponent(jComboBoxCompartimentoDoc))
+                    .addComponent(jTextFieldBuscaDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxOpcoesConsultaDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonPesquisarConsultaDoc))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPaneConsultaDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelTipoDeDocumentoDoc)
-                    .addComponent(jComboBoxTipoDeDocumentoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelReferenciadoDoc)
-                    .addComponent(jComboBoxReferenciadoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelDocumentoDoc)
-                    .addComponent(jTextFieldDocumentoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonPesquisarDoc))
-                .addGap(110, 110, 110)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonSalvarCadastroDoc)
-                    .addComponent(jButtonCancelarCadastroDoc))
-                .addGap(29, 29, 29))
+                .addComponent(jButtonCancelarConsultaDoc)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonSalvarCadastroDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarCadastroDocActionPerformed
-
-    }//GEN-LAST:event_jButtonSalvarCadastroDocActionPerformed
-
-    private void jButtonPesquisarDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarDocActionPerformed
-        //jFileChooserDocumentoDoc.accept();
-    }//GEN-LAST:event_jButtonPesquisarDocActionPerformed
+    private void jTableConsultaDocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableConsultaDocMouseClicked
+        
+    }//GEN-LAST:event_jTableConsultaDocMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonCancelarCadastroDoc;
-    private javax.swing.JButton jButtonPesquisarDoc;
-    private javax.swing.JButton jButtonSalvarCadastroDoc;
-    private javax.swing.JComboBox<String> jComboBoxCompartimentoDoc;
-    private javax.swing.JComboBox<String> jComboBoxReferenciadoDoc;
-    private javax.swing.JComboBox<String> jComboBoxTipoDeDocumentoDoc;
-    private javax.swing.JLabel jLabelCodigoDoc;
-    private javax.swing.JLabel jLabelCompartimentoDoc;
-    private javax.swing.JLabel jLabelDocumentoDoc;
-    private javax.swing.JLabel jLabelNomeDoc;
-    private javax.swing.JLabel jLabelReferenciadoDoc;
-    private javax.swing.JLabel jLabelTipoDeDocumentoDoc;
-    private javax.swing.JTextField jTextFieldCodigoDoc;
-    private javax.swing.JTextField jTextFieldDocumentoDoc;
-    private javax.swing.JTextField jTextFieldNomeDoc;
+    private javax.swing.JButton jButtonCancelarConsultaDoc;
+    private javax.swing.JButton jButtonPesquisarConsultaDoc;
+    private javax.swing.JComboBox<String> jComboBoxOpcoesConsultaDoc;
+    private javax.swing.JScrollPane jScrollPaneConsultaDoc;
+    private javax.swing.JTable jTableConsultaDoc;
+    private javax.swing.JTextField jTextFieldBuscaDoc;
     // End of variables declaration//GEN-END:variables
 }

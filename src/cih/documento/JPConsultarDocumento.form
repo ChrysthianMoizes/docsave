@@ -22,43 +22,17 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jButtonSalvarCadastroDoc" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jButtonCancelarCadastroDoc" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jScrollPaneConsultaDoc" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="jLabelDocumentoDoc" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jTextFieldDocumentoDoc" min="-2" pref="297" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButtonPesquisarDoc" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonCancelarConsultaDoc" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabelNomeDoc" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabelCodigoDoc" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTextFieldCodigoDoc" alignment="0" pref="459" max="32767" attributes="0"/>
-                          <Component id="jTextFieldNomeDoc" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jLabelTipoDeDocumentoDoc" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelReferenciadoDoc" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelCompartimentoDoc" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jComboBoxCompartimentoDoc" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jComboBoxReferenciadoDoc" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jComboBoxTipoDeDocumentoDoc" alignment="0" pref="396" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="jComboBoxOpcoesConsultaDoc" pref="125" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jTextFieldBuscaDoc" min="-2" pref="293" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jButtonPesquisarConsultaDoc" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -69,93 +43,34 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                      <Component id="jLabelCodigoDoc" max="32767" attributes="0"/>
-                  </Group>
-                  <Component id="jTextFieldCodigoDoc" alignment="0" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                      <Component id="jLabelNomeDoc" max="32767" attributes="0"/>
-                  </Group>
-                  <Component id="jTextFieldNomeDoc" alignment="0" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabelCompartimentoDoc" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBoxCompartimentoDoc" alignment="3" max="32767" attributes="0"/>
+                  <Component id="jTextFieldBuscaDoc" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jComboBoxOpcoesConsultaDoc" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonPesquisarConsultaDoc" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabelTipoDeDocumentoDoc" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBoxTipoDeDocumentoDoc" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabelReferenciadoDoc" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBoxReferenciadoDoc" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabelDocumentoDoc" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldDocumentoDoc" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonPesquisarDoc" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButtonSalvarCadastroDoc" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonCancelarCadastroDoc" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPaneConsultaDoc" min="-2" pref="279" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jButtonCancelarConsultaDoc" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabelCodigoDoc">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Codigo"/>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="jTextFieldBuscaDoc">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldCodigoDoc">
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelNomeDoc">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Nome"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldNomeDoc">
-    </Component>
-    <Component class="javax.swing.JButton" name="jButtonSalvarCadastroDoc">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Salvar"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSalvarCadastroDocActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButtonCancelarCadastroDoc">
+    <Component class="javax.swing.JButton" name="jButtonCancelarConsultaDoc">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelCompartimentoDoc">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Compartimento"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBoxCompartimentoDoc">
+    <Component class="javax.swing.JComboBox" name="jComboBoxOpcoesConsultaDoc">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
+          <StringArray count="2">
+            <StringItem index="0" value="Codigo"/>
+            <StringItem index="1" value="Nome"/>
           </StringArray>
         </Property>
       </Properties>
@@ -163,63 +78,42 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelTipoDeDocumentoDoc">
+    <Component class="javax.swing.JButton" name="jButtonPesquisarConsultaDoc">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Tipo De Documento"/>
+        <Property name="text" type="java.lang.String" value="Pesquisar"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBoxTipoDeDocumentoDoc">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
-          </StringArray>
-        </Property>
-      </Properties>
+    <Container class="javax.swing.JScrollPane" name="jScrollPaneConsultaDoc">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelReferenciadoDoc">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Referenciado"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBoxReferenciadoDoc">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelDocumentoDoc">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Documento"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldDocumentoDoc">
-      <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButtonPesquisarDoc">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Selecionar"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonPesquisarDocActionPerformed"/>
-      </Events>
-    </Component>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="jTableConsultaDoc">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="4" rowCount="1">
+                <Column editable="true" title="Codigo" type="java.lang.Object">
+                  <Data value="RF123"/>
+                </Column>
+                <Column editable="true" title="Nome" type="java.lang.Object">
+                  <Data value="Prontuario"/>
+                </Column>
+                <Column editable="true" title="Compartimento" type="java.lang.Object">
+                  <Data value="Gaveta"/>
+                </Column>
+                <Column editable="true" title="Documento" type="java.lang.Object">
+                  <Data value=""/>
+                </Column>
+              </Table>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTableConsultaDocMouseClicked"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
   </SubComponents>
 </Form>

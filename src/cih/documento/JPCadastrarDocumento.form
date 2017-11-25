@@ -84,7 +84,7 @@
                   </Group>
                   <Component id="jTextFieldNomeDoc" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelCompartimentoDoc" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jComboBoxCompartimentoDoc" alignment="3" max="32767" attributes="0"/>
@@ -105,7 +105,7 @@
                   <Component id="jTextFieldDocumentoDoc" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonPesquisarDoc" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonSalvarCadastroDoc" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonCancelarCadastroDoc" alignment="3" min="-2" max="-2" attributes="0"/>
