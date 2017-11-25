@@ -67,26 +67,12 @@
                               <Component id="jButtonCancelarCadastroDoc" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Component id="jLabelDocumentoDoc" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTextFieldDocumentoDoc" max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jTextFieldDocumentoDoc" min="-2" pref="297" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jButtonPesquisarDoc" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabelReferenciadoDoc" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jComboBoxReferenciadoDoc" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabelTipoDeDocumentoDoc" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jComboBoxTipoDeDocumentoDoc" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabelCompartimentoDoc" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jComboBoxCompartimentoDoc" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -99,6 +85,20 @@
                                   <Component id="jTextFieldNomeDoc" max="32767" attributes="0"/>
                               </Group>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jLabelTipoDeDocumentoDoc" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelReferenciadoDoc" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelCompartimentoDoc" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jComboBoxCompartimentoDoc" max="32767" attributes="0"/>
+                                  <Component id="jComboBoxReferenciadoDoc" max="32767" attributes="0"/>
+                                  <Component id="jComboBoxTipoDeDocumentoDoc" pref="396" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -108,20 +108,20 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Group type="102" alignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                               <Component id="jLabelCodigoDoc" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jTextFieldCodigoDoc" alignment="3" max="32767" attributes="0"/>
+                          <Component id="jTextFieldCodigoDoc" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Group type="102" alignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                               <Component id="jLabelNomeDoc" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jTextFieldNomeDoc" alignment="3" max="32767" attributes="0"/>
+                          <Component id="jTextFieldNomeDoc" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -244,7 +244,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelDocumentoDoc">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Documento Scaneado"/>
+                <Property name="text" type="java.lang.String" value="Documento"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldDocumentoDoc">
@@ -254,7 +254,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButtonPesquisarDoc">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Pesquisar"/>
+                <Property name="text" type="java.lang.String" value="Selecionar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonPesquisarDocActionPerformed"/>
