@@ -113,7 +113,7 @@ public class PanelMenu extends javax.swing.JPanel {
     }//GEN-LAST:event_btnCompartimentoActionPerformed
 
     private void btnReferenciadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReferenciadoActionPerformed
-        // TODO add your handling code here:
+        ctrlP.getCiReferenciado().abrirIFrameReferenciado();
     }//GEN-LAST:event_btnReferenciadoActionPerformed
 
 

@@ -65,5 +65,11 @@ public class Referenciado extends Pessoa implements Serializable {
     public void setDocumentos(Collection<Documento> documentos) {
         this.documentos = documentos;
     }
+
+    @Override
+    public String toString() {
+        return super.getNome();
+    }
+    
     
 }
