@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cgt;
 
 import cdp.Referenciado;
@@ -10,18 +5,16 @@ import cgd.GDReferenciado;
 import java.sql.SQLException;
 import java.util.List;
 
-/**
- *
- * @author reida
- */
 public class GTReferenciado {
     private GDReferenciado gdReferenciado;
 
     public GTReferenciado() {
         this.gdReferenciado = new GDReferenciado();
+    }    
+    
+    public List listar() {
+        return gdReferenciado.consultar(Referenciado.class);
     }
-    
-    
     
     public void cadastrarReferente(String nome, String cpf) throws SQLException, ClassNotFoundException{
         Referenciado ref = null;
@@ -35,7 +28,7 @@ public class GTReferenciado {
         if(nome != null && cpf != null){
             lista = gdReferenciado.consultarReferente(nome, cpf);
             
-        }else{
+        } else {
             lista = gdReferenciado.consultar(Referenciado.class);
         }
         retorno = new Object[lista.size()][2];
@@ -63,6 +56,5 @@ public class GTReferenciado {
         Referenciado refNovo = new Referenciado(refOrig.getId(), nome, cpf, refOrig.getReferente());
         gdReferenciado.alterar(refNovo);
     }
-    
     
 }

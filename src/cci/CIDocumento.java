@@ -1,12 +1,16 @@
 package cci;
 
+import java.io.File;
 import java.util.List;
-import java.sql.SQLException;
+import cdp.Compartimento;
+import cdp.Referenciado;
+import cdp.TipoDocumento;
 import cih.documento.JPAlterarDocumento;
 import cih.documento.JPExcluirDocumento;
 import cih.documento.JPCadastrarDocumento;
 import cih.documento.JPConsultarDocumento;
 import cih.documento.IFrameDocumento;
+import javax.swing.JComboBox;
 
 public class CIDocumento {
     private CIPrincipal ctrlP;
@@ -44,10 +48,6 @@ public class CIDocumento {
         return ctrlP;
     }
     
-    public void cadastrarDocumento() {
-        ctrlP.getGtPrincipal().getGtDocumento().cadastrar();
-    }
-    
     public void consultarDocumento() {
         //?
     }
@@ -68,5 +68,37 @@ public class CIDocumento {
     
     public List getLista() {
         return ctrlP.getGtPrincipal().getGtDocumento().listar();
+    }
+
+    public void cadastrarDocumento(String codigo, String nome, Compartimento compartimento, TipoDocumento tpDocumento, Referenciado referenciado, File arquivoSelecionado) {
+        try {
+            ctrlP.getGtPrincipal().getGtDocumento().cadastrar(codigo, nome, compartimento, tpDocumento, referenciado, arquivoSelecionado);
+        } catch (Exception ex) {
+            ctrlP.getMensagens().exibirMenssagem(iFrameDocumento, "Erro: " + ex.toString());
+        }
+    }
+    
+    public void preencherTipoDocumento(JComboBox cmbTipoDocumento) {
+        cmbTipoDocumento.removeAllItems();
+        List lista = ctrlP.getGtPrincipal().getGtTipoDocumento().obterTipoDocumento();
+        cmbTipoDocumento.addItem("Selecione");
+        for (Object item : lista)
+            cmbTipoDocumento.addItem(item);
+    }
+    
+    public void preencherCompartimento(JComboBox cmbCompartimento) {
+        cmbCompartimento.removeAllItems();
+        List lista = ctrlP.getGtPrincipal().getGtCompartimento().listar();
+        cmbCompartimento.addItem("Selecione");
+        for (Object item : lista)
+            cmbCompartimento.addItem(item);
+    }
+    
+    public void preencherReferenciado(JComboBox cmbReferenciado) {
+        cmbReferenciado.removeAllItems();
+        List lista = ctrlP.getGtPrincipal().getGtReferenciado().listar();
+        cmbReferenciado.addItem("Selecione");
+        for (Object item : lista)
+            cmbReferenciado.addItem(item);
     }
 }
