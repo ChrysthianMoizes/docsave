@@ -41,7 +41,7 @@ public class CICompartimento {
         iFrameCompartimento.repaint();
     }
     
-    public void abrirIFrameCompartimento(){
+    public void abrirIFrameCompartimento() {
         ctrlP.getJanelaPrincipal().getDesktopPane().add(iFrameCompartimento);
         carregarAbas();
         iFrameCompartimento.setVisible(true);

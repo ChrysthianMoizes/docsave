@@ -3,18 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cih.documento;
+package cih.documento_;
+
+import cci.CIDocumento;
+import java.util.ArrayList;
 
 /**
  *
- * @author Erick
+ * @author reida
  */
-public class IFrameDocumento extends javax.swing.JInternalFrame {
+public class JPAlterar extends javax.swing.JPanel {
 
     /**
-     * Creates new form IFrameDocumento
+     * Creates new form JPAlterar
      */
-    public IFrameDocumento() {
+    CIDocumento ctrl;
+    public JPAlterar(CIDocumento ctrl) {
+        this.ctrl = ctrl;
         initComponents();
     }
 
@@ -27,20 +32,20 @@ public class IFrameDocumento extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        setName("Alterar"); // NOI18N
+        setPreferredSize(new java.awt.Dimension(548, 431));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGap(0, 548, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGap(0, 431, Short.MAX_VALUE)
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

@@ -40,6 +40,11 @@ public class PanelMenu extends javax.swing.JPanel {
         });
 
         btnDocumento.setText("Documento");
+        btnDocumento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDocumentoActionPerformed(evt);
+            }
+        });
 
         btnLocal.setText("Local");
         btnLocal.addActionListener(new java.awt.event.ActionListener() {
@@ -115,6 +120,10 @@ public class PanelMenu extends javax.swing.JPanel {
     private void btnReferenciadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReferenciadoActionPerformed
         ctrlP.getCiReferenciado().abrirIFrameReferenciado();
     }//GEN-LAST:event_btnReferenciadoActionPerformed
+
+    private void btnDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDocumentoActionPerformed
+        ctrlP.getCiDocumento().abrirIFrame();
+    }//GEN-LAST:event_btnDocumentoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

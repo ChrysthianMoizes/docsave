@@ -28,12 +28,12 @@ public class Documento implements Serializable {
     @Cascade(CascadeType.SAVE_UPDATE)
     private TipoDocumento tipoDocumento;
     
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "compartimento_id", nullable = false)
     @Cascade(CascadeType.SAVE_UPDATE)
     private Compartimento compartimento;
     
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "referenciado_id", nullable = false)
     @Cascade(CascadeType.SAVE_UPDATE)
     private Referenciado referenciado;
