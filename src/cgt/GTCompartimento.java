@@ -78,4 +78,8 @@ public class GTCompartimento {
     public void excluirCompartimento(Object comp) throws SQLException, ClassNotFoundException {
         gdCompartimento.excluir(comp);
     }
+
+    public List obterCompartimentos(Mobilia mobilia) {
+        return gdCompartimento.obterCompartimentos(mobilia.toString());
+    }
 }

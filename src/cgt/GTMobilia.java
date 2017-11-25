@@ -69,4 +69,8 @@ public class GTMobilia {
     public List listar() {
         return gdMobilia.consultar(Mobilia.class);
     }
+
+    public List obterMobiliasDeLocais(Local local) {
+        return gdMobilia.consultarMobilias(local.toString());
+    }
 }

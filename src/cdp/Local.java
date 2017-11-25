@@ -25,7 +25,7 @@ public class Local implements Serializable {
     @Column(nullable = false)
     private String descricao;
     
-    @OneToMany(mappedBy = "local", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "local", fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.NO_ACTION)
     @Cascade(CascadeType.SAVE_UPDATE)
     private Collection<Mobilia> mobilias;
