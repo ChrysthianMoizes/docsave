@@ -62,9 +62,9 @@ public class CIDocumento {
 //        try {
 //            ctrlP.getGtPrincipal().getGtDocumento().excluir(obj);
 //        } catch (SQLException ex) {
-//            ctrlP.getMensagens().exibirMenssagem(iFrameDocumento, "Erro: "+ex.getMessage());
+//            ctrlP.getMensagens().exibirMensagem(iFrameDocumento, "Erro: "+ex.getMessage());
 //        } catch (ClassNotFoundException ex) {
-//            ctrlP.getMensagens().exibirMenssagem(iFrameDocumento, "Erro: "+ex.getMessage());
+//            ctrlP.getMensagens().exibirMensagem(iFrameDocumento, "Erro: "+ex.getMessage());
 //        }
     }
     
@@ -75,8 +75,10 @@ public class CIDocumento {
     public void cadastrarDocumento(String codigo, String nome, Compartimento compartimento, TipoDocumento tpDocumento, Referenciado referenciado, File arquivoSelecionado) {
         try {
             ctrlP.getGtPrincipal().getGtDocumento().cadastrar(codigo, nome, compartimento, tpDocumento, referenciado, arquivoSelecionado);
+            ctrlP.getMensagens().exibirMensagem(iFrameDocumento, "Documento cadastrado com sucesso!");
+            jpCadastrarDocumento.limparCampos();
         } catch (Exception ex) {
-            ctrlP.getMensagens().exibirMenssagem(iFrameDocumento, "Erro: " + ex.toString());
+            ctrlP.getMensagens().exibirMensagem(iFrameDocumento, "Erro: " + ex.toString());
         }
     }
     

@@ -56,7 +56,7 @@ public class JPCadastrarDocumento extends javax.swing.JPanel {
             }
         });
 
-        jLabelTipoDeDocumentoDoc.setText("Tipo De Documento");
+        jLabelTipoDeDocumentoDoc.setText("Tipo Documento");
 
         jLabelReferenciadoDoc.setText("Referenciado");
 
@@ -134,22 +134,6 @@ public class JPCadastrarDocumento extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelTipoDeDocumentoDoc)
-                            .addComponent(jLabelReferenciadoDoc))
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBoxReferenciadoDoc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBoxTipoDeDocumentoDoc, 0, 396, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabelDocumentoDoc)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextFieldDocumentoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonSelecionarDoc))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jButtonSalvarCadastroDoc)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jPanelLocalizacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -160,7 +144,21 @@ public class JPCadastrarDocumento extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldCodigoDoc)
-                            .addComponent(jTextFieldNomeDoc))))
+                            .addComponent(jTextFieldNomeDoc)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelDocumentoDoc)
+                            .addComponent(jLabelTipoDeDocumentoDoc)
+                            .addComponent(jLabelReferenciadoDoc))
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTextFieldDocumentoDoc)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonSelecionarDoc))
+                            .addComponent(jComboBoxReferenciadoDoc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBoxTipoDeDocumentoDoc, 0, 412, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -189,7 +187,7 @@ public class JPCadastrarDocumento extends javax.swing.JPanel {
                     .addComponent(jLabelDocumentoDoc)
                     .addComponent(jTextFieldDocumentoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonSelecionarDoc))
-                .addGap(37, 37, 37)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonSalvarCadastroDoc)
                 .addContainerGap())
         );
@@ -238,6 +236,14 @@ public class JPCadastrarDocumento extends javax.swing.JPanel {
         ctrl.preencherTipoDocumento(jComboBoxTipoDeDocumentoDoc);
         ctrl.preencherReferenciado(jComboBoxReferenciadoDoc);
         ctrl.preencherLocal(jComboBoxLocal);
+    }
+    
+    public void limparCampos() {
+        preencherCampos();
+        jComboBoxMobilia.setSelectedIndex(0);
+        jTextFieldCodigoDoc.setText("");
+        jTextFieldNomeDoc.setText("");
+        jTextFieldDocumentoDoc.setText("");
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

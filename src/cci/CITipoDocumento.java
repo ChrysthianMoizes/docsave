@@ -38,7 +38,7 @@ public class CITipoDocumento {
     }
     
     public void exibirMenssagemInformativa(String texto) {
-        ctrlP.getMensagens().exibirMenssagem(iFrameTipoDocumento, texto);
+        ctrlP.getMensagens().exibirMensagem(iFrameTipoDocumento, texto);
     }
     
     public void excluirTipoDocumento(Object tDocumento) {
@@ -54,7 +54,7 @@ public class CITipoDocumento {
         if(lista != null)
             return lista;
         else{
-            ctrlP.getMensagens().exibirMenssagem(iFrameTipoDocumento, "Nenhum tipo de documento cadastrado");
+            ctrlP.getMensagens().exibirMensagem(iFrameTipoDocumento, "Nenhum tipo de documento cadastrado");
             return null;
         }
     }

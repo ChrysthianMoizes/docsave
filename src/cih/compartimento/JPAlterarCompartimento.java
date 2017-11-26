@@ -184,7 +184,7 @@ public class JPAlterarCompartimento extends javax.swing.JPanel {
             compartimento = ctrl.toArrayCompartimento(cmbCompartimentoPesquisa.getSelectedItem());
             preencherCampos(compartimento);
         }else
-            ctrl.getCtrlP().getMensagens().exibirMenssagem(this, "Selecione um item");
+            ctrl.getCtrlP().getMensagens().exibirMensagem(this, "Selecione um item");
             
     }//GEN-LAST:event_btnSelecionarActionPerformed
 

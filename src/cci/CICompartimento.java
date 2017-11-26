@@ -51,9 +51,9 @@ public class CICompartimento {
             ctrlP.getGtPrincipal().getGtCompartimento().cadastrarCompartimento(nome,
                     identificador, cmp, gaveta, qtdCompartimento);
         } catch (SQLException ex) {
-            ctrlP.getMensagens().exibirMenssagem(jpCadastrarCompartimento, "Erro: "+ex.getMessage());
+            ctrlP.getMensagens().exibirMensagem(jpCadastrarCompartimento, "Erro: "+ex.getMessage());
         } catch (ClassNotFoundException ex) {
-            ctrlP.getMensagens().exibirMenssagem(jpCadastrarCompartimento, "Erro: "+ex.getMessage());
+            ctrlP.getMensagens().exibirMensagem(jpCadastrarCompartimento, "Erro: "+ex.getMessage());
         }
         
     }
@@ -102,7 +102,7 @@ public class CICompartimento {
                 }
             }
         }else
-            ctrlP.getMensagens().exibirMenssagem(jpConsultarCompartimento, "Nenhum compartimento interno cadastrado");
+            ctrlP.getMensagens().exibirMensagem(jpConsultarCompartimento, "Nenhum compartimento interno cadastrado");
     }
 
     public void alterarCompartimento(String nome, String identificador, String capacidade, 
@@ -113,9 +113,9 @@ public class CICompartimento {
             ctrlP.getGtPrincipal().getGtCompartimento().alterarCompartimento(nome,
                     identificador, cmp, tipoDocumento, mobilia, qtdCompartimento);
         } catch (SQLException ex) {
-            ctrlP.getMensagens().exibirMenssagem(iFrameCompartimento, "Erro: "+ex.getMessage());
+            ctrlP.getMensagens().exibirMensagem(iFrameCompartimento, "Erro: "+ex.getMessage());
         } catch (ClassNotFoundException ex) {
-             ctrlP.getMensagens().exibirMenssagem(iFrameCompartimento, "Erro: "+ex.getMessage());
+             ctrlP.getMensagens().exibirMensagem(iFrameCompartimento, "Erro: "+ex.getMessage());
         }
     }
     
@@ -127,9 +127,9 @@ public class CICompartimento {
         try {
             ctrlP.getGtPrincipal().getGtCompartimento().excluirCompartimento(comp);
         } catch (SQLException ex) {
-            ctrlP.getMensagens().exibirMenssagem(iFrameCompartimento, "Erro: "+ex.getMessage());
+            ctrlP.getMensagens().exibirMensagem(iFrameCompartimento, "Erro: "+ex.getMessage());
         } catch (ClassNotFoundException ex) {
-            ctrlP.getMensagens().exibirMenssagem(iFrameCompartimento, "Erro: "+ex.getMessage());
+            ctrlP.getMensagens().exibirMensagem(iFrameCompartimento, "Erro: "+ex.getMessage());
         }
     }
     

@@ -42,9 +42,9 @@ public class CIReferenciado {
         try {
             ctrlP.getGtPrincipal().getGtReferenciado().cadastrarReferente(nome, cpf);
         }catch (SQLException ex) {
-            ctrlP.getMensagens().exibirMenssagem(iFrameReferenciado, "Erro: "+ex.getMessage());
+            ctrlP.getMensagens().exibirMensagem(iFrameReferenciado, "Erro: "+ex.getMessage());
         } catch (ClassNotFoundException ex) {
-            ctrlP.getMensagens().exibirMenssagem(iFrameReferenciado, "Erro: "+ex.getMessage());
+            ctrlP.getMensagens().exibirMensagem(iFrameReferenciado, "Erro: "+ex.getMessage());
         }
     }
     public void consultarReferentes(String nome, String cpf, JTable tabela) {
@@ -60,14 +60,14 @@ public class CIReferenciado {
         try {
              ref = JTableUtil.getDadosLinhaSelecionada(tabela);
         } catch (Exception ex) {
-            ctrlP.getMensagens().exibirMenssagem(iFrameReferenciado, ex.getMessage());
+            ctrlP.getMensagens().exibirMensagem(iFrameReferenciado, ex.getMessage());
         }
         Object refArray[] = ctrlP.getGtPrincipal().getGtReferenciado().converterParaArray(ref);
         if(refArray != null){
             return refArray;
         }
         else{
-            ctrlP.getMensagens().exibirMenssagem(iFrameReferenciado, "Erro ao buscar Referente");
+            ctrlP.getMensagens().exibirMensagem(iFrameReferenciado, "Erro ao buscar Referente");
             return null;
         }
     }
@@ -76,7 +76,7 @@ public class CIReferenciado {
         try {
             ctrlP.getGtPrincipal().getGtReferenciado().alterarReferente(nome, cpf, ref);
         } catch (Exception ex) {
-            ctrlP.getMensagens().exibirMenssagem(iFrameReferenciado, "Erro: "+ex.getMessage());
+            ctrlP.getMensagens().exibirMensagem(iFrameReferenciado, "Erro: "+ex.getMessage());
         } 
     }
 }

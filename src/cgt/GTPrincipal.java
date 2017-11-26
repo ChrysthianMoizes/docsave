@@ -12,7 +12,7 @@ public class GTPrincipal {
 
     public GTPrincipal() {
         gtCompartimento = new GTCompartimento();
-        gtDocumento = new GTDocumento();
+        gtDocumento = new GTDocumento(this);
         gtLocal = new GTLocal();
         gtMobilia = new GTMobilia();
         gtPessoa = new GTPessoa();

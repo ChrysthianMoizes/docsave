@@ -27,7 +27,7 @@ public class CILocal {
         if(lista != null)
             return lista;
         else{
-            ctrlP.getMensagens().exibirMenssagem(iFrameLocal, "Nenhum tipo de documento cadastrado");
+            ctrlP.getMensagens().exibirMensagem(iFrameLocal, "Nenhum tipo de documento cadastrado");
             return null;
         }
     }
@@ -52,7 +52,7 @@ public class CILocal {
     }
     
     public void exibirMenssagemInformativa(String texto) {
-        ctrlP.getMensagens().exibirMenssagem(iFrameLocal, texto);
+        ctrlP.getMensagens().exibirMensagem(iFrameLocal, texto);
     }
 
     public void alterarLocal(Object objId, String nome, String desc, String qtd) {

@@ -81,7 +81,7 @@ public class CIMobilia {
     }
     
     public void exibirMenssagemInformativa(String texto) {
-        ctrlP.getMensagens().exibirMenssagem(iFrameMobilia, texto);
+        ctrlP.getMensagens().exibirMensagem(iFrameMobilia, texto);
     }
     
     public void excluir(Mobilia mobilia) {
@@ -93,7 +93,7 @@ public class CIMobilia {
         if(lista != null)
             return lista;
         else{
-            ctrlP.getMensagens().exibirMenssagem(iFrameMobilia, "Nenhuma mobília cadastrada");
+            ctrlP.getMensagens().exibirMensagem(iFrameMobilia, "Nenhuma mobília cadastrada");
             return null;
         }
     }

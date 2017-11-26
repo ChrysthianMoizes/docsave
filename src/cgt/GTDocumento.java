@@ -1,22 +1,23 @@
 package cgt;
 
-import cdp.Compartimento;
 import cdp.Documento;
+import cgd.GDDocumento;
 import cdp.Referenciado;
 import cdp.TipoDocumento;
-import cgd.GDDocumento;
+import cdp.Compartimento;
 import java.io.File;
+import java.util.List;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.sql.SQLException;
-import java.util.List;
 
 public class GTDocumento {
     private GDDocumento gdDocumento;
+    private GTPrincipal gtPrincipal;
 
-    public GTDocumento() {
+    public GTDocumento(GTPrincipal gtPrincipal) {
         this.gdDocumento = new GDDocumento();
+        this.gtPrincipal = gtPrincipal;
     }
     
     public List listar() {
@@ -35,9 +36,17 @@ public class GTDocumento {
         gdDocumento.excluir(obj);
     }
 
-    public void cadastrar(String codigo, String nome, Compartimento compartimento, TipoDocumento tpDocumento, Referenciado referenciado, File arquivoSelecionado) throws IOException, SQLException, ClassNotFoundException {
-        //byte[] scan = Files.readAllBytes(arquivoSelecionado.toPath());
-        Documento documento = new Documento(nome, codigo, new byte[]{}, tpDocumento, compartimento, referenciado);
-        gdDocumento.cadastrar(documento);
+    public void cadastrar(String codigo, String nome, Compartimento compartimento, TipoDocumento tpDocumento, Referenciado referenciado, File arquivoSelecionado) throws IOException, SQLException, ClassNotFoundException, Exception {
+        byte[] scan = Files.readAllBytes(arquivoSelecionado.toPath());
+        scan = new byte[]{}; //TODO CORRIGIR!
+        TipoDocumento tpDocDB = gtPrincipal.getGtTipoDocumento().consultarId(tpDocumento.getId());
+        Documento documento = new Documento();
+        documento.setScan(scan);
+        documento.setNome(nome);
+        documento.setCodigo(codigo);
+        documento.setTipoDocumento(tpDocDB);
+        documento.setCompartimento(compartimento);
+        documento.setReferenciado(referenciado);
+        gdDocumento.save(documento);
     }
 }

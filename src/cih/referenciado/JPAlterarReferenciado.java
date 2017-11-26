@@ -168,9 +168,9 @@ public class JPAlterarReferenciado extends javax.swing.JPanel {
            try {
                ctrl.alterarReferente(txtNome.getText(), txtCPF.getText(), JTableUtil.getDadosLinhaSelecionada(tabela));
            } catch (Exception ex) {
-               ctrl.getCtrlP().getMensagens().exibirMenssagem(this, ex.getMessage());
+               ctrl.getCtrlP().getMensagens().exibirMensagem(this, ex.getMessage());
            }
-            ctrl.getCtrlP().getMensagens().exibirMenssagem(this, "Alteração realizada");
+            ctrl.getCtrlP().getMensagens().exibirMensagem(this, "Alteração realizada");
         }
     }//GEN-LAST:event_btnAlterarActionPerformed
 
