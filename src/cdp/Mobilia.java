@@ -30,7 +30,7 @@ public class Mobilia implements Serializable {
     @JoinColumn(name = "local_id", nullable = false)
     private Local local;
     
-    @OneToMany(mappedBy = "mobilia", fetch = FetchType.LAZY, orphanRemoval = true)
+    @OneToMany(mappedBy = "mobilia", fetch = FetchType.EAGER, orphanRemoval = true)
     @OnDelete(action = OnDeleteAction.NO_ACTION)
     @Cascade(CascadeType.ALL)
     private Collection<Compartimento> compartimentos;

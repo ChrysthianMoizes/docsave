@@ -7,6 +7,7 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.hibernate.proxy.HibernateProxy;
 
 @Entity
 @Table(name = "local")
@@ -14,6 +15,7 @@ public class Local implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Access(AccessType.PROPERTY)
     private int id;
     
     @Column(nullable = false)
@@ -47,8 +49,15 @@ public class Local implements Serializable {
         this.mobilias = mobilias;
     }
 
-    public int getId() {
-        return id;
+//    public int getId() {
+//        return id;
+//    }
+    
+    public final int getId() {
+        if (this instanceof HibernateProxy)
+            return (int)((HibernateProxy)this).getHibernateLazyInitializer().getIdentifier();
+        else
+            return id;
     }
 
     public void setId(int id) {

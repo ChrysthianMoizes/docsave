@@ -12,17 +12,6 @@ public class CITipoDocumento {
         this.ctrlP = ctrlP;
     }
     
-    private boolean validarCampos(String nome, String descricao) {
-        ArrayList<String> listaErro = new ArrayList<>();
-        if(nome.equals("")){
-            listaErro.add("Nome");
-        }
-        if(descricao.equals("")){
-            listaErro.add("Descrição");
-        }
-        return ctrlP.getMensagens().validaCampos(iFrameTipoDocumento, listaErro);
-    }
-    
     public void cadastrarTipoDocumento(String nome, String descricao) {
         if(validarCampos(nome, descricao))
             ctrlP.getGtPrincipal().getGtTipoDocumento().cadastrarTipoDocumento(nome, descricao);
@@ -32,7 +21,7 @@ public class CITipoDocumento {
        return ctrlP.getGtPrincipal().getGtTipoDocumento().obterTipoDocumento();
     }
     
-    public void abrirCadastroTipoDocumento() {
+    public void abrirIFrame() {
         iFrameTipoDocumento = new IFrameTipoDocumento(this);
         ctrlP.getJanelaPrincipal().getDesktopPane().add(iFrameTipoDocumento);
         iFrameTipoDocumento.setVisible(true);
@@ -68,6 +57,17 @@ public class CITipoDocumento {
             ctrlP.getMensagens().exibirMenssagem(iFrameTipoDocumento, "Nenhum tipo de documento cadastrado");
             return null;
         }
+    }
+    
+    private boolean validarCampos(String nome, String descricao) {
+        ArrayList<String> listaErro = new ArrayList<>();
+        if(nome.equals("")){
+            listaErro.add("Nome");
+        }
+        if(descricao.equals("")){
+            listaErro.add("Descrição");
+        }
+        return ctrlP.getMensagens().validaCampos(iFrameTipoDocumento, listaErro);
     }
     
 }

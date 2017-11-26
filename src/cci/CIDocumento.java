@@ -23,12 +23,18 @@ public class CIDocumento {
     private IFrameDocumento      iFrameDocumento;
     
     public CIDocumento(CIPrincipal ctrlP) {
-        this.ctrlP           = ctrlP;
+        this.ctrlP = ctrlP;
+    }
+    
+    public void abrirIFrame() {
         iFrameDocumento      = new IFrameDocumento(this);
         jpCadastrarDocumento = new JPCadastrarDocumento(this);
         jpConsultarDocumento = new JPConsultarDocumento(this);
         jpAlterarDocumento   = new JPAlterarDocumento(this);
         jpExcluirDocumento   = new JPExcluirDocumento(this);
+        ctrlP.getJanelaPrincipal().getDesktopPane().add(iFrameDocumento);
+        carregarAbas();
+        iFrameDocumento.setVisible(true);
     }
     
     private void carregarAbas() {
@@ -38,12 +44,6 @@ public class CIDocumento {
         iFrameDocumento.getjTabPane().add(jpExcluirDocumento);
         iFrameDocumento.revalidate();
         iFrameDocumento.repaint();
-    }
-    
-    public void abrirIFrame() {
-        ctrlP.getJanelaPrincipal().getDesktopPane().add(iFrameDocumento);
-        carregarAbas();
-        iFrameDocumento.setVisible(true);
     }
     
     public CIPrincipal getCtrlP() {
@@ -125,7 +125,7 @@ public class CIDocumento {
     }
     
     public void preencherCompartimento(JComboBox cmbMobilia, Object mobilia) {
-        if(!mobilia.equals("Selecione")){
+        if (!mobilia.equals("Selecione")) {
             cmbMobilia.removeAllItems();
             List lista = ctrlP.getGtPrincipal().getGtCompartimento().obterCompartimentos((Mobilia)mobilia);
             cmbMobilia.addItem("Selecione");

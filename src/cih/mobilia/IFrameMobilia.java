@@ -1,19 +1,19 @@
 package cih.mobilia;
 
 import cdp.Local;
+import cdp.Mobilia;
 import cci.CIMobilia;
 import cdp.Compartimento;
-import cdp.Mobilia;
 import cih.util.JTableUtil;
 import java.util.List;
+import javax.swing.JTable;
 import java.util.ArrayList;
 import java.util.Collection;
+import javax.swing.JOptionPane;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.event.ChangeEvent;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
 
 public class IFrameMobilia extends javax.swing.JInternalFrame {
 
@@ -1146,7 +1146,7 @@ public class IFrameMobilia extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnAbrirExcluirActionPerformed
 
     private void btnOkAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkAlterarActionPerformed
-        Mobilia mobilia = (Mobilia)cmbAlterar.getSelectedItem();
+        Mobilia mobilia = (Mobilia) cmbAlterar.getSelectedItem();
         preencherCamposAlteracao(mobilia);
     }//GEN-LAST:event_btnOkAlterarActionPerformed
 
@@ -1223,7 +1223,7 @@ public class IFrameMobilia extends javax.swing.JInternalFrame {
         txtIdConsulta.setEnabled(false);
         spnCapacidadeConsulta.setValue(mobilia.getCapacidade());
         spnCapacidadeConsulta.setEnabled(false);
-        cmbLocaisConsulta.setSelectedItem(mobilia.getLocal());
+        cmbLocaisConsulta.setSelectedItem(ctrl.consultarLocal(mobilia.getLocal().getId()));
         cmbLocaisConsulta.setEnabled(false);
         preencherTableCompartimentos(tblCompartimentosConsulta,
                 (List)mobilia.getCompartimentos());
@@ -1236,7 +1236,7 @@ public class IFrameMobilia extends javax.swing.JInternalFrame {
         txtIdExcluir.setEnabled(false);
         spnCapacidadeExcluir.setValue(mobilia.getCapacidade());
         spnCapacidadeExcluir.setEnabled(false);
-        cmbLocaisExcluir.setSelectedItem(mobilia.getLocal());
+        cmbLocaisExcluir.setSelectedItem(ctrl.consultarLocal(mobilia.getLocal().getId()));
         cmbLocaisExcluir.setEnabled(false);
         preencherTableCompartimentos(tblCompartimentosExcluir,
                 (List)mobilia.getCompartimentos());
@@ -1246,7 +1246,7 @@ public class IFrameMobilia extends javax.swing.JInternalFrame {
         txtNomeAlterar.setText(mobilia.getNome());
         txtIdAlterar.setText(mobilia.getCodigo());
         spnCapacidadeAlterar.setValue(mobilia.getCapacidade());
-        cmbLocaisAlterar.setSelectedItem(mobilia.getLocal());
+        cmbLocaisAlterar.setSelectedItem(ctrl.consultarLocal(mobilia.getLocal().getId()));
         preencherTableCompartimentos(tblCompartimentosAlterar,
                 (List)mobilia.getCompartimentos());
     }

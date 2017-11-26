@@ -1,28 +1,25 @@
 package cci;
 
-import cgt.GTLocal;
-import cih.local.IFrameLocal;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
+import cih.local.IFrameLocal;
 
 public class CILocal {
-    private GTLocal     gtLocal;
     private CIPrincipal ctrlP;
     private IFrameLocal iFrameLocal;
 
     public CILocal(CIPrincipal ctrlP) {
         this.ctrlP = ctrlP;
-        gtLocal = new GTLocal();
     }
-    //metodo que abre a tela cadastro local
-    public void abrirCadastro() {
+    
+    public void abrirIFrame() {
         iFrameLocal = new IFrameLocal(this);
         ctrlP.getJanelaPrincipal().getDesktopPane().add(iFrameLocal);
         iFrameLocal.setVisible(true);
     }
   
     public List getListaLocais() {
-        return gtLocal.listar();
+        return ctrlP.getGtPrincipal().getGtLocal().listar();
     }
     
     public List listarLocal() {

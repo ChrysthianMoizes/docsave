@@ -1,23 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cih.compartimento;
 
 import cci.CICompartimento;
 import javax.swing.JTabbedPane;
 
-/**
- *
- * @author reida
- */
 public class IFrameCompartimento extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form IFrameCompartimento
-     */
     CICompartimento ctrl;
+    
     public IFrameCompartimento(CICompartimento ctrl) {
         this.ctrl = ctrl;
         initComponents();

@@ -2,20 +2,17 @@ package cci;
 
 import cdp.Local;
 import cdp.Mobilia;
-import cgt.GTMobilia;
 import java.util.List;
 import java.util.ArrayList;
-import cih.mobilia.IFrameMobilia;
 import java.util.Collection;
+import cih.mobilia.IFrameMobilia;
 
 public class CIMobilia {
     private CIPrincipal   ctrlP;
     private IFrameMobilia iFrameMobilia;
-    private GTMobilia     gtMobilia;
 
     public CIMobilia(CIPrincipal ctrlP) {
         this.ctrlP = ctrlP;
-        this.gtMobilia = new GTMobilia();
     }
     
     private boolean validarCampos(String nome, String identificador, int capacidade, Collection compartimentos) {
@@ -41,7 +38,7 @@ public class CIMobilia {
     }
     
     public List carregarCmbBoxMobilias() {
-       return gtMobilia.carregar();
+       return ctrlP.getGtPrincipal().getGtMobilia().carregar();
     }
     
     public List carregarCmbBoxLocais() {
@@ -52,7 +49,7 @@ public class CIMobilia {
        return ctrlP.getCiCompartimento().getLista();
     }
     
-    public void abrirCadastro() {
+    public void abrirIFrame() {
         iFrameMobilia = new IFrameMobilia(this);
         ctrlP.getJanelaPrincipal().getDesktopPane().add(iFrameMobilia);
         iFrameMobilia.setVisible(true);
@@ -65,7 +62,7 @@ public class CIMobilia {
     public boolean cadastrar(String nome, String identificador, int capacidade, Local local, Collection compartimentos) {
         boolean validou = validarCampos(nome, identificador, capacidade, compartimentos);
         if (validou) {
-            gtMobilia.cadastrar(nome, identificador, capacidade, local, compartimentos);
+            ctrlP.getGtPrincipal().getGtMobilia().cadastrar(nome, identificador, capacidade, local, compartimentos);
             exibirMenssagemInformativa("Cadastro concluído com sucesso!");
             return true;
         }
@@ -76,7 +73,7 @@ public class CIMobilia {
     public boolean alterar(Mobilia mobilia, String nome, String identificador, int capacidade, Local local, Collection compartimentos) {
         boolean validou = validarCampos(nome, identificador, capacidade, compartimentos);
         if (validou) {
-            gtMobilia.alterar(mobilia, nome, identificador, capacidade, local, compartimentos);
+            ctrlP.getGtPrincipal().getGtMobilia().alterar(mobilia, nome, identificador, capacidade, local, compartimentos);
             return true;
         }
         else 
@@ -88,11 +85,11 @@ public class CIMobilia {
     }
     
     public void excluir(Mobilia mobilia) {
-        gtMobilia.excluir(mobilia);
+        ctrlP.getGtPrincipal().getGtMobilia().excluir(mobilia);
     }
     
     public List listar() {
-        List lista = gtMobilia.listar();
+        List lista = ctrlP.getGtPrincipal().getGtMobilia().listar();
         if(lista != null)
             return lista;
         else{
@@ -100,8 +97,8 @@ public class CIMobilia {
             return null;
         }
     }
-
-    public GTMobilia getGtMobilia() {
-        return gtMobilia;
+    
+    public Local consultarLocal(int id) {
+        return ctrlP.getGtPrincipal().getGtLocal().consultarId(id);
     }
 }
