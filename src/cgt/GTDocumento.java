@@ -36,8 +36,8 @@ public class GTDocumento {
     }
 
     public void cadastrar(String codigo, String nome, Compartimento compartimento, TipoDocumento tpDocumento, Referenciado referenciado, File arquivoSelecionado) throws IOException, SQLException, ClassNotFoundException {
-        byte[] scan = Files.readAllBytes(arquivoSelecionado.toPath());
-        Documento documento = new Documento(nome, codigo, scan, tpDocumento, compartimento, referenciado);
+        //byte[] scan = Files.readAllBytes(arquivoSelecionado.toPath());
+        Documento documento = new Documento(nome, codigo, new byte[]{}, tpDocumento, compartimento, referenciado);
         gdDocumento.cadastrar(documento);
     }
 }

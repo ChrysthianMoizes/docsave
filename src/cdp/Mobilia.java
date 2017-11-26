@@ -29,6 +29,7 @@ public class Mobilia implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "local_id", nullable = false)
     private Local local;
+    
     @OneToMany(mappedBy = "mobilia", fetch = FetchType.LAZY, orphanRemoval = true)
     @OnDelete(action = OnDeleteAction.NO_ACTION)
     @Cascade(CascadeType.ALL)

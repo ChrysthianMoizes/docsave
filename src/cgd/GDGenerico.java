@@ -64,10 +64,11 @@ public abstract class GDGenerico {
         sessao.beginTransaction();
         
         Criteria cons = sessao.createCriteria(classe);
+        cons.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
         lista = cons.list();
         
         sessao.getTransaction().commit();
-        //sessao.close();
+        sessao.close();
         
         return lista;
     }

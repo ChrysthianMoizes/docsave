@@ -24,8 +24,6 @@ public class JPCadastrarCompartimento extends javax.swing.JPanel {
         spnQtdCompartimento = new javax.swing.JSpinner();
         lblCapacidade = new javax.swing.JLabel();
         txtCapacidade = new javax.swing.JTextField();
-        cmbTipoDocumento = new javax.swing.JComboBox<>();
-        lblTipoDocumento = new javax.swing.JLabel();
         cmbCompartimento = new javax.swing.JComboBox<>();
         lblCompartimento = new javax.swing.JLabel();
         btnCadastrar = new javax.swing.JButton();
@@ -42,8 +40,6 @@ public class JPCadastrarCompartimento extends javax.swing.JPanel {
         spnQtdCompartimento.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
 
         lblCapacidade.setText("Capacidade");
-
-        lblTipoDocumento.setText("Tipo de Documento");
 
         lblCompartimento.setText("Compartimento interno");
 
@@ -64,7 +60,6 @@ public class JPCadastrarCompartimento extends javax.swing.JPanel {
                     .addComponent(lblCapacidade)
                     .addComponent(lblIdentificador)
                     .addComponent(lblNome)
-                    .addComponent(lblTipoDocumento)
                     .addComponent(lblCompartimento))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -76,9 +71,7 @@ public class JPCadastrarCompartimento extends javax.swing.JPanel {
                             .addGap(18, 18, 18)
                             .addComponent(spnQtdCompartimento))
                         .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(cmbCompartimento, javax.swing.GroupLayout.Alignment.LEADING, 0, 188, Short.MAX_VALUE)
-                                .addComponent(cmbTipoDocumento, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(cmbCompartimento, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(txtNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -105,14 +98,11 @@ public class JPCadastrarCompartimento extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cmbTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTipoDocumento))
-                        .addGap(18, 18, 18)
+                        .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cmbCompartimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblCompartimento)))
-                    .addComponent(btnCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE))
                 .addContainerGap(218, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -125,34 +115,28 @@ public class JPCadastrarCompartimento extends javax.swing.JPanel {
             erro.add("Identificador");
         if(txtCapacidade.getText().equals(""))
             erro.add("Capacidade");
-        if(cmbTipoDocumento.getSelectedItem().toString().equals("Selecione"))
-            erro.add("Tipo de Documento");
         if(cmbCompartimento.getSelectedItem().toString().equals("Selecione"))
             erro.add("Compartimento Interno");
         if(spnQtdCompartimento.getValue().toString().equals("0"))
             erro.add("Quantidade de compartimentos");
         if(ctrl.getCtrlP().getMensagens().validaCampos(this, erro))
             ctrl.cadastrarCompartimento(txtNome.getText(), txtIdentificaor.getText(), 
-                    txtCapacidade.getText(), cmbTipoDocumento.getSelectedItem()
-                    , cmbCompartimento.getSelectedItem(), spnQtdCompartimento.getValue().toString());
+                    txtCapacidade.getText(), cmbCompartimento.getSelectedItem(), spnQtdCompartimento.getValue().toString());
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     
     private void preencherCampos(){
         ctrl.preencherMobilia(cmbCompartimento);
-        ctrl.preencherTipoDocumento(cmbTipoDocumento);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JComboBox<String> cmbCompartimento;
-    private javax.swing.JComboBox<String> cmbTipoDocumento;
     private javax.swing.JLabel lblCapacidade;
     private javax.swing.JLabel lblCompartimento;
     private javax.swing.JLabel lblIdentificador;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblQtdCompartimento;
-    private javax.swing.JLabel lblTipoDocumento;
     private javax.swing.JSpinner spnQtdCompartimento;
     private javax.swing.JTextField txtCapacidade;
     private javax.swing.JTextField txtIdentificaor;

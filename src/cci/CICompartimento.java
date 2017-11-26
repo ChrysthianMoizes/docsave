@@ -47,13 +47,13 @@ public class CICompartimento {
         iFrameCompartimento.setVisible(true);
     }
     
-    public void cadastrarCompartimento(String nome, String identificador, String capacidade,
-            Object  tipoDocumento, Object gaveta, String qtd){
+    public void cadastrarCompartimento(String nome, String identificador, String capacidade
+            , Object gaveta, String qtd){
         int qtdCompartimento = Integer.parseInt(qtd);
         int cmp = Integer.parseInt(capacidade);
         try { 
             ctrlP.getGtPrincipal().getGtCompartimento().cadastrarCompartimento(nome,
-                    identificador, cmp, tipoDocumento, gaveta, qtdCompartimento);
+                    identificador, cmp, gaveta, qtdCompartimento);
         } catch (SQLException ex) {
             ctrlP.getMensagens().exibirMenssagem(jpCadastrarCompartimento, "Erro: "+ex.getMessage());
         } catch (ClassNotFoundException ex) {

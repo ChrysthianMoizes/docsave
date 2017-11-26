@@ -2,17 +2,17 @@ package cci;
 
 import java.io.File;
 import java.util.List;
-import cdp.Compartimento;
+import javax.swing.JComboBox;
 import cdp.Local;
 import cdp.Mobilia;
 import cdp.Referenciado;
+import cdp.Compartimento;
 import cdp.TipoDocumento;
 import cih.documento.JPAlterarDocumento;
 import cih.documento.JPExcluirDocumento;
 import cih.documento.JPCadastrarDocumento;
 import cih.documento.JPConsultarDocumento;
 import cih.documento.IFrameDocumento;
-import javax.swing.JComboBox;
 
 public class CIDocumento {
     private CIPrincipal ctrlP;
@@ -20,7 +20,7 @@ public class CIDocumento {
     private JPConsultarDocumento jpConsultarDocumento;
     private JPAlterarDocumento   jpAlterarDocumento;
     private JPExcluirDocumento   jpExcluirDocumento;
-    private IFrameDocumento iFrameDocumento;
+    private IFrameDocumento      iFrameDocumento;
     
     public CIDocumento(CIPrincipal ctrlP) {
         this.ctrlP           = ctrlP;

@@ -9,6 +9,7 @@ public class GDTipoDocumento extends GDGenerico {
         Criteria crit = criarSessao().createCriteria(TipoDocumento.class);
         nome = nome.toLowerCase();
         crit.add(Restrictions.eq("nome", nome));
+        crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
         crit.setMaxResults(1);
         TipoDocumento tDocumento = (TipoDocumento) crit.uniqueResult();
         sessao.close();

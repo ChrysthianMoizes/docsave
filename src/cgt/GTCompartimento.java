@@ -2,7 +2,6 @@ package cgt;
 
 import cdp.Compartimento;
 import cdp.Mobilia;
-import cdp.TipoDocumento;
 import cgd.GDCompartimento;
 import java.sql.SQLException;
 import java.util.Iterator;
@@ -22,11 +21,10 @@ public class GTCompartimento {
     }
     
     public void cadastrarCompartimento(String nome, String identificador, int capacidade
-        , Object tipoDocumento, Object gaveta, int qtd) throws SQLException, ClassNotFoundException{
+        , Object gaveta, int qtd) throws SQLException, ClassNotFoundException{
         
         Compartimento cmp = null;
-        cmp = new Compartimento(identificador, nome, capacidade, (Mobilia)gaveta
-                , (TipoDocumento)tipoDocumento);
+        cmp = new Compartimento(identificador, nome, capacidade, (Mobilia)gaveta);
         if(cmp != null)
             gdCompartimento.cadastrar(cmp);
     }
@@ -65,8 +63,7 @@ public class GTCompartimento {
     public void alterarCompartimento(String nome, String identificador, int capacidade
             , Object tipoDocumento, Object gaveta, int qtd) throws SQLException, ClassNotFoundException{
         Compartimento cmp = null;
-        cmp = new Compartimento(identificador, nome, capacidade, (Mobilia)gaveta
-                , (TipoDocumento)tipoDocumento);
+        cmp = new Compartimento(identificador, nome, capacidade, (Mobilia)gaveta);
         if(cmp != null)
             gdCompartimento.alterar(cmp);
     }

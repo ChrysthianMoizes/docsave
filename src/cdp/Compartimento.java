@@ -30,45 +30,37 @@ public class Compartimento implements Serializable {
     @JoinColumn(name = "mobilia_id")
     private Mobilia mobilia;
     
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "tipo_documento_id", nullable = false)
-    @Cascade(CascadeType.SAVE_UPDATE)
-    private TipoDocumento tipoDocumento;
-    
-    @OneToMany(mappedBy = "compartimento", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "compartimento", fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.NO_ACTION)
     @Cascade(CascadeType.SAVE_UPDATE)
     private Collection<Documento> documentos;
 
     public Compartimento() {}
 
-    public Compartimento(int id, String codigo, String nome, int capacidade, Collection<Compartimento> compartimentos, Mobilia mobilia, TipoDocumento tipoDocumento, Collection<Documento> documentos) {
+    public Compartimento(int id, String codigo, String nome, int capacidade, Collection<Compartimento> compartimentos, Mobilia mobilia, Collection<Documento> documentos) {
         this.id = id;
         this.codigo = codigo;
         this.nome = nome;
         this.capacidade = capacidade;
         //this.compartimentos = compartimentos;
         this.mobilia = mobilia;
-        this.tipoDocumento = tipoDocumento;
         this.documentos = documentos;
     }
 
-    public Compartimento(String codigo, String nome, int capacidade, Collection<Compartimento> compartimentos, Mobilia mobilia, TipoDocumento tipoDocumento, Collection<Documento> documentos) {
+    public Compartimento(String codigo, String nome, int capacidade, Collection<Compartimento> compartimentos, Mobilia mobilia, Collection<Documento> documentos) {
         this.codigo = codigo;
         this.nome = nome;
         this.capacidade = capacidade;
         //this.compartimentos = compartimentos;
         this.mobilia = mobilia;
-        this.tipoDocumento = tipoDocumento;
         this.documentos = documentos;
     }
 
-    public Compartimento(String codigo, String nome, int capacidade, Mobilia mobilia, TipoDocumento tipoDocumento) {
+    public Compartimento(String codigo, String nome, int capacidade, Mobilia mobilia) {
         this.codigo = codigo;
         this.nome = nome;
         this.capacidade = capacidade;
         this.mobilia = mobilia;
-        this.tipoDocumento = tipoDocumento;
     }
     
     
@@ -113,14 +105,6 @@ public class Compartimento implements Serializable {
         this.mobilia = mobilia;
     }
 
-    public TipoDocumento getTipoDocumento() {
-        return tipoDocumento;
-    }
-
-    public void setTipoDocumento(TipoDocumento tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
-    }
-
     public Collection<Documento> getDocumentos() {
         return documentos;
     }
@@ -135,8 +119,7 @@ public class Compartimento implements Serializable {
     }
     
     public static Object[] toArray(Compartimento cmp){
-        return new Object[]{cmp.getNome(), cmp.getCodigo(), cmp.getCapacidade(), cmp.getTipoDocumento()
-            , cmp.getMobilia()};
+        return new Object[]{cmp.getNome(), cmp.getCodigo(), cmp.getCapacidade(), cmp.getMobilia()};
     }
 
     @Override
