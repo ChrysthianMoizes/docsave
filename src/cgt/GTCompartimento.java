@@ -80,6 +80,6 @@ public class GTCompartimento {
     }
 
     public List obterCompartimentos(Mobilia mobilia) {
-        return gdCompartimento.obterCompartimentos(mobilia.toString());
+        return gdCompartimento.obterCompartimentos(mobilia.getId());
     }
 }

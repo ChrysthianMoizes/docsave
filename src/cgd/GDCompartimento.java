@@ -16,11 +16,9 @@ public class GDCompartimento extends GDGenerico {
         return compartimento;
     }
 
-    public List obterCompartimentos(String mobilia) {
+    public List obterCompartimentos(int mobilia) {
         Criteria crit = criarSessao().createCriteria(Compartimento.class);
-        mobilia = mobilia.toLowerCase();
-        crit.add(Restrictions.eq("mobilia", mobilia));
-        crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+        crit.add(Restrictions.eq("mobilia.id", mobilia));
         List lista = crit.list();
         sessao.close();
         return lista;

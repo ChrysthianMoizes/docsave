@@ -7,7 +7,6 @@ import cdp.TipoDocumento;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import sun.java2d.d3d.D3DRenderQueue;
 
 public class JPCadastrarDocumento extends javax.swing.JPanel {
     CIDocumento ctrl;
@@ -59,11 +58,7 @@ public class JPCadastrarDocumento extends javax.swing.JPanel {
 
         jLabelTipoDeDocumentoDoc.setText("Tipo De Documento");
 
-        jComboBoxTipoDeDocumentoDoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabelReferenciadoDoc.setText("Referenciado");
-
-        jComboBoxReferenciadoDoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabelDocumentoDoc.setText("Documento");
 
@@ -80,15 +75,21 @@ public class JPCadastrarDocumento extends javax.swing.JPanel {
 
         jLabelCompartimentoDoc.setText("Compartimento");
 
-        jComboBoxCompartimento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabelMobilia.setText("Mobilia");
 
-        jComboBoxMobilia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxMobilia.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxMobiliaItemStateChanged(evt);
+            }
+        });
 
         jLabelLocal.setText("Local");
 
-        jComboBoxLocal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxLocal.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxLocalItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelLocalizacaoLayout = new javax.swing.GroupLayout(jPanelLocalizacao);
         jPanelLocalizacao.setLayout(jPanelLocalizacaoLayout);
@@ -220,10 +221,23 @@ public class JPCadastrarDocumento extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButtonSelecionarDocActionPerformed
 
+    private void jComboBoxLocalItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxLocalItemStateChanged
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            ctrl.preencherMobilia(jComboBoxMobilia, jComboBoxLocal.getSelectedItem());
+        }
+    }//GEN-LAST:event_jComboBoxLocalItemStateChanged
+
+    private void jComboBoxMobiliaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxMobiliaItemStateChanged
+         if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            ctrl.preencherCompartimento(jComboBoxCompartimento, jComboBoxMobilia.getSelectedItem());
+        }
+    }//GEN-LAST:event_jComboBoxMobiliaItemStateChanged
+
     private void preencherCampos() {
         ctrl.preencherCompartimento(jComboBoxCompartimento);
         ctrl.preencherTipoDocumento(jComboBoxTipoDeDocumentoDoc);
         ctrl.preencherReferenciado(jComboBoxReferenciadoDoc);
+        ctrl.preencherLocal(jComboBoxLocal);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

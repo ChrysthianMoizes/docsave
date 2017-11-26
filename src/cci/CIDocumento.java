@@ -105,26 +105,32 @@ public class CIDocumento {
     }
     
      public void preencherLocal(JComboBox cmbLocal) {
-        cmbLocal.removeAllItems();
-        List lista = ctrlP.getGtPrincipal().getGtLocal().listar();
-        cmbLocal.addItem("Selecione");
-        for (Object item : lista)
-            cmbLocal.addItem(item);
+        if(!cmbLocal.equals("Selecione")){    
+            cmbLocal.removeAllItems();
+            List lista = ctrlP.getGtPrincipal().getGtLocal().listar();
+            cmbLocal.addItem("Selecione");
+            for (Object item : lista)
+                cmbLocal.addItem(item);
+        }
     }
      
     public void preencherMobilia(JComboBox cmbMobilia, Object local) {
-        cmbMobilia.removeAllItems();
-        List lista = ctrlP.getGtPrincipal().getGtMobilia().obterMobiliasDeLocais((Local)local);
-        cmbMobilia.addItem("Selecione");
-        for (Object item : lista)
-            cmbMobilia.addItem(item);
+        if(!local.equals("Selecione")){
+            cmbMobilia.removeAllItems();
+            List lista = ctrlP.getGtPrincipal().getGtMobilia().obterMobiliasDeLocais((Local)local);
+            cmbMobilia.addItem("Selecione");
+            for (Object item : lista)
+                cmbMobilia.addItem(item);
+        }
     }
     
     public void preencherCompartimento(JComboBox cmbMobilia, Object mobilia) {
-        cmbMobilia.removeAllItems();
-        List lista = ctrlP.getGtPrincipal().getGtCompartimento().obterCompartimentos((Mobilia)mobilia);
-        cmbMobilia.addItem("Selecione");
-        for (Object item : lista)
-            cmbMobilia.addItem(item);
+        if(!mobilia.equals("Selecione")){
+            cmbMobilia.removeAllItems();
+            List lista = ctrlP.getGtPrincipal().getGtCompartimento().obterCompartimentos((Mobilia)mobilia);
+            cmbMobilia.addItem("Selecione");
+            for (Object item : lista)
+                cmbMobilia.addItem(item);
+        }
     }
 }

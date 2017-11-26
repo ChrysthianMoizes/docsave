@@ -71,6 +71,6 @@ public class GTMobilia {
     }
 
     public List obterMobiliasDeLocais(Local local) {
-        return gdMobilia.consultarMobilias(local.toString());
+        return gdMobilia.consultarMobilias(local.getId());
     }
 }

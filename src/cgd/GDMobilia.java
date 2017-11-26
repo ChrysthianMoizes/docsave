@@ -17,10 +17,10 @@ public class GDMobilia extends GDGenerico {
         return tMobilia;        
     }
     
-    public List consultarMobilias(String local){
+    public List consultarMobilias(int local){
         Criteria crit = criarSessao().createCriteria(Mobilia.class);
-        local = local.toLowerCase();
-        crit.add(Restrictions.eq("local", local));
+        //local = local.toLowerCase();
+        crit.add(Restrictions.eq("local.id", local));
         crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
         List lista = crit.list();
         sessao.close();
