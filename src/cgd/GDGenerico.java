@@ -76,4 +76,9 @@ public abstract class GDGenerico {
         sessao = cgd.hibernate.HibernateConfig.getSessionFactory().openSession();
         return sessao;
     }
+    
+    public void fecharSessao(){
+        if(sessao != null)
+            sessao.close();
+    }
 }

@@ -115,4 +115,11 @@ public class Documento implements Serializable {
         this.referenciado = referenciado;
     }
 
+    @Override
+    public String toString() {
+        return codigo;
+    }
+    
+    
+
 }

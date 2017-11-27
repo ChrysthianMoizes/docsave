@@ -13,7 +13,9 @@ import cih.documento.JPExcluirDocumento;
 import cih.documento.JPCadastrarDocumento;
 import cih.documento.JPConsultarDocumento;
 import cih.documento.IFrameDocumento;
-
+import cih.util.JTableUtil;
+import javax.swing.JTable;
+                
 public class CIDocumento {
     private CIPrincipal ctrlP;
     private JPCadastrarDocumento jpCadastrarDocumento;
@@ -53,19 +55,22 @@ public class CIDocumento {
     public void consultarDocumento() {
         //?
     }
+    
+    public List listarDocumentos(){
+        return ctrlP.getGtPrincipal().getGtDocumento().listar();
+    }
 
     public void alterarDocumento() {
         
     }
 
     public void excluirDocumento(Object obj) {
-//        try {
-//            ctrlP.getGtPrincipal().getGtDocumento().excluir(obj);
-//        } catch (SQLException ex) {
-//            ctrlP.getMensagens().exibirMensagem(iFrameDocumento, "Erro: "+ex.getMessage());
-//        } catch (ClassNotFoundException ex) {
-//            ctrlP.getMensagens().exibirMensagem(iFrameDocumento, "Erro: "+ex.getMessage());
-//        }
+       try {
+            ctrlP.getGtPrincipal().getGtDocumento().excluir(obj);
+        } catch (Exception ex){
+            ctrlP.getMensagens().exibirMensagem(iFrameDocumento, "Erro: "+ex.getMessage());
+        }
+        
     }
     
     public List getLista() {
@@ -133,6 +138,24 @@ public class CIDocumento {
             cmbMobilia.addItem("Selecione");
             for (Object item : lista)
                 cmbMobilia.addItem(item);
+        }
+    }
+    
+    public void preencherDocumento(JComboBox cmbMobilia) {
+        cmbMobilia.removeAllItems();
+        List lista = listarDocumentos();
+        cmbMobilia.addItem("Selecione");
+        for (Object item : lista)
+            cmbMobilia.addItem(item);
+    }
+
+    public void consultarDocumento(String codigo, String nome, JTable tabela) {
+        JTableUtil.limparTabela(tabela);
+        Object lista[][] = ctrlP.getGtPrincipal().getGtDocumento().consultarDocumentos(codigo, nome);
+        if(lista != null){
+            for(Object[] item : lista){
+                JTableUtil.addLinha(tabela, item);
+            }
         }
     }
 }

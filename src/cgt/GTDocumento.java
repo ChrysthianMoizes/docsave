@@ -49,4 +49,30 @@ public class GTDocumento {
         documento.setReferenciado(referenciado);
         gdDocumento.save(documento);
     }
+
+    public Object[][] consultarDocumentos(String codigo, String nome) {
+        Object retorno[][] = null;
+        List lista = null;
+        if(nome != null && codigo != null){
+            lista = gdDocumento.consultar(codigo, nome);
+            
+        } else {
+            lista = gdDocumento.consultar(Documento.class);
+        }
+        retorno = new Object[lista.size()][4];
+            int i = 0;
+            for(Object item : lista){
+                Documento doc = (Documento)item;
+                retorno[i][0] = doc;
+                retorno[i][1] = doc.getNome();
+                retorno[i][2] = doc.getCompartimento();
+                retorno[i][3] = doc.getScan();
+                i++;
+            }
+        return retorno;
+    }
+
+    public void fecharSessao() {
+        gdDocumento.fecharSessao();
+    }
 }
