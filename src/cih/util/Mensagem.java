@@ -28,7 +28,7 @@ public class Mensagem {
             return true;
     }
 
-    public void exibirMenssagem(Component componentePai, String texto) {
+    public void exibirMensagem(Component componentePai, String texto) {
         if (texto != null) {
             JOptionPane.showMessageDialog(componentePai, texto, "Informativo", JOptionPane.INFORMATION_MESSAGE);
         }

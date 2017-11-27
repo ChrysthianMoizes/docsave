@@ -27,26 +27,6 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jLabelTipoDeDocumentoDoc" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelReferenciadoDoc" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jComboBoxReferenciadoDoc" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jComboBoxTipoDeDocumentoDoc" alignment="0" pref="396" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="jLabelDocumentoDoc" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jTextFieldDocumentoDoc" min="-2" pref="297" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButtonSelecionarDoc" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <Component id="jButtonSalvarCadastroDoc" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -60,6 +40,24 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jTextFieldCodigoDoc" max="32767" attributes="0"/>
                           <Component id="jTextFieldNomeDoc" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jLabelDocumentoDoc" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelTipoDeDocumentoDoc" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelReferenciadoDoc" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jTextFieldDocumentoDoc" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jButtonSelecionarDoc" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jComboBoxReferenciadoDoc" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jComboBoxTipoDeDocumentoDoc" alignment="0" pref="412" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -98,7 +96,7 @@
                   <Component id="jTextFieldDocumentoDoc" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonSelecionarDoc" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jButtonSalvarCadastroDoc" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
@@ -130,7 +128,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelTipoDeDocumentoDoc">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Tipo De Documento"/>
+        <Property name="text" type="java.lang.String" value="Tipo Documento"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="jComboBoxTipoDeDocumentoDoc">

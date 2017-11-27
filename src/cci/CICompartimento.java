@@ -1,50 +1,46 @@
 package cci;
 
-import cgt.GTCompartimento;
+import java.util.List;
+import java.util.ArrayList;
+import java.sql.SQLException;
+import javax.swing.JComboBox;
+import javax.swing.table.DefaultTableModel;
 import cih.compartimento.IFrameCompartimento;
 import cih.compartimento.JPAlterarCompartimento;
 import cih.compartimento.JPCadastrarCompartimento;
 import cih.compartimento.JPConsultarCompartimento;
 import cih.compartimento.JPExcluirCompartimento;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.JComboBox;
-import javax.swing.table.DefaultTableModel;
-
 
 public class CICompartimento {
-    private CIPrincipal     ctrlP;
-    private GTCompartimento gtCompartimento;
-
-    private IFrameCompartimento iFrameCompartimento;
+    private CIPrincipal ctrlP;
+    private IFrameCompartimento      iFrameCompartimento;
     private JPCadastrarCompartimento jpCadastrarCompartimento;
     private JPConsultarCompartimento jpConsultarCompartimento;
-    private JPAlterarCompartimento jpAlterarCompartimento;
-    private JPExcluirCompartimento jpExcluirCompartimento;
+    private JPAlterarCompartimento   jpAlterarCompartimento;
+    private JPExcluirCompartimento   jpExcluirCompartimento;
+    
     public CICompartimento(CIPrincipal ctrlP) {
         this.ctrlP = ctrlP;
-        gtCompartimento = new GTCompartimento();
-        iFrameCompartimento = new IFrameCompartimento(this);
-        jpCadastrarCompartimento = new JPCadastrarCompartimento(this);
-        jpConsultarCompartimento = new JPConsultarCompartimento(this);
-        jpAlterarCompartimento = new JPAlterarCompartimento(this);
-        jpExcluirCompartimento = new JPExcluirCompartimento(this);
     }
     
-    private void carregarAbas(){
+    public void abrirIFrame() {
+        iFrameCompartimento      = new IFrameCompartimento(this);
+        jpCadastrarCompartimento = new JPCadastrarCompartimento(this);
+        jpConsultarCompartimento = new JPConsultarCompartimento(this);
+        jpAlterarCompartimento   = new JPAlterarCompartimento(this);
+        jpExcluirCompartimento   = new JPExcluirCompartimento(this);
+        ctrlP.getJanelaPrincipal().getDesktopPane().add(iFrameCompartimento);
+        carregarAbas();
+        iFrameCompartimento.setVisible(true);
+    }
+    
+    private void carregarAbas() {
         iFrameCompartimento.getjTabPane().add(jpCadastrarCompartimento);
         iFrameCompartimento.getjTabPane().add(jpConsultarCompartimento);
         iFrameCompartimento.getjTabPane().add(jpAlterarCompartimento);
         iFrameCompartimento.getjTabPane().add(jpExcluirCompartimento);
         iFrameCompartimento.revalidate();
         iFrameCompartimento.repaint();
-    }
-    
-    public void abrirIFrameCompartimento() {
-        ctrlP.getJanelaPrincipal().getDesktopPane().add(iFrameCompartimento);
-        carregarAbas();
-        iFrameCompartimento.setVisible(true);
     }
     
     public void cadastrarCompartimento(String nome, String identificador, String capacidade
@@ -55,9 +51,9 @@ public class CICompartimento {
             ctrlP.getGtPrincipal().getGtCompartimento().cadastrarCompartimento(nome,
                     identificador, cmp, gaveta, qtdCompartimento);
         } catch (SQLException ex) {
-            ctrlP.getMensagens().exibirMenssagem(jpCadastrarCompartimento, "Erro: "+ex.getMessage());
+            ctrlP.getMensagens().exibirMensagem(jpCadastrarCompartimento, "Erro: "+ex.getMessage());
         } catch (ClassNotFoundException ex) {
-            ctrlP.getMensagens().exibirMenssagem(jpCadastrarCompartimento, "Erro: "+ex.getMessage());
+            ctrlP.getMensagens().exibirMensagem(jpCadastrarCompartimento, "Erro: "+ex.getMessage());
         }
         
     }
@@ -106,7 +102,7 @@ public class CICompartimento {
                 }
             }
         }else
-            ctrlP.getMensagens().exibirMenssagem(jpConsultarCompartimento, "Nenhum compartimento interno cadastrado");
+            ctrlP.getMensagens().exibirMensagem(jpConsultarCompartimento, "Nenhum compartimento interno cadastrado");
     }
 
     public void alterarCompartimento(String nome, String identificador, String capacidade, 
@@ -117,9 +113,9 @@ public class CICompartimento {
             ctrlP.getGtPrincipal().getGtCompartimento().alterarCompartimento(nome,
                     identificador, cmp, tipoDocumento, mobilia, qtdCompartimento);
         } catch (SQLException ex) {
-            ctrlP.getMensagens().exibirMenssagem(iFrameCompartimento, "Erro: "+ex.getMessage());
+            ctrlP.getMensagens().exibirMensagem(iFrameCompartimento, "Erro: "+ex.getMessage());
         } catch (ClassNotFoundException ex) {
-             ctrlP.getMensagens().exibirMenssagem(iFrameCompartimento, "Erro: "+ex.getMessage());
+             ctrlP.getMensagens().exibirMensagem(iFrameCompartimento, "Erro: "+ex.getMessage());
         }
     }
     
@@ -131,13 +127,13 @@ public class CICompartimento {
         try {
             ctrlP.getGtPrincipal().getGtCompartimento().excluirCompartimento(comp);
         } catch (SQLException ex) {
-            ctrlP.getMensagens().exibirMenssagem(iFrameCompartimento, "Erro: "+ex.getMessage());
+            ctrlP.getMensagens().exibirMensagem(iFrameCompartimento, "Erro: "+ex.getMessage());
         } catch (ClassNotFoundException ex) {
-            ctrlP.getMensagens().exibirMenssagem(iFrameCompartimento, "Erro: "+ex.getMessage());
+            ctrlP.getMensagens().exibirMensagem(iFrameCompartimento, "Erro: "+ex.getMessage());
         }
     }
     
     public List getLista() {
-        return gtCompartimento.listar();
+        return ctrlP.getGtPrincipal().getGtCompartimento().listar();
     }
 }

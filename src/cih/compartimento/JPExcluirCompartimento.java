@@ -143,7 +143,7 @@ public class JPExcluirCompartimento extends javax.swing.JPanel {
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
        if(tabela.getSelectedRow() < 0)
-           ctrl.getCtrlP().getMensagens().exibirMenssagem(this, "Selecione um item");
+           ctrl.getCtrlP().getMensagens().exibirMensagem(this, "Selecione um item");
        else{
            Object comp = tabela.getModel().getValueAt(tabela.getSelectedRow(), 1);
            ctrl.excluirCompartimento(comp);

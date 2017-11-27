@@ -59,7 +59,6 @@ public class TipoDocumento implements Serializable {
         return  nome;
     }
 
- 
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -77,7 +76,5 @@ public class TipoDocumento implements Serializable {
         }
         return true;
     }
-    
-    
     
 }

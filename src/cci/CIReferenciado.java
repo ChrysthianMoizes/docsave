@@ -1,49 +1,37 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cci;
 
-import cih.referenciado.*;
 import java.sql.SQLException;
-import cih.util.JTableUtil;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JTable;
+import cih.util.JTableUtil;
+import cih.referenciado.*;
 
-/**
- *
- * @author reida
- */
 public class CIReferenciado {
     private CIPrincipal ctrlP;
-    private IFrameReferenciado iFrameReferenciado;
+    private IFrameReferenciado      iFrameReferenciado;
     private JPCadastrarReferenciado jpCadastrarReferenciado;
-    private JPAlterarReferenciado jpAlterarReferenciado;
+    private JPAlterarReferenciado   jpAlterarReferenciado;
     private JPConsultarReferenciado jpConsultarReferenciado;
+    
     public CIReferenciado(CIPrincipal ctrlP) {
         this.ctrlP = ctrlP;
-        iFrameReferenciado = new IFrameReferenciado(this);
+    }
+
+    public void abrirIFrame() {
+        iFrameReferenciado      = new IFrameReferenciado(this);
         jpCadastrarReferenciado = new JPCadastrarReferenciado(this);
         jpConsultarReferenciado = new JPConsultarReferenciado(this);
-        jpAlterarReferenciado = new JPAlterarReferenciado(this);
-        
+        jpAlterarReferenciado   = new JPAlterarReferenciado(this);
+        ctrlP.getJanelaPrincipal().getDesktopPane().add(iFrameReferenciado);
+        carregarAbas();
+        iFrameReferenciado.setVisible(true);
     }
     
-    public void carregarAbas(){
+    public void carregarAbas() {
         iFrameReferenciado.getjTabPane().add(jpCadastrarReferenciado);
         iFrameReferenciado.getjTabPane().add(jpConsultarReferenciado);
         iFrameReferenciado.getjTabPane().add(jpAlterarReferenciado);
         iFrameReferenciado.revalidate();
         iFrameReferenciado.repaint();
-    }
-
-    public void abrirIFrameReferenciado(){
-         ctrlP.getJanelaPrincipal().getDesktopPane().add(iFrameReferenciado);
-         carregarAbas();
-         iFrameReferenciado.setVisible(true);
     }
     
     public CIPrincipal getCtrlP() {
@@ -54,9 +42,9 @@ public class CIReferenciado {
         try {
             ctrlP.getGtPrincipal().getGtReferenciado().cadastrarReferente(nome, cpf);
         }catch (SQLException ex) {
-            ctrlP.getMensagens().exibirMenssagem(iFrameReferenciado, "Erro: "+ex.getMessage());
+            ctrlP.getMensagens().exibirMensagem(iFrameReferenciado, "Erro: "+ex.getMessage());
         } catch (ClassNotFoundException ex) {
-            ctrlP.getMensagens().exibirMenssagem(iFrameReferenciado, "Erro: "+ex.getMessage());
+            ctrlP.getMensagens().exibirMensagem(iFrameReferenciado, "Erro: "+ex.getMessage());
         }
     }
     public void consultarReferentes(String nome, String cpf, JTable tabela) {
@@ -72,14 +60,14 @@ public class CIReferenciado {
         try {
              ref = JTableUtil.getDadosLinhaSelecionada(tabela);
         } catch (Exception ex) {
-            ctrlP.getMensagens().exibirMenssagem(iFrameReferenciado, ex.getMessage());
+            ctrlP.getMensagens().exibirMensagem(iFrameReferenciado, ex.getMessage());
         }
         Object refArray[] = ctrlP.getGtPrincipal().getGtReferenciado().converterParaArray(ref);
         if(refArray != null){
             return refArray;
         }
         else{
-            ctrlP.getMensagens().exibirMenssagem(iFrameReferenciado, "Erro ao buscar Referente");
+            ctrlP.getMensagens().exibirMensagem(iFrameReferenciado, "Erro ao buscar Referente");
             return null;
         }
     }
@@ -88,7 +76,7 @@ public class CIReferenciado {
         try {
             ctrlP.getGtPrincipal().getGtReferenciado().alterarReferente(nome, cpf, ref);
         } catch (Exception ex) {
-            ctrlP.getMensagens().exibirMenssagem(iFrameReferenciado, "Erro: "+ex.getMessage());
+            ctrlP.getMensagens().exibirMensagem(iFrameReferenciado, "Erro: "+ex.getMessage());
         } 
     }
 }

@@ -103,22 +103,22 @@ public class PanelMenu extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTipoDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTipoDocumentoActionPerformed
-        ctrlP.getCiTipoDocumento().abrirCadastroTipoDocumento();
+        ctrlP.getCiTipoDocumento().abrirIFrame();
     }//GEN-LAST:event_btnTipoDocumentoActionPerformed
 
     private void btnLocalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLocalActionPerformed
-        ctrlP.getCiLocal().abrirCadastro();
+        ctrlP.getCiLocal().abrirIFrame();
     }//GEN-LAST:event_btnLocalActionPerformed
 
     private void btnMobiliaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMobiliaActionPerformed
-        ctrlP.getCiMobilia().abrirCadastro();
+        ctrlP.getCiMobilia().abrirIFrame();
     }//GEN-LAST:event_btnMobiliaActionPerformed
     private void btnCompartimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompartimentoActionPerformed
-        ctrlP.getCiCompartimento().abrirIFrameCompartimento();
+        ctrlP.getCiCompartimento().abrirIFrame();
     }//GEN-LAST:event_btnCompartimentoActionPerformed
 
     private void btnReferenciadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReferenciadoActionPerformed
-        ctrlP.getCiReferenciado().abrirIFrameReferenciado();
+        ctrlP.getCiReferenciado().abrirIFrame();
     }//GEN-LAST:event_btnReferenciadoActionPerformed
 
     private void btnDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDocumentoActionPerformed

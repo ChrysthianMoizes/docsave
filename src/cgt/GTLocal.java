@@ -53,4 +53,8 @@ public class GTLocal {
             Logger.getLogger(GTTipoDocumento.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public Local consultarId(int id) {
+        return gdLocal.consultarId(id);
+    }
 }

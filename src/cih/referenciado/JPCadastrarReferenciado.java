@@ -93,7 +93,7 @@ public class JPCadastrarReferenciado extends javax.swing.JPanel {
             erro.add("Identificador");
         if(ctrl.getCtrlP().getMensagens().validaCampos(this, erro)){
             ctrl.cadastrarReferente(txtNome.getText(), txtCPF.getText());
-            ctrl.getCtrlP().getMensagens().exibirMenssagem(this, "Cadastro completo");
+            ctrl.getCtrlP().getMensagens().exibirMensagem(this, "Cadastro completo");
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 

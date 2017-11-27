@@ -16,7 +16,6 @@ public class GTTipoDocumento {
         gdTipoDocumento = new GDTipoDocumento();
     }
  
-    
     public void cadastrarTipoDocumento(String nome, String desc){
         TipoDocumento novo = new TipoDocumento(nome, desc);
         try {
@@ -43,6 +42,10 @@ public class GTTipoDocumento {
             lista.add(tDocumento.getDescricao());
         }
         return lista;
+    }
+    
+    public TipoDocumento consultarId(int id) {
+        return gdTipoDocumento.consultarId(id);
     }
     
     public void alterarTipoDocumento(Object objId, String nome, String desc){

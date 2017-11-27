@@ -11,12 +11,10 @@ public abstract class GDGenerico {
 
     protected Session sessao;
     private final int CADASTRAR = 0;
-    private final int ALTERAR = 1;
-    private final int EXCLUIR = 3;
+    private final int ALTERAR   = 1;
+    private final int EXCLUIR   = 3;
     
-    public GDGenerico() {
-        
-    }
+    public GDGenerico() {}
     
     private void persistir(Object obj, int cenario) throws SQLException {
         
@@ -64,7 +62,6 @@ public abstract class GDGenerico {
         sessao.beginTransaction();
         
         Criteria cons = sessao.createCriteria(classe);
-        cons.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
         lista = cons.list();
         
         sessao.getTransaction().commit();

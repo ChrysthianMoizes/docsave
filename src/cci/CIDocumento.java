@@ -23,12 +23,18 @@ public class CIDocumento {
     private IFrameDocumento      iFrameDocumento;
     
     public CIDocumento(CIPrincipal ctrlP) {
-        this.ctrlP           = ctrlP;
+        this.ctrlP = ctrlP;
+    }
+    
+    public void abrirIFrame() {
         iFrameDocumento      = new IFrameDocumento(this);
         jpCadastrarDocumento = new JPCadastrarDocumento(this);
         jpConsultarDocumento = new JPConsultarDocumento(this);
         jpAlterarDocumento   = new JPAlterarDocumento(this);
         jpExcluirDocumento   = new JPExcluirDocumento(this);
+        ctrlP.getJanelaPrincipal().getDesktopPane().add(iFrameDocumento);
+        carregarAbas();
+        iFrameDocumento.setVisible(true);
     }
     
     private void carregarAbas() {
@@ -38,12 +44,6 @@ public class CIDocumento {
         iFrameDocumento.getjTabPane().add(jpExcluirDocumento);
         iFrameDocumento.revalidate();
         iFrameDocumento.repaint();
-    }
-    
-    public void abrirIFrame() {
-        ctrlP.getJanelaPrincipal().getDesktopPane().add(iFrameDocumento);
-        carregarAbas();
-        iFrameDocumento.setVisible(true);
     }
     
     public CIPrincipal getCtrlP() {
@@ -62,9 +62,9 @@ public class CIDocumento {
 //        try {
 //            ctrlP.getGtPrincipal().getGtDocumento().excluir(obj);
 //        } catch (SQLException ex) {
-//            ctrlP.getMensagens().exibirMenssagem(iFrameDocumento, "Erro: "+ex.getMessage());
+//            ctrlP.getMensagens().exibirMensagem(iFrameDocumento, "Erro: "+ex.getMessage());
 //        } catch (ClassNotFoundException ex) {
-//            ctrlP.getMensagens().exibirMenssagem(iFrameDocumento, "Erro: "+ex.getMessage());
+//            ctrlP.getMensagens().exibirMensagem(iFrameDocumento, "Erro: "+ex.getMessage());
 //        }
     }
     
@@ -75,8 +75,10 @@ public class CIDocumento {
     public void cadastrarDocumento(String codigo, String nome, Compartimento compartimento, TipoDocumento tpDocumento, Referenciado referenciado, File arquivoSelecionado) {
         try {
             ctrlP.getGtPrincipal().getGtDocumento().cadastrar(codigo, nome, compartimento, tpDocumento, referenciado, arquivoSelecionado);
+            ctrlP.getMensagens().exibirMensagem(iFrameDocumento, "Documento cadastrado com sucesso!");
+            jpCadastrarDocumento.limparCampos();
         } catch (Exception ex) {
-            ctrlP.getMensagens().exibirMenssagem(iFrameDocumento, "Erro: " + ex.toString());
+            ctrlP.getMensagens().exibirMensagem(iFrameDocumento, "Erro: " + ex.toString());
         }
     }
     
@@ -125,7 +127,7 @@ public class CIDocumento {
     }
     
     public void preencherCompartimento(JComboBox cmbMobilia, Object mobilia) {
-        if(!mobilia.equals("Selecione")){
+        if (!mobilia.equals("Selecione")) {
             cmbMobilia.removeAllItems();
             List lista = ctrlP.getGtPrincipal().getGtCompartimento().obterCompartimentos((Mobilia)mobilia);
             cmbMobilia.addItem("Selecione");

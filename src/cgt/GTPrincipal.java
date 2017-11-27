@@ -1,7 +1,5 @@
 package cgt;
 
-//TODO: DELETAR ESSA CLASSE. AS GT's DEVEM FICAR DENTRO DE CADA CI,
-//      USE O EXEMPLO DA CIMobilia
 public class GTPrincipal {
     private GTCompartimento gtCompartimento;
     private GTDocumento gtDocumento;
@@ -14,7 +12,7 @@ public class GTPrincipal {
 
     public GTPrincipal() {
         gtCompartimento = new GTCompartimento();
-        gtDocumento = new GTDocumento();
+        gtDocumento = new GTDocumento(this);
         gtLocal = new GTLocal();
         gtMobilia = new GTMobilia();
         gtPessoa = new GTPessoa();

@@ -115,8 +115,8 @@ public class JPCadastrarCompartimento extends javax.swing.JPanel {
             erro.add("Identificador");
         if(txtCapacidade.getText().equals(""))
             erro.add("Capacidade");
-        if(cmbCompartimento.getSelectedItem().toString().equals("Selecione"))
-            erro.add("Compartimento Interno");
+        //if(cmbCompartimento.getSelectedItem().toString().equals("Selecione"))
+        //    erro.add("Compartimento Interno");
         if(spnQtdCompartimento.getValue().toString().equals("0"))
             erro.add("Quantidade de compartimentos");
         if(ctrl.getCtrlP().getMensagens().validaCampos(this, erro))
@@ -126,7 +126,7 @@ public class JPCadastrarCompartimento extends javax.swing.JPanel {
 
     
     private void preencherCampos(){
-        ctrl.preencherMobilia(cmbCompartimento);
+        //ctrl.preencherMobilia(cmbCompartimento);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
