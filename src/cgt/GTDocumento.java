@@ -38,7 +38,7 @@ public class GTDocumento {
 
     public void cadastrar(String codigo, String nome, Compartimento compartimento, TipoDocumento tpDocumento, Referenciado referenciado, File arquivoSelecionado) throws IOException, SQLException, ClassNotFoundException, Exception {
         byte[] scan = Files.readAllBytes(arquivoSelecionado.toPath());
-        scan = new byte[]{}; //TODO CORRIGIR!
+        //scan = new byte[]{}; //TODO CORRIGIR!
         TipoDocumento tpDocDB = gtPrincipal.getGtTipoDocumento().consultarId(tpDocumento.getId());
         Documento documento = new Documento();
         documento.setScan(scan);
@@ -66,7 +66,7 @@ public class GTDocumento {
                 retorno[i][0] = doc;
                 retorno[i][1] = doc.getNome();
                 retorno[i][2] = doc.getCompartimento();
-                retorno[i][3] = doc.getScan();
+                retorno[i][3] = doc.getReferenciado();
                 i++;
             }
         return retorno;

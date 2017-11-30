@@ -14,6 +14,7 @@ import cih.documento.JPCadastrarDocumento;
 import cih.documento.JPConsultarDocumento;
 import cih.documento.IFrameDocumento;
 import cih.util.JTableUtil;
+import javax.swing.ImageIcon;
 import javax.swing.JTable;
                 
 public class CIDocumento {
