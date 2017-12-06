@@ -5,6 +5,8 @@
  */
 package cih.documento;
 
+import javax.swing.JDialog;
+
 /**
  *
  * @author Erick
@@ -14,9 +16,11 @@ public class JDialogVisualizaDoc extends javax.swing.JDialog {
     /**
      * Creates new form JDialogVisualizaDoc
      */
-    public JDialogVisualizaDoc(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public JDialogVisualizaDoc(JDialog parent, boolean modal, Object scan) {
+        super(parent);
         initComponents();
+        this.setVisible(modal);
+        this.setLocationRelativeTo(parent);
     }
 
     /**
@@ -45,6 +49,11 @@ public class JDialogVisualizaDoc extends javax.swing.JDialog {
         );
 
         jButtonOkVisual.setText("Ok");
+        jButtonOkVisual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonOkVisualActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -72,6 +81,11 @@ public class JDialogVisualizaDoc extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonOkVisualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOkVisualActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButtonOkVisualActionPerformed
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonOkVisual;

@@ -59,6 +59,11 @@
               <Connection component="Form" name="maximumSize" type="property"/>
             </Property>
           </Properties>
+          <AccessibilityProperties>
+            <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="Form"/>
+            </Property>
+          </AccessibilityProperties>
 
           <Layout>
             <DimensionLayout dim="0">

@@ -109,6 +109,7 @@ public class JPExcluirDocumento extends javax.swing.JPanel {
         try {
             Object dados = JTableUtil.getDadosLinhaSelecionada(jTableConsultaDoc);
             ctrl.excluirDocumento(dados);
+            ctrl.getCtrlP().getMensagens().exibirMensagem(this, "Documento Excluido");
         } catch (Exception ex) {
             ctrl.getCtrlP().getMensagens().exibirMensagem(this, "Erro: "+ex.toString());
         }

@@ -78,7 +78,9 @@ public abstract class GDGenerico {
     }
     
     public void fecharSessao(){
-        if(sessao != null)
+        if(sessao != null){
             sessao.close();
+            sessao = null;
+        }
     }
 }

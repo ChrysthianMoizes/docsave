@@ -5,6 +5,7 @@ import cdp.Compartimento;
 import cdp.Referenciado;
 import cdp.TipoDocumento;
 import java.io.File;
+import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -194,16 +195,33 @@ public class JPCadastrarDocumento extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSalvarCadastroDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarCadastroDocActionPerformed
-        
-        //validar();
-        
-        String codigo = jTextFieldCodigoDoc.getText();
-        String nome   = jTextFieldNomeDoc.getText();
-        Compartimento compartimento = (Compartimento) jComboBoxCompartimento.getSelectedItem();
-        TipoDocumento tpDocumento   = (TipoDocumento) jComboBoxTipoDeDocumentoDoc.getSelectedItem();
-        Referenciado  referenciado  = (Referenciado) jComboBoxReferenciadoDoc.getSelectedItem();
-        ctrl.cadastrarDocumento(codigo, nome, compartimento, tpDocumento, referenciado, arquivoSelecionado);
-        
+        ArrayList erro = new ArrayList();
+        if(jTextFieldCodigoDoc.getText().equals(""))
+            erro.add("Codigo");
+        if(jTextFieldNomeDoc.getText().equals(""))
+            erro.add("Nome");
+        if(jComboBoxCompartimento.getSelectedItem().equals("Selecione"))
+            erro.add("Compartimento");
+        if(jComboBoxLocal.getSelectedItem().equals("Selecione"))
+            erro.add("Local");
+        if(jComboBoxMobilia.getSelectedItem().equals("Selecione"))
+            erro.add("Mobilia");
+        if(jComboBoxReferenciadoDoc.getSelectedItem().equals("Selecione"))
+            erro.add("Referenciado");
+        if(jComboBoxTipoDeDocumentoDoc.getSelectedItem().equals("Selecione"))
+            erro.add("Tipo de Docmento");
+        if(arquivoSelecionado == null)
+            erro.add("Documento");
+        if(ctrl.getCtrlP().getMensagens().validaCampos(this, erro)){
+            String codigo = jTextFieldCodigoDoc.getText();
+            String nome   = jTextFieldNomeDoc.getText();
+            Compartimento compartimento = (Compartimento) jComboBoxCompartimento.getSelectedItem();
+            TipoDocumento tpDocumento   = (TipoDocumento) jComboBoxTipoDeDocumentoDoc.getSelectedItem();
+            Referenciado  referenciado  = (Referenciado) jComboBoxReferenciadoDoc.getSelectedItem();
+            ctrl.cadastrarDocumento(codigo, nome, compartimento, tpDocumento, referenciado, arquivoSelecionado);
+            ctrl.getCtrlP().getMensagens().exibirMensagem(this, "Documento cadastrado com sucesso!");
+            limparCampos();
+        }
         //limpar campos se cadastrou corretamente.
         //mensagem de alerta.
         

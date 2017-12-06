@@ -13,9 +13,21 @@ import cih.documento.JPExcluirDocumento;
 import cih.documento.JPCadastrarDocumento;
 import cih.documento.JPConsultarDocumento;
 import cih.documento.IFrameDocumento;
+import cih.documento.JDialogDetalhes;
+import cih.documento.JDialogVisualizaDoc;
 import cih.util.JTableUtil;
+import java.awt.Desktop;
+import java.awt.Frame;
+import java.io.BufferedOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JTable;
+import org.hibernate.exception.ConstraintViolationException;
                 
 public class CIDocumento {
     private CIPrincipal ctrlP;
@@ -53,16 +65,8 @@ public class CIDocumento {
         return ctrlP;
     }
     
-    public void consultarDocumento() {
-        //?
-    }
-    
     public List listarDocumentos(){
         return ctrlP.getGtPrincipal().getGtDocumento().listar();
-    }
-
-    public void alterarDocumento() {
-        
     }
 
     public void excluirDocumento(Object obj) {
@@ -83,7 +87,9 @@ public class CIDocumento {
             ctrlP.getGtPrincipal().getGtDocumento().cadastrar(codigo, nome, compartimento, tpDocumento, referenciado, arquivoSelecionado);
             ctrlP.getMensagens().exibirMensagem(iFrameDocumento, "Documento cadastrado com sucesso!");
             jpCadastrarDocumento.limparCampos();
-        } catch (Exception ex) {
+        }catch (ConstraintViolationException ex){
+            ctrlP.getMensagens().exibirMensagem(iFrameDocumento, "Erro: Documento já cadastrado");
+        }catch (Exception ex) {
             ctrlP.getMensagens().exibirMensagem(iFrameDocumento, "Erro: " + ex.toString());
         }
     }
@@ -112,7 +118,7 @@ public class CIDocumento {
             cmbReferenciado.addItem(item);
     }
     
-     public void preencherLocal(JComboBox cmbLocal) {
+    public void preencherLocal(JComboBox cmbLocal) {
         if(!cmbLocal.equals("Selecione")){    
             cmbLocal.removeAllItems();
             List lista = ctrlP.getGtPrincipal().getGtLocal().listar();
@@ -159,4 +165,65 @@ public class CIDocumento {
             }
         }
     }
+
+    public void exibirDadosDocumento(JTable jTableConsultaDoc) {
+        try {
+            Object dados = JTableUtil.getDadosLinhaSelecionada(jTableConsultaDoc);
+            Object doc[] = ctrlP.getGtPrincipal().getGtDocumento().documentoToArray(dados);
+            JDialogDetalhes detalhes = new JDialogDetalhes(iFrameDocumento, true, doc, this);
+        } catch (Exception ex) {
+            ctrlP.getMensagens().exibirMensagem(iFrameDocumento, "Erro: "+ex.toString());
+        }
+    }
+    
+    public void exibir(Object scan){
+        byte[] bytes = (byte[])scan;
+        File arq = new File("arquivo.pdf");
+        try {
+            BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(arq));
+            bos.write(bytes);
+            bos.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(JDialogVisualizaDoc.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(JDialogVisualizaDoc.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            Desktop.getDesktop().open(arq);
+        } catch (IOException ex) {
+            Logger.getLogger(JDialogVisualizaDoc.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public Object[] consultarDocumento(String codigo, String nome) {
+        Object lista[][] = ctrlP.getGtPrincipal().getGtDocumento().consultarDocumentos(codigo, nome);
+        Object[] doc = ctrlP.getGtPrincipal().getGtDocumento().documentoToArray(lista[0]);
+        if(lista.length > 1){
+            ctrlP.getMensagens().exibirMensagem(iFrameDocumento, "Mais de um campo retornado em consulta");
+        }
+        return doc;
+    }
+
+    public void preencherMobilia(JComboBox cmbMobilia) {
+        if(!cmbMobilia.equals("Selecione")){    
+            cmbMobilia.removeAllItems();
+            List lista = ctrlP.getGtPrincipal().getGtMobilia().listar();
+            cmbMobilia.addItem("Selecione");
+            for (Object item : lista)
+                cmbMobilia.addItem(item);
+        }
+    }
+
+    public void alterarDocumento(String codigo, String nome, Object compartimento
+            , Object local, Object mobilia, Object referenciado, Object tipoDocumento
+            , byte[] arquivoSelecionado, Object doc) {
+        try {
+            ctrlP.getGtPrincipal().getGtDocumento().alterar(codigo, nome, compartimento, local, mobilia
+                    , referenciado, tipoDocumento, arquivoSelecionado, doc);
+        } catch (Exception ex) {
+            ctrlP.getMensagens().exibirMensagem(iFrameDocumento, "Erro: "+ex.toString());
+        }
+    }
+    
+    
 }

@@ -62,6 +62,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(desktopPane);
+        desktopPane.getAccessibleContext().setAccessibleParent(this);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -3,6 +3,7 @@ package cih.documento;
 import cci.CIDocumento;
 import java.util.ArrayList;
 import java.util.List;
+import cih.util.JTableUtil;
 
 public class JPConsultarDocumento extends javax.swing.JPanel {
     CIDocumento ctrl;
@@ -36,7 +37,15 @@ public class JPConsultarDocumento extends javax.swing.JPanel {
             new String [] {
                 "Codigo", "Nome", "Compartimento", "Referente"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTableConsultaDoc.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableConsultaDocMouseClicked(evt);
@@ -99,17 +108,15 @@ public class JPConsultarDocumento extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTableConsultaDocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableConsultaDocMouseClicked
-        
+        ctrl.exibirDadosDocumento(jTableConsultaDoc);
     }//GEN-LAST:event_jTableConsultaDocMouseClicked
 
     private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
-       ArrayList erro;
+        ArrayList erro;
         List lista = null;
         erro = new ArrayList<>();
-        if(jTextFieldCodigo.getText().equals(""))
-            erro.add("Codigo");
-        if(jTextFieldNome.getText().equals(""))
-            erro.add("Nome");
+        if(jTextFieldCodigo.getText().equals("") && jTextFieldNome.getText().equals(""))
+            erro.add("Codigo e Nome");
         if(ctrl.getCtrlP().getMensagens().validaCampos(this, erro))
             ctrl.consultarDocumento(jTextFieldCodigo.getText(), 
                     jTextFieldNome.getText(), jTableConsultaDoc);

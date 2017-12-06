@@ -13,7 +13,8 @@ public class GTReferenciado {
     }    
     
     public List listar() {
-        return gdReferenciado.consultar(Referenciado.class);
+        //return gdReferenciado.consultar(Referenciado.class);
+        return gdReferenciado.listar();
     }
     
     public void cadastrarReferente(String nome, String cpf) throws SQLException, ClassNotFoundException{
