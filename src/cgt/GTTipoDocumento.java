@@ -79,4 +79,12 @@ public class GTTipoDocumento {
     public List listarTipoDocumento(){
         return gdTipoDocumento.consultar(TipoDocumento.class);
     }
+
+    public ArrayList<String> tipoDocToArray(Object obj) {
+        TipoDocumento tdoc = (TipoDocumento)obj;
+        ArrayList<String> lista = new ArrayList<>();
+        lista.add(tdoc.getNome());
+        lista.add(tdoc.getDescricao());
+        return lista;
+    }
 }

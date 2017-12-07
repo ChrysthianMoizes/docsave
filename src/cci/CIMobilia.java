@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Collection;
 import cih.mobilia.IFrameMobilia;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class CIMobilia {
     private CIPrincipal   ctrlP;
@@ -84,8 +87,12 @@ public class CIMobilia {
         ctrlP.getMensagens().exibirMensagem(iFrameMobilia, texto);
     }
     
-    public void excluir(Mobilia mobilia) {
-        ctrlP.getGtPrincipal().getGtMobilia().excluir(mobilia);
+    public void excluir(Object mobilia) {
+        try {
+            ctrlP.getGtPrincipal().getGtMobilia().excluir(mobilia);
+        } catch (Exception ex) {
+            ctrlP.getMensagens().exibirMensagem(iFrameMobilia, "Erro: "+ex.toString());
+        }
     }
     
     public List listar() {

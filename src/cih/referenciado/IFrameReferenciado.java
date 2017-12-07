@@ -39,6 +39,7 @@ public class IFrameReferenciado extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
+        setTitle("Refrênciado");
 
         painelDeAbas.setPreferredSize(new java.awt.Dimension(548, 431));
 

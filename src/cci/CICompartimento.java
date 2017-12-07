@@ -80,7 +80,7 @@ public class CICompartimento {
         }        
     }
     
-    public void consultarCompartimento(DefaultTableModel modelo, JComboBox cmb){
+    public void consultarCompartimento(DefaultTableModel modelo, JComboBox cmb, ArrayList ids){
         List lista = new ArrayList();
         Object[][] dados = null;
         if(cmb.getSelectedItem().toString().equals("Selecione"))
@@ -99,6 +99,8 @@ public class CICompartimento {
             if(cmb != null){
                 for(Object item : lista){
                     cmb.addItem(item);
+                    int id = ctrlP.getGtPrincipal().getGtCompartimento().getId(item);
+                    ids.add(id);
                 }
             }
         }else
@@ -106,16 +108,14 @@ public class CICompartimento {
     }
 
     public void alterarCompartimento(String nome, String identificador, String capacidade, 
-            Object tipoDocumento, Object mobilia, String qtd) {
+            Object mobilia, String qtd, Object id) {
         int qtdCompartimento = Integer.parseInt(qtd);
         int cmp = Integer.parseInt(capacidade);
         try {
             ctrlP.getGtPrincipal().getGtCompartimento().alterarCompartimento(nome,
-                    identificador, cmp, tipoDocumento, mobilia, qtdCompartimento);
-        } catch (SQLException ex) {
+                    identificador, cmp, mobilia, qtdCompartimento, id);
+        } catch (Exception ex) {
             ctrlP.getMensagens().exibirMensagem(iFrameCompartimento, "Erro: "+ex.getMessage());
-        } catch (ClassNotFoundException ex) {
-             ctrlP.getMensagens().exibirMensagem(iFrameCompartimento, "Erro: "+ex.getMessage());
         }
     }
     

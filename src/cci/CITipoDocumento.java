@@ -3,6 +3,8 @@ package cci;
 import java.util.List;
 import java.util.ArrayList;
 import cih.tipoDocumento.IFrameTipoDocumento;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 public class CITipoDocumento {
     private CIPrincipal ctrlP;
@@ -68,6 +70,12 @@ public class CITipoDocumento {
             listaErro.add("Descrição");
         }
         return ctrlP.getMensagens().validaCampos(iFrameTipoDocumento, listaErro);
+    }
+
+    public void preencherCampos(Object obj, JTextField txtNome, JTextArea descricao) {
+        ArrayList<String> tipoDocToArray = ctrlP.getGtPrincipal().getGtTipoDocumento().tipoDocToArray(obj);
+        txtNome.setText(tipoDocToArray.get(0));
+        descricao.setText(tipoDocToArray.get(1));
     }
     
 }

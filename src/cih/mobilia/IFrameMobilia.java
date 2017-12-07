@@ -150,6 +150,7 @@ public class IFrameMobilia extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+        setTitle("Mobilia");
 
         lblNome.setText("Nome");
 
@@ -1124,11 +1125,8 @@ public class IFrameMobilia extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnAddCompartimentoActionPerformed
 
     private void btnRemoverCompartimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverCompartimentoActionPerformed
-        try {
-            JTableUtil.removeLinhaSelecionada(tblCompartimentosCadastro);
-        } catch (Exception ex){
-            JOptionPane.showMessageDialog(this, ex.getMessage());
-        }
+        Object selectedItem = cmbExclusao.getSelectedItem();
+        ctrl.excluir(selectedItem);
     }//GEN-LAST:event_btnRemoverCompartimentoActionPerformed
 
     private void btnCancelarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarConsultaActionPerformed
@@ -1251,12 +1249,12 @@ public class IFrameMobilia extends javax.swing.JInternalFrame {
                 (List)mobilia.getCompartimentos());
     }
      
-    public void preencherCmbBoxMobilias(List<Mobilia> lista) {
+    public void preencherCmbBoxMobilias(List lista) {
         cmbAlterar.removeAllItems();
         cmbConsulta.removeAllItems();   
         cmbExclusao.removeAllItems();
         if (lista != null) {
-            for (Mobilia item : lista) {
+            for (Object item : lista) {
                 listaCmbBox.add(item);
             }
             cmbConsulta.setModel(new DefaultComboBoxModel(lista.toArray()));
@@ -1280,7 +1278,6 @@ public class IFrameMobilia extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAbrirExcluir;
     private javax.swing.JButton btnAddCompartimento;
-    private javax.swing.JButton btnAddCompartimento2;
     private javax.swing.JButton btnAddCompartimentoAlterar;
     private javax.swing.JButton btnCancelarAlterar;
     private javax.swing.JButton btnCancelarCadastro;
@@ -1290,7 +1287,6 @@ public class IFrameMobilia extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnOkAlterar;
     private javax.swing.JButton btnOkConsulta;
     private javax.swing.JButton btnRemoverCompartimento;
-    private javax.swing.JButton btnRemoverCompartimento2;
     private javax.swing.JButton btnRemoverCompartimentoAlterar;
     private javax.swing.JButton btnSalvarAlteracao1;
     private javax.swing.JButton btnSalvarAlterar;
@@ -1320,21 +1316,15 @@ public class IFrameMobilia extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JLabel lblCmbConsulta;
     private javax.swing.JLabel lblCmbConsulta1;
     private javax.swing.JLabel lblDescricaoTipoDocumento1;
@@ -1376,9 +1366,6 @@ public class IFrameMobilia extends javax.swing.JInternalFrame {
     private javax.swing.JTable tblCompartimentosAlterar;
     private javax.swing.JTable tblCompartimentosCadastro;
     private javax.swing.JTable tblCompartimentosConsulta;
-    private javax.swing.JTable tblCompartimentosConsulta1;
-    private javax.swing.JTable tblCompartimentosConsulta2;
-    private javax.swing.JTable tblCompartimentosConsulta3;
     private javax.swing.JTable tblCompartimentosExcluir;
     private javax.swing.JTextArea txtAreaDescricaoTipoDocumentoAlteracao1;
     private javax.swing.JTextArea txtAreaDescricaoTipoDocumentoCadastro1;

@@ -3,6 +3,7 @@ package cgt;
 import cdp.Local;
 import cdp.Mobilia;
 import cgd.GDMobilia;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -56,14 +57,11 @@ public class GTMobilia {
         }
     }
     
-    public void excluir(Mobilia tMobilia) {
-        try {
-            gdMobilia.excluir(tMobilia);
-        } catch (SQLException ex) {
-            Logger.getLogger(GTMobilia.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(GTMobilia.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public void excluir(Object tMobilia) throws SQLException, ClassNotFoundException
+            , NoSuchMethodException, IllegalAccessException, IllegalArgumentException
+            , InvocationTargetException{        
+        Mobilia mob = (Mobilia)tMobilia;
+        gdMobilia.excluir(mob);
     }
     
     public List listar() {

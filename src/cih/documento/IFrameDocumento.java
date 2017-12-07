@@ -22,6 +22,7 @@ public class IFrameDocumento extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
+        setTitle("Documento");
         setPreferredSize(new java.awt.Dimension(564, 465));
 
         jTabPane.setPreferredSize(new java.awt.Dimension(548, 431));

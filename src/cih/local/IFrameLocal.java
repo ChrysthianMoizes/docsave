@@ -101,6 +101,7 @@ public class IFrameLocal extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+        setTitle("Local");
         setPreferredSize(new java.awt.Dimension(564, 465));
 
         jLabelNomeCadastro.setText("Nome");
@@ -467,12 +468,6 @@ public class IFrameLocal extends javax.swing.JInternalFrame {
         this.dispose();    
     }//GEN-LAST:event_jButtonCancelarCadastroActionPerformed
 
-    private void jButtonPesquisarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarConsultaActionPerformed
-        String nome = jComboBoxNome.getSelectedItem().toString();
-        Object obj = encontrarElmento(nome);
-        preencherCamposConsulta((Local)obj);
-    }//GEN-LAST:event_jButtonPesquisarConsultaActionPerformed
-
     private void jButtonSalvarAlteracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarAlteracaoActionPerformed
         String nome = jTextFieldNomeAlteracao.getText();
         String desc = jTextPaneDescricaoAlteracao.getText();
@@ -486,10 +481,6 @@ public class IFrameLocal extends javax.swing.JInternalFrame {
         ctrl.excluirLocal(encontrarElmento(jComboBoxNome2.getSelectedItem().toString()));
         ctrl.exibirMenssagemInformativa("Local excluido com sucesso");
     }//GEN-LAST:event_jButtonSalvarExclusaoActionPerformed
-
-    private void jButtonCancelarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarConsultaActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_jButtonCancelarConsultaActionPerformed
 
     private void jButtonCancelarAlteracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarAlteracaoActionPerformed
         this.dispose();
@@ -518,6 +509,28 @@ public class IFrameLocal extends javax.swing.JInternalFrame {
         Object obj = encontrarElmento(nome);
         preencherCamposExclusao((Local)obj);
     }//GEN-LAST:event_jButtonAbrirExclusaoActionPerformed
+
+    private void jButtonCancelarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarConsultaActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButtonCancelarConsultaActionPerformed
+
+    private void jButtonPesquisarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarConsultaActionPerformed
+        String nome = jComboBoxNome.getSelectedItem().toString();
+        Object obj = encontrarElmento(nome);
+        preencherCamposConsulta((Local)obj);
+    }//GEN-LAST:event_jButtonPesquisarConsultaActionPerformed
+    
+    public void preencherCamposConsulta(){
+        String nome = jComboBoxNome.getSelectedItem().toString();
+        Object obj = encontrarElmento(nome);
+        preencherCamposConsulta((Local)obj);
+    }
+    
+    public void preencherCamposAlteracao(){
+        String nome = jComboBoxNome1.getSelectedItem().toString();
+        Object obj = encontrarElmento(nome);
+        preencherCamposAlteracao((Local)obj);
+    }
     
     public void limparConteudoModuloLocal(){
         limparConteudoAbaAlteracao();
@@ -551,6 +564,7 @@ public class IFrameLocal extends javax.swing.JInternalFrame {
     }
     
     private void preencherCmbBoxLocal(List lista){
+        listaCmbBox.removeAll(listaCmbBox);
         jComboBoxNome.removeAllItems();
         jComboBoxNome1.removeAllItems();
         jComboBoxNome2.removeAllItems();

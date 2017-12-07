@@ -103,7 +103,7 @@ public class JPCadastrarCompartimento extends javax.swing.JPanel {
                             .addComponent(cmbCompartimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblCompartimento)))
                     .addComponent(btnCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE))
-                .addContainerGap(218, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -115,18 +115,20 @@ public class JPCadastrarCompartimento extends javax.swing.JPanel {
             erro.add("Identificador");
         if(txtCapacidade.getText().equals(""))
             erro.add("Capacidade");
-        //if(cmbCompartimento.getSelectedItem().toString().equals("Selecione"))
-        //    erro.add("Compartimento Interno");
+        if(cmbCompartimento.getSelectedItem().toString().equals("Selecione"))
+            erro.add("Compartimento Interno");
         if(spnQtdCompartimento.getValue().toString().equals("0"))
             erro.add("Quantidade de compartimentos");
-        if(ctrl.getCtrlP().getMensagens().validaCampos(this, erro))
+        if(ctrl.getCtrlP().getMensagens().validaCampos(this, erro)){
             ctrl.cadastrarCompartimento(txtNome.getText(), txtIdentificaor.getText(), 
                     txtCapacidade.getText(), cmbCompartimento.getSelectedItem(), spnQtdCompartimento.getValue().toString());
+            ctrl.getCtrlP().getMensagens().exibirMensagem(this, "Compartimento cadastrado com sucesso!");
+        }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     
     private void preencherCampos(){
-        //ctrl.preencherMobilia(cmbCompartimento);
+        ctrl.preencherMobilia(cmbCompartimento);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

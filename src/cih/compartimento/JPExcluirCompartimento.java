@@ -7,6 +7,7 @@
 package cih.compartimento;
 
 import cci.CICompartimento;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -17,6 +18,7 @@ public class JPExcluirCompartimento extends javax.swing.JPanel {
 
     /** Creates new form JPExcluirCompartimento */
     private CICompartimento ctrl;
+    ArrayList comps = new ArrayList<>();
     public JPExcluirCompartimento(CICompartimento ctrl) {
         this.ctrl = ctrl;
         initComponents();
@@ -147,6 +149,7 @@ public class JPExcluirCompartimento extends javax.swing.JPanel {
        else{
            Object comp = tabela.getModel().getValueAt(tabela.getSelectedRow(), 1);
            ctrl.excluirCompartimento(comp);
+           ctrl.getCtrlP().getMensagens().exibirMensagem(this, "Compartimento excluido com sucesso!");
        }
            
     }//GEN-LAST:event_btnExcluirActionPerformed
@@ -154,7 +157,7 @@ public class JPExcluirCompartimento extends javax.swing.JPanel {
     public void iniciarFrame(){
         cmbCompartimento.removeAllItems();
         cmbCompartimento.addItem("Selecione");
-        ctrl.consultarCompartimento(null, cmbCompartimento);
+        ctrl.consultarCompartimento(null, cmbCompartimento, comps);
     }
     
       public void preencherCampos(){
@@ -165,7 +168,7 @@ public class JPExcluirCompartimento extends javax.swing.JPanel {
         DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
         tabela.removeAll();
         modelo.setRowCount(0);
-        ctrl.consultarCompartimento(modelo, cmbCompartimento);
+        ctrl.consultarCompartimento(modelo, cmbCompartimento, comps);
         tabela.setModel(modelo);
     }
 

@@ -20,8 +20,7 @@ public class Documento implements Serializable {
     @Column(nullable = false, unique = true)
     private String codigo;
     
-    @Column(nullable = true, columnDefinition = "BLOB")
-    @Lob
+    @Column(nullable = true, columnDefinition = "mediumblob")
     private byte[] scan;
     
     @ManyToOne(fetch = FetchType.EAGER)

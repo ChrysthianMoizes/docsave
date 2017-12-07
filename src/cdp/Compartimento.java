@@ -27,13 +27,14 @@ public class Compartimento implements Serializable {
     private int capacidade;
     
     @ManyToOne(fetch = FetchType.EAGER)
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
     @JoinColumn(name = "mobilia_id")
     private Mobilia mobilia;
     
-//    @OneToMany(mappedBy = "compartimento", fetch = FetchType.LAZY)
-//    @OnDelete(action = OnDeleteAction.NO_ACTION)
-//    @Cascade(CascadeType.SAVE_UPDATE)
-//    private Collection<Documento> documentos;
+    @OneToMany(mappedBy = "compartimento", fetch = FetchType.LAZY)
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
+    @Cascade(CascadeType.SAVE_UPDATE)
+    private Collection<Documento> documentos;
 
     public Compartimento() {}
 
@@ -42,22 +43,28 @@ public class Compartimento implements Serializable {
         this.codigo = codigo;
         this.nome = nome;
         this.capacidade = capacidade;
-        //this.compartimentos = compartimentos;
         this.mobilia = mobilia;
-//        this.documentos = documentos;
+        this.documentos = documentos;
     }
 
     public Compartimento(String codigo, String nome, int capacidade, Collection<Compartimento> compartimentos, Mobilia mobilia, Collection<Documento> documentos) {
         this.codigo = codigo;
         this.nome = nome;
         this.capacidade = capacidade;
-        //this.compartimentos = compartimentos;
         this.mobilia = mobilia;
-//        this.documentos = documentos;
+        this.documentos = documentos;
     }
 
     public Compartimento(String codigo, String nome, int capacidade, Mobilia mobilia) {
         this.codigo = codigo;
+        this.nome = nome;
+        this.capacidade = capacidade;
+        this.mobilia = mobilia;
+    }
+
+    public Compartimento(int antigoId, String identificador, String nome, int capacidade, Mobilia mobilia) {
+        this.id = antigoId;
+        this.codigo = identificador;
         this.nome = nome;
         this.capacidade = capacidade;
         this.mobilia = mobilia;
@@ -105,13 +112,13 @@ public class Compartimento implements Serializable {
         this.mobilia = mobilia;
     }
 
-//    public Collection<Documento> getDocumentos() {
-//        return documentos;
-//    }
-//
-//    public void setDocumentos(Collection<Documento> documentos) {
-//        this.documentos = documentos;
-//    }
+    public Collection<Documento> getDocumentos() {
+        return documentos;
+    }
+
+    public void setDocumentos(Collection<Documento> documentos) {
+        this.documentos = documentos;
+    }
 
     @Override
     public String toString() {
@@ -119,7 +126,8 @@ public class Compartimento implements Serializable {
     }
     
     public static Object[] toArray(Compartimento cmp){
-        return new Object[]{cmp.getNome(), cmp.getCodigo(), cmp.getCapacidade(), cmp.getMobilia()};
+        return new Object[]{cmp.getNome(), cmp.getCodigo(), cmp.getCapacidade()
+                , cmp.getMobilia().getCompartimentos(), cmp.getId()};
     }
 
     @Override

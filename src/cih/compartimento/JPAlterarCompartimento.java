@@ -18,6 +18,7 @@ public class JPAlterarCompartimento extends javax.swing.JPanel {
      * Creates new form JPAlterarCompartimento
      */
     CICompartimento ctrl;
+    ArrayList comps = new ArrayList();
     public JPAlterarCompartimento(CICompartimento ctrl) {
         this.ctrl = ctrl;
         initComponents();
@@ -40,8 +41,6 @@ public class JPAlterarCompartimento extends javax.swing.JPanel {
         lblIdentificador = new javax.swing.JLabel();
         lblCapacidade = new javax.swing.JLabel();
         txtCapacidade = new javax.swing.JTextField();
-        cmbTipoDocumento = new javax.swing.JComboBox<>();
-        lblTipoDocumento = new javax.swing.JLabel();
         lblCompartimento = new javax.swing.JLabel();
         cmbCompartimento = new javax.swing.JComboBox<>();
         lblQtdCompartimento = new javax.swing.JLabel();
@@ -62,8 +61,6 @@ public class JPAlterarCompartimento extends javax.swing.JPanel {
         lblIdentificador.setText("Identificador");
 
         lblCapacidade.setText("Capacidade");
-
-        lblTipoDocumento.setText("Tipo de Documento");
 
         lblCompartimento.setText("Compartimento interno");
 
@@ -96,56 +93,62 @@ public class JPAlterarCompartimento extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator1)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblCapacidade)
-                            .addComponent(lblIdentificador)
-                            .addComponent(lblNome)
-                            .addComponent(lblTipoDocumento)
-                            .addComponent(lblCompartimento))
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(txtIdentificaor, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(39, 39, 39)
-                                    .addComponent(lblQtdCompartimento)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(spnQtdCompartimento))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(cmbCompartimento, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cmbTipoDocumento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(41, 41, 41)
-                                    .addComponent(btnAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(txtCapacidade, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(54, 54, 54)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(29, 29, 29)
+                                        .addComponent(lblNome)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblIdentificador)
+                                            .addComponent(lblCapacidade))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtCapacidade, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(txtIdentificaor, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(lblQtdCompartimento)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(spnQtdCompartimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblCompartimentoPesquisa)
+                                .addGap(18, 18, 18)
+                                .addComponent(cmbCompartimentoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnSelecionar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnAtualizar)))
+                        .addContainerGap(20, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblCompartimentoPesquisa)
+                        .addComponent(lblCompartimento)
                         .addGap(18, 18, 18)
-                        .addComponent(cmbCompartimentoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSelecionar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnAtualizar)))
-                .addContainerGap(65, Short.MAX_VALUE))
-            .addComponent(jSeparator1)
+                        .addComponent(cmbCompartimento, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbCompartimentoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSelecionar)
                     .addComponent(btnAtualizar)
                     .addComponent(lblCompartimentoPesquisa))
-                .addGap(40, 40, 40)
+                .addGap(38, 38, 38)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNome))
@@ -155,22 +158,20 @@ public class JPAlterarCompartimento extends javax.swing.JPanel {
                     .addComponent(txtIdentificaor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblQtdCompartimento)
                     .addComponent(spnQtdCompartimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCapacidade)
-                    .addComponent(txtCapacidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cmbTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTipoDocumento))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cmbCompartimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCompartimento)))
-                    .addComponent(btnAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE))
-                .addGap(110, 110, 110))
+                            .addComponent(lblCapacidade)
+                            .addComponent(txtCapacidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblCompartimento)
+                            .addComponent(cmbCompartimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(161, 161, 161))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -196,16 +197,16 @@ public class JPAlterarCompartimento extends javax.swing.JPanel {
             erro.add("Identificador");
         if(txtCapacidade.getText().equals(""))
             erro.add("Capacidade");
-        if(cmbTipoDocumento.getSelectedItem().toString().equals("Selecione"))
-            erro.add("Tipo de Documento");
         if(cmbCompartimento.getSelectedItem().toString().equals("Selecione"))
             erro.add("Compartimento Interno");
         if(spnQtdCompartimento.getValue().toString().equals("0"))
             erro.add("Quantidade de compartimentos");
-        if(ctrl.getCtrlP().getMensagens().validaCampos(this, erro))
+        if(ctrl.getCtrlP().getMensagens().validaCampos(this, erro)){
             ctrl.alterarCompartimento(txtNome.getText(), txtIdentificaor.getText(), 
-                    txtCapacidade.getText(), cmbTipoDocumento.getSelectedItem()
-                    , cmbCompartimento.getSelectedItem(), spnQtdCompartimento.getValue().toString());
+                    txtCapacidade.getText(), cmbCompartimento.getSelectedItem(), 
+                    spnQtdCompartimento.getValue().toString(), comps.get(cmbCompartimentoPesquisa.getSelectedIndex()));
+            ctrl.getCtrlP().getMensagens().exibirMensagem(this, "Alteção de Compartimento concluida");
+        }
     }//GEN-LAST:event_btnAlterarActionPerformed
 
 
@@ -214,19 +215,17 @@ public class JPAlterarCompartimento extends javax.swing.JPanel {
         txtIdentificaor.setText(compartimento[1].toString());
         txtCapacidade.setText(compartimento[2].toString());
         preencherCmbs();
-        cmbTipoDocumento.setSelectedItem(compartimento[3]);
-        cmbCompartimento.setSelectedItem(compartimento[4]);
+        cmbCompartimento.setSelectedItem(compartimento[3]);
     }
     
     public void preencherCmbs(){
         ctrl.preencherMobilia(cmbCompartimento);
-        ctrl.preencherTipoDocumento(cmbTipoDocumento);
     }
     
     private void inicializarCampos(){
         cmbCompartimentoPesquisa.removeAllItems();
         cmbCompartimentoPesquisa.addItem("Selecione");
-        ctrl.consultarCompartimento(null, cmbCompartimentoPesquisa);
+        ctrl.consultarCompartimento(null, cmbCompartimentoPesquisa, comps);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -235,7 +234,6 @@ public class JPAlterarCompartimento extends javax.swing.JPanel {
     private javax.swing.JButton btnSelecionar;
     private javax.swing.JComboBox<String> cmbCompartimento;
     private javax.swing.JComboBox<String> cmbCompartimentoPesquisa;
-    private javax.swing.JComboBox<String> cmbTipoDocumento;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblCapacidade;
     private javax.swing.JLabel lblCompartimento;
@@ -243,7 +241,6 @@ public class JPAlterarCompartimento extends javax.swing.JPanel {
     private javax.swing.JLabel lblIdentificador;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblQtdCompartimento;
-    private javax.swing.JLabel lblTipoDocumento;
     private javax.swing.JSpinner spnQtdCompartimento;
     private javax.swing.JTextField txtCapacidade;
     private javax.swing.JTextField txtIdentificaor;

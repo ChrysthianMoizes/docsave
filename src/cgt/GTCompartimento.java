@@ -61,9 +61,10 @@ public class GTCompartimento {
     }
     
     public void alterarCompartimento(String nome, String identificador, int capacidade
-            , Object tipoDocumento, Object gaveta, int qtd) throws SQLException, ClassNotFoundException{
+            , Object gaveta, int qtd, Object id) throws SQLException, ClassNotFoundException{
         Compartimento cmp = null;
-        cmp = new Compartimento(identificador, nome, capacidade, (Mobilia)gaveta);
+        int antigoId = (int)id;
+        cmp = new Compartimento(antigoId, identificador, nome, capacidade, (Mobilia)gaveta);
         if(cmp != null)
             gdCompartimento.alterar(cmp);
     }
@@ -78,5 +79,10 @@ public class GTCompartimento {
 
     public List obterCompartimentos(Mobilia mobilia) {
         return gdCompartimento.obterCompartimentos(mobilia.getId());
+    }
+
+    public int getId(Object item) {
+        Compartimento cmp = (Compartimento) item;
+        return cmp.getId();
     }
 }

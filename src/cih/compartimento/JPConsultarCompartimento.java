@@ -6,6 +6,7 @@
 package cih.compartimento;
 
 import cci.CICompartimento;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -18,6 +19,7 @@ public class JPConsultarCompartimento extends javax.swing.JPanel {
     /**
      * Creates new form JPConsultarCompartimento
      */
+    ArrayList comps = new ArrayList();
     private CICompartimento ctrl;
     public JPConsultarCompartimento() {
         initComponents();
@@ -135,7 +137,8 @@ public class JPConsultarCompartimento extends javax.swing.JPanel {
     public void iniciarFrame(){
         cmbCompartimento.removeAllItems();
         cmbCompartimento.addItem("Selecione");
-        ctrl.consultarCompartimento(null, cmbCompartimento);
+        ctrl.consultarCompartimento(null, cmbCompartimento, comps);
+        preencherCampos();
     }
     
     public void preencherCampos(){
@@ -146,7 +149,7 @@ public class JPConsultarCompartimento extends javax.swing.JPanel {
         DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
         tabela.removeAll();
         modelo.setRowCount(0);
-        ctrl.consultarCompartimento(modelo, cmbCompartimento);
+        ctrl.consultarCompartimento(modelo, cmbCompartimento, comps);
         tabela.setModel(modelo);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -1,5 +1,6 @@
 package cgd;
 
+import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
 import java.util.List;
 import org.hibernate.Criteria;
@@ -82,5 +83,10 @@ public abstract class GDGenerico {
             sessao.close();
             sessao = null;
         }
+    }
+    
+    public Object getId(Object val, Class<? extends Object> classe) throws NoSuchMethodException
+            , IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+        return classe.getMethod("getId").invoke(val);
     }
 }

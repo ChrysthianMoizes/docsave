@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.event.ChangeEvent;
 import cci.CITipoDocumento;
+import javax.swing.JComboBox;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 public class IFrameTipoDocumento extends javax.swing.JInternalFrame {
 
@@ -50,6 +53,7 @@ public class IFrameTipoDocumento extends javax.swing.JInternalFrame {
         txtAreaDescricaoTipoDocumentoConsulta = new javax.swing.JTextArea();
         lblDescricaoTipoDocumentoConsulta = new javax.swing.JLabel();
         btnOK = new javax.swing.JButton();
+        btnSelecionarConsulta = new javax.swing.JButton();
         panelAlterar = new javax.swing.JPanel();
         txtNomeTipoDocumentoAlteracao = new javax.swing.JTextField();
         lblNomeTipoDocumentoAlteracao = new javax.swing.JLabel();
@@ -59,6 +63,7 @@ public class IFrameTipoDocumento extends javax.swing.JInternalFrame {
         btnSalvarAlteracao = new javax.swing.JButton();
         lblTipoDocumentoAlteracao = new javax.swing.JLabel();
         cmbTipoDocumentoAlteracao = new javax.swing.JComboBox<>();
+        btnSelecionarAlteracao = new javax.swing.JButton();
         panelExclusao = new javax.swing.JPanel();
         sctrollPaneAlteracao1 = new javax.swing.JScrollPane();
         txtAreaDescricaoTipoDocumentoExclusao = new javax.swing.JTextArea();
@@ -68,6 +73,7 @@ public class IFrameTipoDocumento extends javax.swing.JInternalFrame {
         lblTipoDocumentoExclusao = new javax.swing.JLabel();
         cmbTipoDocumentoExclusao = new javax.swing.JComboBox<>();
         btnSalvarExclusao = new javax.swing.JButton();
+        btnSelecionarExclusao = new javax.swing.JButton();
         jInternalFrame1 = new javax.swing.JInternalFrame();
         panelTab1 = new javax.swing.JTabbedPane();
         paneCadastro1 = new javax.swing.JPanel();
@@ -112,6 +118,7 @@ public class IFrameTipoDocumento extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+        setTitle("Tipos de Documentos");
 
         lblNomeTipoDocumento.setText("Nome");
 
@@ -200,6 +207,13 @@ public class IFrameTipoDocumento extends javax.swing.JInternalFrame {
             }
         });
 
+        btnSelecionarConsulta.setText("Selecionar");
+        btnSelecionarConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelecionarConsultaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout paneConsultaLayout = new javax.swing.GroupLayout(paneConsulta);
         paneConsulta.setLayout(paneConsultaLayout);
         paneConsultaLayout.setHorizontalGroup(
@@ -209,10 +223,12 @@ public class IFrameTipoDocumento extends javax.swing.JInternalFrame {
                     .addGroup(paneConsultaLayout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addGroup(paneConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3)
+                            .addGroup(paneConsultaLayout.createSequentialGroup()
+                                .addComponent(lblDescricaoTipoDocumentoConsulta)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane3))
                             .addGroup(paneConsultaLayout.createSequentialGroup()
                                 .addGroup(paneConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblDescricaoTipoDocumentoConsulta)
                                     .addGroup(paneConsultaLayout.createSequentialGroup()
                                         .addComponent(lblNomeTipoDocumentoConsulta)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -220,8 +236,10 @@ public class IFrameTipoDocumento extends javax.swing.JInternalFrame {
                                     .addGroup(paneConsultaLayout.createSequentialGroup()
                                         .addComponent(jLabel1)
                                         .addGap(26, 26, 26)
-                                        .addComponent(cmbTipoDocumentoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 129, Short.MAX_VALUE))))
+                                        .addComponent(cmbTipoDocumentoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnSelecionarConsulta)))
+                                .addGap(0, 30, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneConsultaLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnOK)))
@@ -233,18 +251,19 @@ public class IFrameTipoDocumento extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(paneConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(cmbTipoDocumentoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbTipoDocumentoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSelecionarConsulta))
                 .addGap(18, 18, 18)
                 .addGroup(paneConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNomeTipoDocumentoConsulta)
                     .addComponent(txtNomeTipoDocumentoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblDescricaoTipoDocumentoConsulta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGroup(paneConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDescricaoTipoDocumentoConsulta)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
                 .addComponent(btnOK)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         panelTab.addTab("Consulta", paneConsulta);
@@ -257,7 +276,7 @@ public class IFrameTipoDocumento extends javax.swing.JInternalFrame {
         txtAreaDescricaoTipoDocumentoAlteracao.setRows(5);
         sctrollPaneAlteracao.setViewportView(txtAreaDescricaoTipoDocumentoAlteracao);
 
-        btnSalvarAlteracao.setText("Salvar");
+        btnSalvarAlteracao.setText("Alterar");
         btnSalvarAlteracao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarAlteracaoActionPerformed(evt);
@@ -265,6 +284,13 @@ public class IFrameTipoDocumento extends javax.swing.JInternalFrame {
         });
 
         lblTipoDocumentoAlteracao.setText("Tipo de Documento");
+
+        btnSelecionarAlteracao.setText("Selecionar");
+        btnSelecionarAlteracao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelecionarAlteracaoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelAlterarLayout = new javax.swing.GroupLayout(panelAlterar);
         panelAlterar.setLayout(panelAlterarLayout);
@@ -286,8 +312,10 @@ public class IFrameTipoDocumento extends javax.swing.JInternalFrame {
                                     .addGroup(panelAlterarLayout.createSequentialGroup()
                                         .addComponent(lblTipoDocumentoAlteracao)
                                         .addGap(26, 26, 26)
-                                        .addComponent(cmbTipoDocumentoAlteracao, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 129, Short.MAX_VALUE))))
+                                        .addComponent(cmbTipoDocumentoAlteracao, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnSelecionarAlteracao, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 18, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAlterarLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSalvarAlteracao)))
@@ -299,7 +327,8 @@ public class IFrameTipoDocumento extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(panelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTipoDocumentoAlteracao)
-                    .addComponent(cmbTipoDocumentoAlteracao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbTipoDocumentoAlteracao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSelecionarAlteracao))
                 .addGap(18, 18, 18)
                 .addGroup(panelAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNomeTipoDocumentoAlteracao)
@@ -310,7 +339,7 @@ public class IFrameTipoDocumento extends javax.swing.JInternalFrame {
                 .addComponent(sctrollPaneAlteracao, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSalvarAlteracao)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         panelTab.addTab("Alteração", panelAlterar);
@@ -328,10 +357,17 @@ public class IFrameTipoDocumento extends javax.swing.JInternalFrame {
 
         lblTipoDocumentoExclusao.setText("Tipo de Documento");
 
-        btnSalvarExclusao.setText("Salvar");
+        btnSalvarExclusao.setText("Excluir");
         btnSalvarExclusao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarExclusaoActionPerformed(evt);
+            }
+        });
+
+        btnSelecionarExclusao.setText("Selecionar");
+        btnSelecionarExclusao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelecionarExclusaoActionPerformed(evt);
             }
         });
 
@@ -355,8 +391,10 @@ public class IFrameTipoDocumento extends javax.swing.JInternalFrame {
                                     .addGroup(panelExclusaoLayout.createSequentialGroup()
                                         .addComponent(lblTipoDocumentoExclusao)
                                         .addGap(26, 26, 26)
-                                        .addComponent(cmbTipoDocumentoExclusao, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 129, Short.MAX_VALUE))))
+                                        .addComponent(cmbTipoDocumentoExclusao, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnSelecionarExclusao)))
+                                .addGap(0, 30, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelExclusaoLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSalvarExclusao)))
@@ -368,7 +406,8 @@ public class IFrameTipoDocumento extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(panelExclusaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTipoDocumentoExclusao)
-                    .addComponent(cmbTipoDocumentoExclusao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbTipoDocumentoExclusao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSelecionarExclusao))
                 .addGap(18, 18, 18)
                 .addGroup(panelExclusaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNomeTipoDocumentoExclusao)
@@ -379,7 +418,7 @@ public class IFrameTipoDocumento extends javax.swing.JInternalFrame {
                 .addComponent(sctrollPaneAlteracao1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSalvarExclusao)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         panelTab.addTab("Exclusão", panelExclusao);
@@ -759,12 +798,29 @@ public class IFrameTipoDocumento extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalvarCadastro1ActionPerformed
 
+    private void btnSelecionarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarConsultaActionPerformed
+        selecionarDocumento(cmbTipoDocumentoConsulta, txtNomeTipoDocumentoConsulta, txtAreaDescricaoTipoDocumentoConsulta);
+    }//GEN-LAST:event_btnSelecionarConsultaActionPerformed
+
+    private void btnSelecionarAlteracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarAlteracaoActionPerformed
+        selecionarDocumento(cmbTipoDocumentoAlteracao, txtNomeTipoDocumentoAlteracao, txtAreaDescricaoTipoDocumentoAlteracao);
+    }//GEN-LAST:event_btnSelecionarAlteracaoActionPerformed
+
+    private void btnSelecionarExclusaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarExclusaoActionPerformed
+        selecionarDocumento(cmbTipoDocumentoExclusao, txtNomeTipoDocumentoExclusao, txtAreaDescricaoTipoDocumentoExclusao);
+    }//GEN-LAST:event_btnSelecionarExclusaoActionPerformed
+
     private Object encontrarElmento(String nome){
         for(Object item : listaCmbBox){
             if(item.toString().equals(nome))
                 return item;
         }
         return null;
+    }
+    
+    public void selecionarDocumento(JComboBox cmb, JTextField txtNome, JTextArea descricao){
+        Object obj = listaCmbBox.get(cmb.getSelectedIndex());
+        ctrl.preencherCampos(obj, txtNome, descricao);
     }
     
     public void iniciarInterfaceConsulta(){
@@ -844,6 +900,9 @@ public class IFrameTipoDocumento extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnSalvarCadastro1;
     private javax.swing.JButton btnSalvarExclusao;
     private javax.swing.JButton btnSalvarExclusao1;
+    private javax.swing.JButton btnSelecionarAlteracao;
+    private javax.swing.JButton btnSelecionarConsulta;
+    private javax.swing.JButton btnSelecionarExclusao;
     private javax.swing.JComboBox<String> cmbTipoDocumentoAlteracao;
     private javax.swing.JComboBox<String> cmbTipoDocumentoAlteracao1;
     private javax.swing.JComboBox<String> cmbTipoDocumentoConsulta;
