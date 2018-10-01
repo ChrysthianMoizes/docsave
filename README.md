@@ -1,8 +1,8 @@
 # Projeto DocSave #
 
-Neste repositório fica(rá) o código fonte da aplicação DocSave.
+System for managing and filing of documents of any type. Developed in Java using the Hibernate Persistence Framework
 
-### Time ###
+### Team ###
 
 * Chrystian
 * Davy Lima
